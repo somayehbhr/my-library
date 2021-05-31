@@ -1,15 +1,10 @@
-import {useEffect} from 'react';
-import './App.css';
+import "./App.css";
+import { Books } from "./components/Books";
 
-function App() {
-  useEffect(()=>{
-    console.log("hello");
-  })
-  return (
-    <div className="App">
-
-    </div>
-  );
+export function App() {
+	return (
+		<div className="App">
+			<Books />
+		</div>
+	);
 }
-
-export default App;
