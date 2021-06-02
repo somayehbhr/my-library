@@ -1,9 +1,10 @@
 import data from "../../data/info.json";
 import React from "react";
-import Button from "../../components/Button";
 import Book from "./components/Book";
+import Header from "../../components/Header";
 
-interface IBookEntity {
+
+export interface IBookEntity {
 	id: number;
 	title: string;
 	release_date: string;
@@ -13,6 +14,7 @@ interface IBookEntity {
 	price: string;
 }
 
+const headerList = ["title","release_date","rate","author","category","price","action"]
 const BookList = () => {
 	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
 	function handleDeletePerson(id: number) {
@@ -24,18 +26,7 @@ const BookList = () => {
 	return (
 		<div>
 			<table className="table">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">title</th>
-						<th scope="col">release_date</th>
-						<th scope="col">rate</th>
-						<th scope="col">author</th>
-						<th scope="col">category</th>
-						<th scope="col">price</th>
-						<th scope="col">action</th>
-					</tr>
-				</thead>
+				<Header list={headerList}/>
 				<tbody>
 					{list.map(
 						(row: IBookEntity, index: number): React.ReactNode => (
