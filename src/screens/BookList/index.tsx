@@ -3,7 +3,6 @@ import React from "react";
 import Book from "./components/Book";
 import Header from "../../components/Header";
 
-
 export interface IBookEntity {
 	id: number;
 	title: string;
@@ -14,7 +13,7 @@ export interface IBookEntity {
 	price: string;
 }
 
-const headerList = ["title","release_date","rate","author","category","price","action"]
+const headerList = ["title", "release_date", "rate", "author", "category", "price", "action"];
 const BookList = () => {
 	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
 	function handleDeletePerson(id: number) {
@@ -26,11 +25,16 @@ const BookList = () => {
 	return (
 		<div>
 			<table className="table">
-				<Header list={headerList}/>
+				<Header list={headerList} />
 				<tbody>
 					{list.map(
 						(row: IBookEntity, index: number): React.ReactNode => (
-							<Book key={row.id} {...row} {...{ index }} delete={handleDeletePerson(row.id)} />
+							<Book
+								key={row.id}
+								{...row}
+								{...{ index }}
+								delete={handleDeletePerson(row.id)}
+							/>
 						),
 					)}
 				</tbody>
