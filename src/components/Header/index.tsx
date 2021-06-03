@@ -7,7 +7,11 @@ const Header = (props: any) => {
 				<th scope="col">#</th>
 
 				{props.list.map((item: any): any => {
-					return <th scope="col">{item}</th>;
+					return (
+						<th key={item} scope="col">
+							{item}
+						</th>
+					);
 				})}
 			</tr>
 		</thead>

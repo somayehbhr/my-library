@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: added Books component and DeleteBooks">
-      <change afterPath="$PROJECT_DIR$/src/screens/index.tsx" afterDir="false" />
+    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: name of some components have been changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/AuthorsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/BookList/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/BookList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +118,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622495641058</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: make some changes on router">
+      <created>1622751349395</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622751349395</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: name of some components have been changed">
+      <created>1622751451152</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622751451152</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +153,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: added Books component and base logic" />
     <MESSAGE value="feat: added Books component and DeleteBooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added Books component and DeleteBooks" />
+    <MESSAGE value="feat: make some changes on router" />
+    <MESSAGE value="feat: name of some components have been changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: name of some components have been changed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
