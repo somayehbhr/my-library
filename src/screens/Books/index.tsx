@@ -14,9 +14,9 @@ export interface IBookEntity {
 }
 
 const headerList = ["title", "release_date", "rate", "author", "category", "price", "action"];
-const BookList = () => {
+const Books = () => {
 	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
-	function handleDeletePerson(id: number) {
+	function handleDeleteBook(id: number) {
 		return function () {
 			const newList = list.filter((row) => row.id !== id);
 			setList(newList);
@@ -33,7 +33,7 @@ const BookList = () => {
 								key={row.id}
 								{...row}
 								{...{ index }}
-								delete={handleDeletePerson(row.id)}
+								delete={handleDeleteBook(row.id)}
 							/>
 						),
 					)}
@@ -42,4 +42,4 @@ const BookList = () => {
 		</div>
 	);
 };
-export default BookList;
+export default Books;

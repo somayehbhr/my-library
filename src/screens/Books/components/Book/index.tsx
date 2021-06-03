@@ -24,9 +24,7 @@ const Book = (props: IBookEntity) => {
 			<td>{props.category}</td>
 			<td>{props.price}</td>
 			<td>
-				<td>
-					<Button onClick={() => props.delete()} text="Delete" />
-				</td>
+				<Button onClick={() => props.delete()} text="Delete" danger />
 			</td>
 		</tr>
 	);
