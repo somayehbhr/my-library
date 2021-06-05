@@ -18,25 +18,60 @@ const Authors = () => {
 			setList(newList);
 		};
 	}
+
 	function calculateNumOfBooks(id: number) {
 		return books.filter((item) => item.author_id === id).length;
 	}
+
 	return (
-		<table className="table">
-			<Header list={headerList} />
-			<tbody>
-				{list.map((row, index) => (
-					<tr key={index}>
-						<td scope="col">{index + 1}</td>
-						<td scope="col">{row.fullName}</td>
-						<td scope="col">{calculateNumOfBooks(row.id)}</td>
-						<td>
-							<Button onClick={handleDeleteAuthor(row.id)} text="Delete" danger />
-						</td>
-					</tr>
-				))}
-			</tbody>
-		</table>
+		<>
+			<form>
+				<div className="row">
+					<div className="col-md-4">
+						<label htmlFor="inputEmail4">Full name</label>
+						<input
+							type="text"
+							className="form-control"
+							id="autoSizingInput"
+							placeholder="Full name"
+						/>
+					</div>
+					<div className="col-md-4">
+						<label htmlFor="inputPassword4">Number Of Books</label>
+						<input
+							type="text"
+							className="form-control"
+							id="autoSizingInput"
+							placeholder="Number Of Books"
+						/>
+					</div>
+				</div>
+				<br />
+				<div className="row">
+					<div className="col-md-3">
+						<button type="button" className="btn btn-primary">
+							Add
+						</button>
+					</div>
+				</div>
+			</form>
+			<br />
+			<table className="table">
+				<Header list={headerList} />
+				<tbody>
+					{list.map((row, index) => (
+						<tr key={index}>
+							<td scope="col">{index + 1}</td>
+							<td scope="col">{row.fullName}</td>
+							<td scope="col">{calculateNumOfBooks(row.id)}</td>
+							<td>
+								<Button onClick={handleDeleteAuthor(row.id)} text="Delete" danger />
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</>
 	);
 };
 export default Authors;

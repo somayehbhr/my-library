@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: name of some components have been changed">
+    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: prevent Reconciliation">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="" />
+      <changelist id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: prevent Reconciliation" />
       <created>1621882228571</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -96,6 +98,7 @@
       <workItem from="1622495787663" duration="13000" />
       <workItem from="1622495949669" duration="151000" />
       <workItem from="1622496420646" duration="915000" />
+      <workItem from="1622890012358" duration="9547000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -132,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622751451152</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: prevent Reconciliation">
+      <created>1622751694086</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622751694086</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +165,8 @@
     <MESSAGE value="feat: added Books component and DeleteBooks" />
     <MESSAGE value="feat: make some changes on router" />
     <MESSAGE value="feat: name of some components have been changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: name of some components have been changed" />
+    <MESSAGE value="feat: prevent Reconciliation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: prevent Reconciliation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
