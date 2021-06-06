@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: added edit event to books">
+    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="chore: cleaning the code from unused code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
@@ -109,7 +109,7 @@
       <workItem from="1622914952915" duration="12838000" />
       <workItem from="1622975228383" duration="431000" />
       <workItem from="1622975733582" duration="7745000" />
-      <workItem from="1622983989617" duration="11873000" />
+      <workItem from="1622983989617" duration="14014000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -181,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622998271743</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="chore: cleaning the code from unused code">
+      <created>1622998756270</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1622998756270</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +216,8 @@
     <MESSAGE value="feat: added json to select box" />
     <MESSAGE value="feat: added add event to books" />
     <MESSAGE value="feat: added edit event to books" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added edit event to books" />
+    <MESSAGE value="chore: cleaning the code from unused code" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: cleaning the code from unused code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

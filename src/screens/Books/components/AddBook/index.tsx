@@ -6,6 +6,7 @@ interface Iprops {
 	id: number;
 	add: any;
 	edit: any;
+	book: any;
 }
 const AddBook = (props: Iprops) => {
 	const [title, setTitle] = useState("");
@@ -16,13 +17,13 @@ const AddBook = (props: Iprops) => {
 	const [author, setAuthor] = useState(-1);
 
 	useEffect(() => {
-		setTitle(props.edit?.title);
-		setReleaseDate(props.edit?.release_date);
-		setRate(props.edit?.rate);
-		setCategory(props.edit?.category);
-		setPrice(props.edit?.price);
-		setAuthor(props.edit?.author_id);
-	}, [props.edit]);
+		setTitle(props.book?.title);
+		setReleaseDate(props.book?.release_date);
+		setRate(props.book?.rate);
+		setCategory(props.book?.category);
+		setPrice(props.book?.price);
+		setAuthor(props.book?.author_id);
+	}, [props.book]);
 
 	function addBook() {
 		props.add({
@@ -42,6 +43,23 @@ const AddBook = (props: Iprops) => {
 		setAuthor(-1);
 	}
 
+	function editBook() {
+		props.edit({
+			id: props.id,
+			title: title,
+			rate: rate,
+			release_date: releaseDate,
+			category: category,
+			price: price,
+			author_id: author,
+		});
+		setTitle("");
+		setReleaseDate("");
+		setRate("");
+		setCategory("");
+		setPrice("");
+		setAuthor(-1);
+	}
 	return (
 		<>
 			<form>
@@ -126,9 +144,9 @@ const AddBook = (props: Iprops) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							onClick={addBook}
-							text={props.edit ? "Edit" : "Add"}
-							className={props.edit ? "primary" : "success"}
+							onClick={props.book ? editBook : addBook}
+							text={props.book ? "Edit" : "Add"}
+							className={props.book ? "primary" : "success"}
 						/>
 					</div>
 				</div>

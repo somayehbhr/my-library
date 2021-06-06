@@ -54,7 +54,15 @@ const Books = () => {
 	function sendBookInfo(id: number) {
 		setEdit(list.find((item) => item.id === id));
 	}
-	function handleEditBook(id: number) {}
+	function handleEditBook(editedBook: any) {
+		let tempBooks = [...list];
+		let index = tempBooks.indexOf(edit);
+		console.log("index", index);
+		tempBooks.splice(index, 1);
+		console.log("tempBooks", tempBooks);
+		setList([editedBook, ...tempBooks]);
+		setEdit(null);
+	}
 	function getAuthor(id?: number) {
 		return data.authors.find((item) => item.id === id)?.fullName;
 	}
@@ -67,7 +75,7 @@ const Books = () => {
 
 	return (
 		<>
-			<AddBook id={list.length} add={addBook} edit={edit} />
+			<AddBook id={list.length} add={addBook} book={edit} edit={handleEditBook} />
 
 			<table className="table">
 				<Header list={headerList} />
