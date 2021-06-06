@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import { FC, MouseEventHandler } from "react";
 
 interface DeleteBooksProps {
 	onClick: MouseEventHandler<HTMLButtonElement>;
@@ -6,7 +6,7 @@ interface DeleteBooksProps {
 	danger?: boolean;
 	className?: string;
 }
-const Button: React.FC<DeleteBooksProps> = (props) => {
+export const Button: FC<DeleteBooksProps> = (props) => {
 	return (
 		<button
 			type="button"
@@ -17,5 +17,3 @@ const Button: React.FC<DeleteBooksProps> = (props) => {
 		</button>
 	);
 };
-
-export default Button;

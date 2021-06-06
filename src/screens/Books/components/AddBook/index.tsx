@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Button from "../../../../components/Button";
+// Hooks
+import { useState, useEffect } from "react";
+// Common components
+import { Button } from "../../../../components/Button";
+// Json
 import data from "../../../../data/info.json";
 
 interface Iprops {
@@ -8,7 +11,7 @@ interface Iprops {
 	edit: any;
 	book: any;
 }
-const AddBook = (props: Iprops) => {
+export const AddBook = (props: Iprops) => {
 	const [title, setTitle] = useState("");
 	const [releaseDate, setReleaseDate] = useState("");
 	const [rate, setRate] = useState("");
@@ -154,4 +157,3 @@ const AddBook = (props: Iprops) => {
 		</>
 	);
 };
-export default AddBook;

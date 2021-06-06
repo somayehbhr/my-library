@@ -1,5 +1,5 @@
-import Button from "../../../../components/Button";
-import React from "react";
+// Common components
+import { Button } from "../../../../components/Button";
 
 interface IBookEntity {
 	id: number;
@@ -15,7 +15,7 @@ interface IBookEntity {
 	author?: string;
 }
 
-const Book = (props: IBookEntity) => {
+export const Book = (props: IBookEntity) => {
 	return (
 		<tr>
 			<td>{props.index + 1}</td>
@@ -32,5 +32,3 @@ const Book = (props: IBookEntity) => {
 		</tr>
 	);
 };
-
-export default Book;

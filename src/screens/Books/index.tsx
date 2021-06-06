@@ -1,8 +1,12 @@
+//Json
 import data from "../../data/info.json";
-import React from "react";
-import Book from "./components/Book";
-import Header from "../../components/Header";
-import AddBook from "./components/AddBook";
+// Common components
+import { Header } from "../../components/Header";
+//Local components
+import { Book } from "./components/Book";
+import { AddBook } from "./components/AddBook";
+//Hooks
+import { ReactNode, useEffect, useState } from "react";
 
 export interface IBookEntity {
 	id: number;
@@ -16,11 +20,11 @@ export interface IBookEntity {
 
 const headerList = ["title", "release_date", "rate", "author", "category", "price", "action"];
 
-const Books = () => {
-	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
-	const [edit, setEdit] = React.useState<any>();
+export const Books = () => {
+	const [list, setList] = useState<Array<IBookEntity>>(data.books);
+	const [edit, setEdit] = useState<any>();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const localList = getLocalList();
 
 		if (Array.isArray(localList) && localList.length) {
@@ -30,7 +34,7 @@ const Books = () => {
 		}
 	}, []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setLocalList(list);
 	}, [list]);
 
@@ -81,7 +85,7 @@ const Books = () => {
 				<Header list={headerList} />
 				<tbody>
 					{list.map(
-						(row: IBookEntity, index: number): React.ReactNode => (
+						(row: IBookEntity, index: number): ReactNode => (
 							<Book
 								key={row.id}
 								{...row}
@@ -97,4 +101,3 @@ const Books = () => {
 		</>
 	);
 };
-export default Books;

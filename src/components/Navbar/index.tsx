@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+export const Navbar = () => {
 	return (
 		<>
 			<ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -36,5 +36,3 @@ const Navbar = () => {
 		</>
 	);
 };
-
-export default Navbar;

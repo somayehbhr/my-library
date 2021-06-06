@@ -1,8 +1,10 @@
-import Navbar from "../components/Navbar";
+//Common components
+import { Navbar } from "../components/Navbar";
+//Routers
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Books from "./Books";
-import Authors from "./Authors";
-import React from "react";
+//Screens
+import { Books } from "./Books";
+import { Authors } from "./Authors";
 
 export default () => {
 	return (

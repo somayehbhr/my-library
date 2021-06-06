@@ -1,6 +1,4 @@
-import React from "react";
-
-const Header = (props: any) => {
+export const Header = (props: any) => {
 	return (
 		<thead>
 			<tr>
@@ -17,4 +15,3 @@ const Header = (props: any) => {
 		</thead>
 	);
 };
-export default Header;

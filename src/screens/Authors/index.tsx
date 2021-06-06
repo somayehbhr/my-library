@@ -1,8 +1,10 @@
-import Header from "../../components/Header";
-import React from "react";
+//Hooks
+import { useEffect, useState } from "react";
+//Json
 import data from "../../data/info.json";
-import Button from "../../components/Button";
-import { IBookEntity } from "../Books";
+//Common components
+import { Header } from "../../components/Header";
+import { Button } from "../../components/Button";
 
 export interface IAuthorEntity {
 	id: number;
@@ -11,9 +13,9 @@ export interface IAuthorEntity {
 
 const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
-const Authors = () => {
-	const [list, setList] = React.useState<Array<IAuthorEntity>>(data.authors);
-	React.useEffect(() => {
+export const Authors = () => {
+	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
+	useEffect(() => {
 		const localList = getLocalList();
 		if (Array.isArray(localList) && localList.length) {
 			setList(localList);
@@ -22,7 +24,7 @@ const Authors = () => {
 		}
 	}, []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setLocalList(list);
 	}, [list]);
 
@@ -99,4 +101,3 @@ const Authors = () => {
 		</>
 	);
 };
-export default Authors;
