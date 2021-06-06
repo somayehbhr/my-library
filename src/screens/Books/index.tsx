@@ -55,14 +55,10 @@ const Books = () => {
 	}
 
 	function addBook(add: any) {
-		console.log("aaaaa");
-		// let tempBook = { ...books };
-		// let author_id = tempBook.find((item: any) => item === item.fullName?.id);
-		// let newAuthorId = authors.length;
-		// let newAuthor = [...authors, { id: newAuthorId, fullName: tempBook.author }];
-		// setAuthors(newAuthor);
-		// delete tempBook.author;
-		// set;
+		console.log(add);
+		// let author_id = add.find((item) => item.fullName === add.id)?.id;
+
+		// setList([...list, add, { author_id }]);
 	}
 
 	return (

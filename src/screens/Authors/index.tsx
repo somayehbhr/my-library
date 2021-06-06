@@ -4,7 +4,7 @@ import data from "../../data/info.json";
 import Button from "../../components/Button";
 import { IBookEntity } from "../Books";
 
-interface IAuthorEntity {
+export interface IAuthorEntity {
 	id: number;
 	fullName: string;
 }

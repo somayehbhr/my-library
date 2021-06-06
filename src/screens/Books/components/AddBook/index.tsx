@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../../../components/Button";
-import { IBookEntity } from "../../index";
+import data from "../../../../data/info.json";
+import { IAuthorEntity } from "../../../Authors";
 
 interface Iprops {
 	id: number;
@@ -13,6 +14,7 @@ const AddBook = (props: Iprops) => {
 	const [category, setCategory] = useState("");
 	const [price, setPrice] = useState("");
 	const [author, setAuthor] = useState("");
+	const [selectAuthor, setSelectAuthor] = React.useState<Array<IAuthorEntity>>(data.authors);
 
 	function addBook() {
 		props.add({
@@ -23,6 +25,12 @@ const AddBook = (props: Iprops) => {
 			price: price,
 			author: author,
 		});
+		setTitle("");
+		setReleaseDate("");
+		setRate("");
+		setCategory("");
+		setPrice("");
+		setAuthor("");
 	}
 
 	return (
@@ -87,15 +95,17 @@ const AddBook = (props: Iprops) => {
 						/>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Author</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Author"
-							value={author}
+						<label htmlFor="inputPassword4">Authors</label>
+						<select
+							className="form-select"
+							id="autoSizingSelect"
 							onChange={(event) => setAuthor(event.target.value)}
-						/>
+						>
+							{selectAuthor.map((row) => (
+								<option value={row.id}>{row.fullName}</option>
+							))}
+							<option selected>Choose</option>
+						</select>
 					</div>
 				</div>
 				<br />
