@@ -92,7 +92,11 @@ export const Authors = () => {
 							<td scope="col">{row.fullName}</td>
 							<td scope="col">{calculateNumOfBooks(row.id)}</td>
 							<td>
-								<Button onClick={handleDeleteAuthor(row.id)} text="Delete" danger />
+								<Button
+									onClick={handleDeleteAuthor(row.id)}
+									text="Delete"
+									className="danger"
+								/>
 							</td>
 						</tr>
 					))}
