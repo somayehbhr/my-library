@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button";
 import data from "../../../../data/info.json";
-import { IAuthorEntity } from "../../../Authors";
 
 interface Iprops {
 	id: number;
@@ -15,7 +14,6 @@ const AddBook = (props: Iprops) => {
 	const [category, setCategory] = useState("");
 	const [price, setPrice] = useState("");
 	const [author, setAuthor] = useState(-1);
-	const [selectAuthor, setSelectAuthor] = React.useState<Array<IAuthorEntity>>(data.authors);
 
 	useEffect(() => {
 		setTitle(props.edit?.title);
@@ -116,7 +114,7 @@ const AddBook = (props: Iprops) => {
 							onChange={(event) => setAuthor(Number(event.target.value))}
 						>
 							<option value={-1}>Choose</option>
-							{selectAuthor.map((row) => (
+							{data.authors.map((row) => (
 								<option key={row.id} value={row.id}>
 									{row.fullName}
 								</option>

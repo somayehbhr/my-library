@@ -18,7 +18,6 @@ const headerList = ["title", "release_date", "rate", "author", "category", "pric
 
 const Books = () => {
 	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
-	const [authors, setAuthors] = React.useState(data.authors);
 	const [edit, setEdit] = React.useState<any>();
 
 	React.useEffect(() => {
@@ -57,7 +56,7 @@ const Books = () => {
 	}
 	function handleEditBook(id: number) {}
 	function getAuthor(id?: number) {
-		return authors.find((item) => item.id === id)?.fullName;
+		return data.authors.find((item) => item.id === id)?.fullName;
 	}
 
 	function addBook(add: IBookEntity) {
