@@ -2,6 +2,7 @@ import Header from "../../components/Header";
 import React from "react";
 import data from "../../data/info.json";
 import Button from "../../components/Button";
+import { IBookEntity } from "../Books";
 
 interface IAuthorEntity {
 	id: number;
@@ -12,15 +13,41 @@ const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
 const Authors = () => {
 	const [list, setList] = React.useState<Array<IAuthorEntity>>(data.authors);
+	React.useEffect(() => {
+		const localList = getLocalList();
+		console.log("locallist", localList);
+		if (Array.isArray(localList) && localList.length) {
+			setList(localList);
+		} else {
+			setList(data.authors);
+		}
+	}, []);
+
+	React.useEffect(() => {
+		console.log("here");
+		setLocalList(list);
+	}, [list]);
+
+	function setLocalList(list: IAuthorEntity[]) {
+		window.localStorage.setItem("authors", JSON.stringify(list));
+	}
+
+	function getLocalList() {
+		try {
+			return JSON.parse(window.localStorage.getItem("authors") as string);
+		} catch (e) {
+			return [];
+		}
+	}
+
+	function calculateNumOfBooks(id: number) {
+		return books.filter((item) => item.author_id === id).length;
+	}
 	function handleDeleteAuthor(id: number) {
 		return function () {
 			const newList = list.filter((row) => row.id !== id);
 			setList(newList);
 		};
-	}
-
-	function calculateNumOfBooks(id: number) {
-		return books.filter((item) => item.author_id === id).length;
 	}
 
 	return (

@@ -2,6 +2,7 @@ import data from "../../data/info.json";
 import React from "react";
 import Book from "./components/Book";
 import Header from "../../components/Header";
+import AddBook from "./components/AddBook";
 
 export interface IBookEntity {
 	id: number;
@@ -9,93 +10,65 @@ export interface IBookEntity {
 	release_date: string;
 	category: string;
 	rate: number;
-	author_id: number;
+	author_id?: number;
 	price: string;
 }
 
 const headerList = ["title", "release_date", "rate", "author", "category", "price", "action"];
+
 const Books = () => {
 	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
+	const [authors, setAuthors] = React.useState(data.authors);
+	React.useEffect(() => {
+		const localList = getLocalList();
+
+		if (Array.isArray(localList) && localList.length) {
+			setList(localList);
+		} else {
+			setList(data.books);
+		}
+	}, []);
+
+	React.useEffect(() => {
+		setLocalList(list);
+	}, [list]);
+
+	function setLocalList(list: IBookEntity[]) {
+		window.localStorage.setItem("books", JSON.stringify(list));
+	}
+
+	function getLocalList() {
+		try {
+			return JSON.parse(window.localStorage.getItem("books") as string);
+		} catch (e) {
+			return [];
+		}
+	}
 	function handleDeleteBook(id: number) {
 		return function () {
 			const newList = list.filter((row) => row.id !== id);
 			setList(newList);
 		};
 	}
+	function getAuthor(id?: number) {
+		return authors.find((item) => item.id === id)?.fullName;
+	}
+
+	function addBook(add: any) {
+		console.log("aaaaa");
+		// let tempBook = { ...books };
+		// let author_id = tempBook.find((item: any) => item === item.fullName?.id);
+		// let newAuthorId = authors.length;
+		// let newAuthor = [...authors, { id: newAuthorId, fullName: tempBook.author }];
+		// setAuthors(newAuthor);
+		// delete tempBook.author;
+		// set;
+	}
 
 	return (
 		<>
-			<form>
-				<div className="row">
-					<div className="col-md-4">
-						<label htmlFor="inputEmail4">Title</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Title"
-						/>
-					</div>
-					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Release date</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Release date"
-						/>
-					</div>
-					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Rate</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Rate"
-						/>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Category</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Category"
-						/>
-					</div>
-					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Price</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Price"
-						/>
-					</div>
-					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Authors</label>
-						<select className="form-select" id="autoSizingSelect">
-							<option selected>Choose</option>
-							<option value="1">Marleah Coundley</option>
-							<option value="2">Boonie Browne</option>
-							<option value="3">Alyssa Mcimmie</option>
-							<option value="4">Storm Mityushin</option>
-							<option value="5">Maressa Tamas</option>
-						</select>
-					</div>
-				</div>
-				<br />
-				<div className="row">
-					<div className="col-md-3">
-						<button type="button" className="btn btn-primary">
-							Add
-						</button>
-					</div>
-				</div>
-			</form>
-			<br />
+			<AddBook id={list.length} add={addBook} />
+
 			<table className="table">
 				<Header list={headerList} />
 				<tbody>
@@ -105,6 +78,7 @@ const Books = () => {
 								key={row.id}
 								{...row}
 								{...{ index }}
+								author={getAuthor(row.author_id)}
 								delete={handleDeleteBook(row.id)}
 							/>
 						),

@@ -7,10 +7,11 @@ interface IBookEntity {
 	release_date: string;
 	category: string;
 	rate: number;
-	author_id: number;
+	author_id?: number;
 	price: string;
 	index: number;
 	delete: any;
+	author?: string;
 }
 
 const Book = (props: IBookEntity) => {
@@ -20,7 +21,7 @@ const Book = (props: IBookEntity) => {
 			<td>{props.title}</td>
 			<td>{props.release_date}</td>
 			<td>{props.rate}</td>
-			<td>{props.author_id /**TODO: get author name from author_id */}</td>
+			<td>{props.author}</td>
 			<td>{props.category}</td>
 			<td>{props.price}</td>
 			<td>

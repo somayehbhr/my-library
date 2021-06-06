@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: prevent Reconciliation">
+      <change afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +101,8 @@
       <workItem from="1622495949669" duration="151000" />
       <workItem from="1622496420646" duration="915000" />
       <workItem from="1622890012358" duration="9547000" />
+      <workItem from="1622904587960" duration="10149000" />
+      <workItem from="1622914952915" duration="6558000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
