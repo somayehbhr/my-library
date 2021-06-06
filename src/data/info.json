@@ -24,12 +24,12 @@
 	"books": [
 		{
 			"id": 0,
-			"title": "Far Country, The",
+			"title": "The Far Country",
 			"release_date": "11/12/2002",
 			"rate": 2.7,
 			"category": "classic",
 			"author_id": 4,
-			"price": "$81.46"
+			"price": "81.46"
 		},
 		{
 			"id": 1,
@@ -38,7 +38,7 @@
 			"rate": 6.2,
 			"category": "drama",
 			"author_id": 4,
-			"price": "$62.18"
+			"price": "62.18"
 		},
 		{
 			"id": 2,
@@ -47,7 +47,7 @@
 			"rate": 7.6,
 			"category": "comic",
 			"author_id": 2,
-			"price": "$24.85"
+			"price": "24.85"
 		},
 		{
 			"id": 3,
@@ -56,7 +56,7 @@
 			"rate": 4.3,
 			"category": "horror",
 			"author_id": 0,
-			"price": "$83.17"
+			"price": "83.17"
 		},
 		{
 			"id": 4,
@@ -65,7 +65,7 @@
 			"rate": 1.7,
 			"category": "classic",
 			"author_id": 3 ,
-			"price": "$83.36"
+			"price": "83.36"
 		}
 	]
 }

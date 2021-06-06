@@ -61,9 +61,7 @@ export const Books = () => {
 	function handleEditBook(editedBook: any) {
 		let tempBooks = [...list];
 		let index = tempBooks.indexOf(edit);
-		console.log("index", index);
 		tempBooks.splice(index, 1);
-		console.log("tempBooks", tempBooks);
 		setList([editedBook, ...tempBooks]);
 		setEdit(null);
 	}
