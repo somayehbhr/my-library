@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button";
 import data from "../../../../data/info.json";
 import { IAuthorEntity } from "../../../Authors";
@@ -6,6 +6,7 @@ import { IAuthorEntity } from "../../../Authors";
 interface Iprops {
 	id: number;
 	add: any;
+	edit: any;
 }
 const AddBook = (props: Iprops) => {
 	const [title, setTitle] = useState("");
@@ -15,12 +16,16 @@ const AddBook = (props: Iprops) => {
 	const [price, setPrice] = useState("");
 	const [author, setAuthor] = useState(-1);
 	const [selectAuthor, setSelectAuthor] = React.useState<Array<IAuthorEntity>>(data.authors);
-	const selectHandler = (event: any) => {
-		const id = Number(event.target.value);
-		let authorName = selectAuthor.find((item) => item.id === id)?.fullName;
-		// @ts-ignore
-		setAuthor(authorName);
-	};
+
+	useEffect(() => {
+		setTitle(props.edit?.title);
+		setReleaseDate(props.edit?.release_date);
+		setRate(props.edit?.rate);
+		setCategory(props.edit?.category);
+		setPrice(props.edit?.price);
+		setAuthor(props.edit?.author_id);
+	}, [props.edit]);
+
 	function addBook() {
 		props.add({
 			id: props.id,
@@ -60,7 +65,7 @@ const AddBook = (props: Iprops) => {
 							type="text"
 							className="form-control"
 							id="autoSizingInput"
-							placeholder="Release date"
+							placeholder="dd/mm/yyyy"
 							value={releaseDate}
 							onChange={(event) => setReleaseDate(event.target.value)}
 						/>
@@ -92,7 +97,7 @@ const AddBook = (props: Iprops) => {
 					<div className="col-md-4">
 						<label htmlFor="inputPassword4">Price</label>
 						<input
-							type="number"
+							type="text"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Price"
@@ -122,7 +127,11 @@ const AddBook = (props: Iprops) => {
 				<br />
 				<div className="row">
 					<div className="col-md-3">
-						<Button onClick={addBook} text="Add" className="primary" />
+						<Button
+							onClick={addBook}
+							text={props.edit ? "Edit" : "Add"}
+							className={props.edit ? "primary" : "success"}
+						/>
 					</div>
 				</div>
 			</form>

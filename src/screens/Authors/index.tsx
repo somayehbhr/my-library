@@ -15,7 +15,6 @@ const Authors = () => {
 	const [list, setList] = React.useState<Array<IAuthorEntity>>(data.authors);
 	React.useEffect(() => {
 		const localList = getLocalList();
-		console.log("locallist", localList);
 		if (Array.isArray(localList) && localList.length) {
 			setList(localList);
 		} else {
@@ -24,7 +23,6 @@ const Authors = () => {
 	}, []);
 
 	React.useEffect(() => {
-		console.log("here");
 		setLocalList(list);
 	}, [list]);
 
@@ -76,7 +74,7 @@ const Authors = () => {
 				<br />
 				<div className="row">
 					<div className="col-md-3">
-						<button type="button" className="btn btn-primary">
+						<button type="button" className="btn btn-success">
 							Add
 						</button>
 					</div>

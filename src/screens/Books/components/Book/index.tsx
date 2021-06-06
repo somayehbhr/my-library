@@ -11,6 +11,7 @@ interface IBookEntity {
 	price: string;
 	index: number;
 	delete: any;
+	edit: any;
 	author?: string;
 }
 
@@ -26,6 +27,7 @@ const Book = (props: IBookEntity) => {
 			<td>{props.price}</td>
 			<td>
 				<Button onClick={() => props.delete()} text="Delete" danger />
+				<Button onClick={() => props.edit()} text="Edit" className="primary " />
 			</td>
 		</tr>
 	);

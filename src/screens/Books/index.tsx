@@ -19,6 +19,8 @@ const headerList = ["title", "release_date", "rate", "author", "category", "pric
 const Books = () => {
 	const [list, setList] = React.useState<Array<IBookEntity>>(data.books);
 	const [authors, setAuthors] = React.useState(data.authors);
+	const [edit, setEdit] = React.useState<any>();
+
 	React.useEffect(() => {
 		const localList = getLocalList();
 
@@ -50,18 +52,23 @@ const Books = () => {
 			setList(newList);
 		};
 	}
+	function sendBookInfo(id: number) {
+		setEdit(list.find((item) => item.id === id));
+	}
+	function handleEditBook(id: number) {}
 	function getAuthor(id?: number) {
 		return authors.find((item) => item.id === id)?.fullName;
 	}
 
-	function addBook(add: any, id: number) {
-		console.log(add);
-		setList([...list, add]);
+	function addBook(add: IBookEntity) {
+		const id = Math.floor(Math.random() * 1000) + 1;
+		const newBook = { ...add, id };
+		setList([...list, newBook]);
 	}
 
 	return (
 		<>
-			<AddBook id={list.length} add={addBook} />
+			<AddBook id={list.length} add={addBook} edit={edit} />
 
 			<table className="table">
 				<Header list={headerList} />
@@ -74,6 +81,7 @@ const Books = () => {
 								{...{ index }}
 								author={getAuthor(row.author_id)}
 								delete={handleDeleteBook(row.id)}
+								edit={() => sendBookInfo(row.id)}
 							/>
 						),
 					)}
