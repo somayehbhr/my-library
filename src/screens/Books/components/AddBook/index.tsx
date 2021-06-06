@@ -13,24 +13,30 @@ const AddBook = (props: Iprops) => {
 	const [rate, setRate] = useState("");
 	const [category, setCategory] = useState("");
 	const [price, setPrice] = useState("");
-	const [author, setAuthor] = useState("");
+	const [author, setAuthor] = useState(-1);
 	const [selectAuthor, setSelectAuthor] = React.useState<Array<IAuthorEntity>>(data.authors);
-
+	const selectHandler = (event: any) => {
+		const id = Number(event.target.value);
+		let authorName = selectAuthor.find((item) => item.id === id)?.fullName;
+		// @ts-ignore
+		setAuthor(authorName);
+	};
 	function addBook() {
 		props.add({
 			id: props.id,
 			title: title,
 			rate: rate,
+			release_date: releaseDate,
 			category: category,
 			price: price,
-			author: author,
+			author_id: author,
 		});
 		setTitle("");
 		setReleaseDate("");
 		setRate("");
 		setCategory("");
 		setPrice("");
-		setAuthor("");
+		setAuthor(-1);
 	}
 
 	return (
@@ -62,7 +68,7 @@ const AddBook = (props: Iprops) => {
 					<div className="col-md-4">
 						<label htmlFor="inputPassword4">Rate</label>
 						<input
-							type="text"
+							type="number"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Rate"
@@ -86,7 +92,7 @@ const AddBook = (props: Iprops) => {
 					<div className="col-md-4">
 						<label htmlFor="inputPassword4">Price</label>
 						<input
-							type="text"
+							type="number"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Price"
@@ -97,14 +103,19 @@ const AddBook = (props: Iprops) => {
 					<div className="col-md-4">
 						<label htmlFor="inputPassword4">Authors</label>
 						<select
+							defaultValue={-1}
 							className="form-select"
 							id="autoSizingSelect"
-							onChange={(event) => setAuthor(event.target.value)}
+							// onChange={(event) => selectHandler(event)}
+							value={author}
+							onChange={(event) => setAuthor(Number(event.target.value))}
 						>
+							<option value={-1}>Choose</option>
 							{selectAuthor.map((row) => (
-								<option value={row.id}>{row.fullName}</option>
+								<option key={row.id} value={row.id}>
+									{row.fullName}
+								</option>
 							))}
-							<option selected>Choose</option>
 						</select>
 					</div>
 				</div>
