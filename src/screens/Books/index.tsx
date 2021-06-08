@@ -22,7 +22,7 @@ const headerList = ["title", "release_date", "rate", "author", "category", "pric
 
 export const Books = () => {
 	const [list, setList] = useState<Array<IBookEntity>>(data.books);
-	const [edit, setEdit] = useState<any>();
+	const [selectedRow, setSelectedRow] = useState<any>();
 
 	useEffect(() => {
 		const localList = getLocalList();
@@ -56,20 +56,20 @@ export const Books = () => {
 		};
 	}
 	function sendBookInfo(id: number) {
-		setEdit(list.find((item) => item.id === id));
+		setSelectedRow(list.find((item) => item.id === id));
 	}
 	function handleEditBook(editedBook: any) {
 		let tempBooks = [...list];
-		let index = tempBooks.indexOf(edit);
+		let index = tempBooks.indexOf(selectedRow);
 		tempBooks.splice(index, 1);
 		setList([editedBook, ...tempBooks]);
-		setEdit(null);
+		setSelectedRow(null);
 	}
 	function getAuthor(id?: number) {
 		return data.authors.find((item) => item.id === id)?.fullName;
 	}
 
-	function addBook(add: IBookEntity) {
+	function handleAddBook(add: IBookEntity) {
 		const id = Math.floor(Math.random() * 1000) + 1;
 		const newBook = { ...add, id };
 		setList([...list, newBook]);
@@ -77,7 +77,12 @@ export const Books = () => {
 
 	return (
 		<>
-			<AddBook id={list.length} add={addBook} book={edit} edit={handleEditBook} />
+			<AddBook
+				id={list.length}
+				onAddClick={handleAddBook}
+				bookInfo={selectedRow}
+				onEditClick={handleEditBook}
+			/>
 
 			<table className="table">
 				<Header list={headerList} />

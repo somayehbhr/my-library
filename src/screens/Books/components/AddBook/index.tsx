@@ -7,9 +7,9 @@ import data from "../../../../data/info.json";
 
 interface IDetailEntity {
 	id: number;
-	add: any;
-	edit: any;
-	book: any;
+	onAddClick: any;
+	onEditClick: any;
+	bookInfo: any;
 }
 export const AddBook = (props: IDetailEntity) => {
 	const [title, setTitle] = useState("");
@@ -20,16 +20,16 @@ export const AddBook = (props: IDetailEntity) => {
 	const [author, setAuthor] = useState(-1);
 
 	useEffect(() => {
-		setTitle(props.book?.title);
-		setReleaseDate(props.book?.release_date);
-		setRate(props.book?.rate);
-		setCategory(props.book?.category);
-		setPrice(props.book?.price);
-		setAuthor(props.book?.author_id);
-	}, [props.book]);
+		setTitle(props.bookInfo?.title);
+		setReleaseDate(props.bookInfo?.release_date);
+		setRate(props.bookInfo?.rate);
+		setCategory(props.bookInfo?.category);
+		setPrice(props.bookInfo?.price);
+		setAuthor(props.bookInfo?.author_id);
+	}, [props.bookInfo]);
 
 	function addBook() {
-		props.add({
+		props.onAddClick({
 			id: props.id,
 			title: title,
 			rate: rate,
@@ -47,7 +47,7 @@ export const AddBook = (props: IDetailEntity) => {
 	}
 
 	function editBook() {
-		props.edit({
+		props.onEditClick({
 			id: props.id,
 			title: title,
 			rate: rate,
@@ -145,9 +145,9 @@ export const AddBook = (props: IDetailEntity) => {
 			<div className="row">
 				<div className="col-md-3">
 					<Button
-						onClick={props.book ? editBook : addBook}
-						text={props.book ? "Edit" : "Add"}
-						className={props.book ? "primary" : "success"}
+						onClick={props.bookInfo ? editBook : addBook}
+						text={props.bookInfo ? "Edit" : "Add"}
+						className={props.bookInfo ? "primary" : "success"}
 					/>
 				</div>
 			</div>

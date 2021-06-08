@@ -5,6 +5,8 @@ import data from "../../data/info.json";
 //Common components
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
+import { AddAuthor } from "./components/AddAuthor";
+import { Author } from "./components/Author";
 
 export interface IAuthorEntity {
 	id: number;
@@ -49,56 +51,25 @@ export const Authors = () => {
 			setList(newList);
 		};
 	}
-
+	function handleAddAuthor(add: any) {
+		const id = Math.floor(Math.random() * 100);
+		const newAuthor = { id, ...add };
+		setList([...list, newAuthor]);
+	}
 	return (
 		<>
-			<form>
-				<div className="row">
-					<div className="col-md-4">
-						<label htmlFor="inputEmail4">Full name</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Full name"
-						/>
-					</div>
-					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Number Of Books</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Number Of Books"
-						/>
-					</div>
-				</div>
-				<br />
-				<div className="row">
-					<div className="col-md-3">
-						<button type="button" className="btn btn-success">
-							Add
-						</button>
-					</div>
-				</div>
-			</form>
+			<AddAuthor onAddClick={handleAddAuthor} />
 			<br />
 			<table className="table">
 				<Header list={headerList} />
 				<tbody>
 					{list.map((row, index) => (
-						<tr key={index}>
-							<td scope="col">{index + 1}</td>
-							<td scope="col">{row.fullName}</td>
-							<td scope="col">{calculateNumOfBooks(row.id)}</td>
-							<td>
-								<Button
-									onClick={handleDeleteAuthor(row.id)}
-									text="Delete"
-									className="danger"
-								/>
-							</td>
-						</tr>
+						<Author
+							index={index}
+							fullName={row.fullName}
+							numOfBooks={calculateNumOfBooks(row.id)}
+							delete={handleDeleteAuthor(row.id)}
+						/>
 					))}
 				</tbody>
 			</table>
