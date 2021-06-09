@@ -27,7 +27,7 @@ export const Book = (props: IBookEntity) => {
 			<td>{props.price}</td>
 			<td>
 				<Button onClick={() => props.delete()} text="Delete" className="danger" />
-				<Button onClick={() => props.edit()} text="Edit" className="primary " />
+				<Button onClick={() => props.edit()} text="Edit" className="primary" />
 			</td>
 		</tr>
 	);

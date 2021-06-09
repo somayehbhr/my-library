@@ -84,23 +84,25 @@ export const Books = () => {
 				onEditClick={handleEditBook}
 			/>
 
-			<table className="table">
-				<Header list={headerList} />
-				<tbody>
-					{list.map(
-						(row: IBookEntity, index: number): ReactNode => (
-							<Book
-								key={row.id}
-								{...row}
-								{...{ index }}
-								author={getAuthor(row.author_id)}
-								delete={handleDeleteBook(row.id)}
-								edit={() => sendBookInfo(row.id)}
-							/>
-						),
-					)}
-				</tbody>
-			</table>
+			<div className="container">
+				<table className="table">
+					<Header list={headerList} />
+					<tbody>
+						{list.map(
+							(row: IBookEntity, index: number): ReactNode => (
+								<Book
+									key={row.id}
+									{...row}
+									{...{ index }}
+									author={getAuthor(row.author_id)}
+									delete={handleDeleteBook(row.id)}
+									edit={() => sendBookInfo(row.id)}
+								/>
+							),
+						)}
+					</tbody>
+				</table>
+			</div>
 		</>
 	);
 };

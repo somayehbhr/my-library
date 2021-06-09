@@ -7,7 +7,11 @@ interface DeleteBooksProps {
 }
 export const Button: FC<DeleteBooksProps> = (props) => {
 	return (
-		<button type="button" className={`btn btn-${props.className}`} onClick={props.onClick}>
+		<button
+			type="button"
+			className={`btn btn-outline-${props.className}`}
+			onClick={props.onClick}
+		>
 			{props.text}
 		</button>
 	);
