@@ -17,26 +17,28 @@ export const AddAuthor = (props: IDetailEntity) => {
 		props.onAddClick({ fullName: fullName });
 	}
 	return (
-		<form>
-			<div className="row">
-				<div className="col-md-4">
-					<label htmlFor="inputEmail4">Full name</label>
-					<input
-						type="text"
-						className="form-control"
-						id="autoSizingInput"
-						placeholder="Full name"
-						value={fullName}
-						onChange={(event) => setFullName(event.target.value)}
-					/>
+		<div className="container">
+			<form>
+				<div className="row">
+					<div className="col-md-4">
+						<label htmlFor="inputEmail4">Full name</label>
+						<input
+							type="text"
+							className="form-control"
+							id="autoSizingInput"
+							placeholder="Full name"
+							value={fullName}
+							onChange={(event) => setFullName(event.target.value)}
+						/>
+					</div>
 				</div>
-			</div>
-
-			<div className="row">
-				<div className="col-md-3">
-					<Button onClick={addAuthor} text="Add" className="success" />
+				<br />
+				<div className="row">
+					<div className="col-md-3">
+						<Button onClick={addAuthor} text="Add" className="success" />
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	);
 };

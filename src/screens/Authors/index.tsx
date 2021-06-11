@@ -59,20 +59,21 @@ export const Authors = () => {
 	return (
 		<>
 			<AddAuthor onAddClick={handleAddAuthor} />
-			<br />
-			<table className="table">
-				<Header list={headerList} />
-				<tbody>
-					{list.map((row, index) => (
-						<Author
-							index={index}
-							fullName={row.fullName}
-							numOfBooks={calculateNumOfBooks(row.id)}
-							delete={handleDeleteAuthor(row.id)}
-						/>
-					))}
-				</tbody>
-			</table>
+			<div className="container">
+				<table className="table">
+					<Header list={headerList} />
+					<tbody>
+						{list.map((row, index) => (
+							<Author
+								index={index}
+								fullName={row.fullName}
+								numOfBooks={calculateNumOfBooks(row.id)}
+								delete={handleDeleteAuthor(row.id)}
+							/>
+						))}
+					</tbody>
+				</table>
+			</div>
 		</>
 	);
 };
