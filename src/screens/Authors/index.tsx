@@ -17,6 +17,7 @@ const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
 export const Authors = () => {
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
+	const [selectedRow, setSelectedRow] = useState<any>();
 	useEffect(() => {
 		const localList = getLocalList();
 		if (Array.isArray(localList) && localList.length) {
@@ -33,7 +34,9 @@ export const Authors = () => {
 	function setLocalList(list: IAuthorEntity[]) {
 		window.localStorage.setItem("authors", JSON.stringify(list));
 	}
-
+	function sendAuthorInfo(id: number) {
+		setSelectedRow(list.find((item) => item.id === id));
+	}
 	function getLocalList() {
 		try {
 			return JSON.parse(window.localStorage.getItem("authors") as string);
@@ -56,9 +59,20 @@ export const Authors = () => {
 		const newAuthor = { id, ...add };
 		setList([...list, newAuthor]);
 	}
+	function handleEditAuthor(editedBook: any) {
+		let tempBooks = [...list];
+		let index = tempBooks.indexOf(selectedRow);
+		tempBooks.splice(index, 1);
+		setList([editedBook, ...tempBooks]);
+		setSelectedRow(null);
+	}
 	return (
 		<>
-			<AddAuthor onAddClick={handleAddAuthor} />
+			<AddAuthor
+				onAddClick={handleAddAuthor}
+				authorInfo={selectedRow}
+				onEditClick={handleEditAuthor}
+			/>
 			<div className="container">
 				<table className="table">
 					<Header list={headerList} />
@@ -69,6 +83,7 @@ export const Authors = () => {
 								fullName={row.fullName}
 								numOfBooks={calculateNumOfBooks(row.id)}
 								delete={handleDeleteAuthor(row.id)}
+								edit={() => sendAuthorInfo(row.id)}
 							/>
 						))}
 					</tbody>

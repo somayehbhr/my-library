@@ -5,6 +5,7 @@ interface IAuthorEntity {
 	fullName: string;
 	numOfBooks: number;
 	delete: (id: any) => void;
+	edit: any;
 }
 export const Author = (props: IAuthorEntity) => {
 	return (
@@ -13,7 +14,8 @@ export const Author = (props: IAuthorEntity) => {
 			<td scope="col">{props.fullName}</td>
 			<td scope="col">{props.numOfBooks}</td>
 			<td>
-				<Button onClick={props.delete} text="Delete" className="danger" />
+				<Button onClick={() => props.delete} text="Delete" className="danger" />
+				<Button onClick={() => props.edit()} text="Edit" className="primary" />
 			</td>
 		</tr>
 	);

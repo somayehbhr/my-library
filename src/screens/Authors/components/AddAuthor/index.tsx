@@ -8,13 +8,21 @@ import data from "../../../../data/info.json";
 interface IDetailEntity {
 	// id: number;
 	onAddClick: any;
-	// onEditClick: any;
-	// bookInfo: any;
+	onEditClick: any;
+	authorInfo: any;
 }
 export const AddAuthor = (props: IDetailEntity) => {
 	const [fullName, setFullName] = useState("");
 	function addAuthor() {
 		props.onAddClick({ fullName: fullName });
+		setFullName("");
+	}
+	useEffect(() => {
+		setFullName(props.authorInfo?.fullName);
+	}, [props.authorInfo]);
+	function editAuthor() {
+		props.onEditClick({ fullName: fullName });
+		setFullName("");
 	}
 	return (
 		<div className="container">
@@ -35,7 +43,11 @@ export const AddAuthor = (props: IDetailEntity) => {
 				<br />
 				<div className="row">
 					<div className="col-md-3">
-						<Button onClick={addAuthor} text="Add" className="success" />
+						<Button
+							onClick={props.authorInfo ? editAuthor : addAuthor}
+							text={props.authorInfo ? "Edit" : "Add"}
+							className={props.authorInfo ? "primary" : "success"}
+						/>
 					</div>
 				</div>
 			</form>
