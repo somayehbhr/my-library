@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: deloy project">
+    <list default="true" id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="style: added cotainer for authors">
+      <change afterPath="$PROJECT_DIR$/src/contexts/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,12 +37,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="develop" />
-                    <option name="lastUsedInstant" value="1622495720" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1622745548" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1622495719" />
+                    <option name="branchName" value="develop" />
+                    <option name="lastUsedInstant" value="1622745243" />
                   </RecentBranch>
                 </list>
               </option>
@@ -44,6 +51,14 @@
           </list>
         </option>
       </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6203c3b4-e1d7-4aea-84e5-3bded1a53b37" />
+        <option name="url" value="git@github.com:somayehbhr/my-library.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="ProjectId" id="1szjHxao13bOiGIUft0duxuxcxU" />
@@ -66,9 +81,9 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\my-library\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
-    <property name="ts.external.directory.path" value="C:\Projects\my-library\node_modules\typescript\lib" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="E:\MyProjects\my-library\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
+    <property name="ts.external.directory.path" value="E:\MyProjects\my-library\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -80,7 +95,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="" />
+      <changelist id="c905279d-5779-4fc4-98b6-355f1272d3e1" name="Default Changelist" comment="feat: prevent Reconciliation" />
       <created>1621882228571</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -91,9 +106,15 @@
       <workItem from="1622495787663" duration="13000" />
       <workItem from="1622495949669" duration="151000" />
       <workItem from="1622496420646" duration="915000" />
-      <workItem from="1622613726132" duration="3383000" />
-      <workItem from="1622617735229" duration="223000" />
-      <workItem from="1622624765487" duration="894000" />
+      <workItem from="1622890012358" duration="9547000" />
+      <workItem from="1622904587960" duration="10149000" />
+      <workItem from="1622914952915" duration="12838000" />
+      <workItem from="1622975228383" duration="431000" />
+      <workItem from="1622975733582" duration="7745000" />
+      <workItem from="1622983989617" duration="14014000" />
+      <workItem from="1623011230974" duration="4000" />
+      <workItem from="1623092524791" duration="5336000" />
+      <workItem from="1623422262036" duration="2798000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -116,35 +137,84 @@
       <option name="project" value="LOCAL" />
       <updated>1622495641058</updated>
     </task>
-    <task id="LOCAL-00004" summary="feat: added Router">
-      <created>1622616886546</created>
+    <task id="LOCAL-00004" summary="feat: make some changes on router">
+      <created>1622751349395</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1622616886546</updated>
+      <updated>1622751349395</updated>
     </task>
-    <task id="LOCAL-00005" summary="feat: added AuthorList component">
-      <created>1622616919526</created>
+    <task id="LOCAL-00005" summary="feat: name of some components have been changed">
+      <created>1622751451152</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1622616919526</updated>
+      <updated>1622751451152</updated>
     </task>
-    <task id="LOCAL-00006" summary="feat: added Header component to BookList">
-      <created>1622616948718</created>
+    <task id="LOCAL-00006" summary="feat: prevent Reconciliation">
+      <created>1622751694086</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1622616948718</updated>
+      <updated>1622751694086</updated>
     </task>
-    <task id="LOCAL-00007" summary="chore: cleaning the code">
-      <created>1622617110159</created>
+    <task id="LOCAL-00007" summary="feat: added localstorage and base of add event">
+      <created>1622966445831</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1622617110159</updated>
+      <updated>1622966445831</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: added json to select box">
+      <created>1622979522107</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622979522107</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: added add event to books">
+      <created>1622988844466</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622988844466</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: added edit event to books">
+      <created>1622998271743</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1622998271743</updated>
+    </task>
+    <task id="LOCAL-00011" summary="chore: cleaning the code from unused code">
+      <created>1622998756270</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1622998756270</updated>
+    </task>
+    <task id="LOCAL-00012" summary="chore: added group for each import">
+      <created>1623006410089</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1623006410089</updated>
+    </task>
+    <task id="LOCAL-00013" summary="chore: remove unused code">
+      <created>1623010732876</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623010732876</updated>
+    </task>
+    <task id="LOCAL-00014" summary="chore: remove unused code">
+      <created>1623010804358</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1623010804358</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,19 +235,30 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: added Books component and base logic" />
     <MESSAGE value="feat: added Books component and DeleteBooks" />
-    <MESSAGE value="feat: added Router" />
-    <MESSAGE value="feat: added AuthorList component" />
-    <MESSAGE value="feat: added Header component to BookList" />
-    <MESSAGE value="chore: cleaning the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: cleaning the code" />
+    <MESSAGE value="feat: make some changes on router" />
+    <MESSAGE value="feat: name of some components have been changed" />
+    <MESSAGE value="feat: prevent Reconciliation" />
+    <MESSAGE value="feat: added localstorage and base of add event" />
+    <MESSAGE value="feat: added json to select box" />
+    <MESSAGE value="feat: added add event to books" />
+    <MESSAGE value="feat: added edit event to books" />
+    <MESSAGE value="chore: cleaning the code from unused code" />
+    <MESSAGE value="chore: added group for each import" />
+    <MESSAGE value="chore: remove unused code" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: remove unused code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/Header/index.tsx</url>
-          <line>12</line>
+          <url>file://$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx</url>
+          <line>1</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
