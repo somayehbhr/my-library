@@ -4,7 +4,7 @@ interface IAuthorEntity {
 	index: number;
 	fullName: string;
 	numOfBooks: number;
-	delete: (id: any) => void;
+	delete: any;
 	edit: any;
 }
 export const Author = (props: IAuthorEntity) => {
@@ -14,7 +14,7 @@ export const Author = (props: IAuthorEntity) => {
 			<td scope="col">{props.fullName}</td>
 			<td scope="col">{props.numOfBooks}</td>
 			<td>
-				<Button onClick={() => props.delete} text="Delete" className="danger" />
+				<Button onClick={() => props.delete()} text="Delete" className="danger" />
 				<Button onClick={() => props.edit()} text="Edit" className="primary" />
 			</td>
 		</tr>
