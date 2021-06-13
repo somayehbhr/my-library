@@ -1,10 +1,9 @@
-//Hooks
+// Hooks
 import { useEffect, useState } from "react";
-//Json
+// Dummy data
 import data from "../../data/info.json";
-//Common components
+// Common components
 import { Header } from "../../components/Header";
-import { Button } from "../../components/Button";
 import { AddAuthor } from "./components/AddAuthor";
 import { Author } from "./components/Author";
 
@@ -17,7 +16,8 @@ const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
 export const Authors = () => {
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
-	const [selectedRow, setSelectedRow] = useState<any>();
+	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
+
 	useEffect(() => {
 		const localList = getLocalList();
 		if (Array.isArray(localList) && localList.length) {
@@ -35,11 +35,11 @@ export const Authors = () => {
 		window.localStorage.setItem("authors", JSON.stringify(list));
 	}
 	function sendAuthorInfo(id: number) {
-		setSelectedRow(list.find((item) => item.id === id));
+		setSelectedRow(list.find((item) => item.id === id)!);
 	}
 	function getLocalList() {
 		try {
-			return JSON.parse(window.localStorage.getItem("authors") as string);
+			return JSON.parse(window.localStorage.getItem("authors")!);
 		} catch (e) {
 			return [];
 		}
@@ -64,7 +64,7 @@ export const Authors = () => {
 		let index = tempBooks.indexOf(selectedRow);
 		tempBooks.splice(index, 1);
 		setList([editedBook, ...tempBooks]);
-		setSelectedRow(null);
+		setSelectedRow({} as IAuthorEntity);
 	}
 	return (
 		<>
