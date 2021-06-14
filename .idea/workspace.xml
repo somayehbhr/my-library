@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: prevent to reset route when refresh the page">
-      <change beforePath="$PROJECT_DIR$/.idea/my-library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-library.iml" afterDir="false" />
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="chore: minor improvement">
+      <change afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.reducers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/store.type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
@@ -44,6 +60,16 @@
         </option>
       </RecentBranches>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/screens/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Authors/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1szjHxao13bOiGIUft0duxuxcxU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -72,6 +98,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\my-library\src" />
       <recent name="E:\MyProjects\my-library\src\data" />
       <recent name="E:\MyProjects\my-library\src" />
     </key>
@@ -93,7 +120,8 @@
       <workItem from="1622613726132" duration="3383000" />
       <workItem from="1622617735229" duration="223000" />
       <workItem from="1622624765487" duration="894000" />
-      <workItem from="1623590181299" duration="1852000" />
+      <workItem from="1623590181299" duration="1894000" />
+      <workItem from="1623671886401" duration="9717000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -151,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623591442088</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="chore: minor improvement">
+      <created>1623647404205</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623647404205</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +212,8 @@
     <MESSAGE value="feat: added Header component to BookList" />
     <MESSAGE value="chore: cleaning the code" />
     <MESSAGE value="fix: prevent to reset route when refresh the page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: prevent to reset route when refresh the page" />
+    <MESSAGE value="chore: minor improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: minor improvement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

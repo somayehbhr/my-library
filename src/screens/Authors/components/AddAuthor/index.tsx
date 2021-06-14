@@ -13,19 +13,22 @@ interface IDetailEntity {
 }
 export const AddAuthor = (props: IDetailEntity) => {
 	const [fullName, setFullName] = useState("");
+	const isEditModeEnabled = props.authorInfo.hasOwnProperty("fullName");
+
 	function addAuthor() {
-		props.onAddClick({ fullName: fullName });
+		props.onAddClick({ fullName });
 		setFullName("");
 	}
 	useEffect(() => {
 		setFullName(props.authorInfo?.fullName);
 	}, [props.authorInfo]);
+
 	function editAuthor() {
-		props.onEditClick({ fullName: fullName });
+		props.onEditClick({ fullName });
 		setFullName("");
 	}
 	return (
-		<div className="container">
+		<div className="container addSection">
 			<form>
 				<div className="row">
 					<div className="col-md-4">
@@ -44,9 +47,9 @@ export const AddAuthor = (props: IDetailEntity) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							onClick={props.authorInfo ? editAuthor : addAuthor}
-							text={props.authorInfo ? "Edit" : "Add"}
-							className={props.authorInfo ? "primary" : "success"}
+							text={isEditModeEnabled ? "Edit" : "Add"}
+							onClick={isEditModeEnabled ? editAuthor : addAuthor}
+							className={isEditModeEnabled ? "primary" : "success"}
 						/>
 					</div>
 				</div>
