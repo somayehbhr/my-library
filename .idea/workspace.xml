@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="chore: minor improvement">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,13 +56,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/screens/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/Authors/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/Books/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/index.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Authors/index.tsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1szjHxao13bOiGIUft0duxuxcxU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -86,7 +86,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\my-library\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
-    <property name="ts.external.directory.path" value="C:\Projects\my-library\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\MyProjects\my-library\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -117,6 +117,8 @@
       <workItem from="1623671886401" duration="13534000" />
       <workItem from="1623822076166" duration="243000" />
       <workItem from="1623822352958" duration="4919000" />
+      <workItem from="1623916162841" duration="2003000" />
+      <workItem from="1623932285059" duration="688000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>

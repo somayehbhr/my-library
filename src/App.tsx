@@ -5,7 +5,8 @@ import { StateNetwork } from "./types/store.type";
 import { useDispatch, useSelector } from "react-redux";
 
 const App: React.FC = () => {
-	const authors = useSelector<StateNetwork, Array<AuthorEntity>>((state) => state.authors.list);
+	const authors = useSelector<StateNetwork, AuthorState>((state) => state.authors);
+	console.log("authors", authors)
 	const dispatch = useDispatch();
 	console.count("rerender");
 

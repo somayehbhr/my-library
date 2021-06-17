@@ -11,9 +11,10 @@ const customMiddleware = (store: any) => (dispatch: any) => async (action: any) 
 
 	dispatch(action);
 };
+console.log("reducers", reducers)
 export const appStore = createStore(
 	reducers,
-	JSON.parse(window.localStorage.getItem("persistRedux")!),
+	JSON.parse(window.localStorage.getItem("persistRedux")!) || {},
 	// @ts-ignore
 	compose(window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(customMiddleware)),
 );
