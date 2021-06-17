@@ -28,7 +28,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 		setFullName("");
 	}
 	return (
-		<div className="container addSection">
+		<div className="container addSection bg-light">
 			<form>
 				<div className="row">
 					<div className="col-md-4">
