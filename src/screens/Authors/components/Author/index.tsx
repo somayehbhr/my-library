@@ -7,6 +7,7 @@ interface IAuthorEntity {
 	delete: any;
 	edit: any;
 }
+
 export const Author = (props: IAuthorEntity) => {
 	return (
 		<tr>

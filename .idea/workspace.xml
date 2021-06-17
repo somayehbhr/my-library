@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: added template of search box">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="style: add background for add form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +118,7 @@
       <workItem from="1623822076166" duration="243000" />
       <workItem from="1623822352958" duration="4919000" />
       <workItem from="1623916162841" duration="2003000" />
-      <workItem from="1623932285059" duration="7278000" />
+      <workItem from="1623932285059" duration="14710000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -217,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623947914993</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="style: add background for add form">
+      <created>1623951725789</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1623951725789</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +253,8 @@
     <MESSAGE value="fix: prevent to reset route when refresh the page" />
     <MESSAGE value="chore: minor improvement" />
     <MESSAGE value="feat: added template of search box" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added template of search box" />
+    <MESSAGE value="style: add background for add form" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: add background for add form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

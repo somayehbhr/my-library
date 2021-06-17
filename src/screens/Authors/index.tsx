@@ -17,6 +17,7 @@ const books = data.books;
 export const Authors = () => {
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
+	const [searchItem, setSearchItem] = useState("");
 
 	useEffect(() => {
 		const localList = getLocalList();
@@ -66,8 +67,37 @@ export const Authors = () => {
 		setList([editedBook, ...tempBooks]);
 		setSelectedRow({} as IAuthorEntity);
 	}
+	// @ts-ignore
+	function search() {
+		let result = list.filter((s) => {
+			return s.fullName.includes(searchItem);
+		});
+
+		setList(result);
+		return result;
+	}
+
 	return (
 		<>
+			<form className="form-inline">
+				<div className="input-group">
+					<input
+						className="form-control mr-sm-2"
+						type="search"
+						placeholder="Search"
+						aria-label="Search"
+						value={searchItem}
+						onChange={(event) => setSearchItem(event.target.value)}
+					/>
+					<button
+						type="button"
+						className="btn btn-outline-success my-2 my-sm-0"
+						onClick={search}
+					>
+						Search
+					</button>
+				</div>
+			</form>
 			<AddAuthor
 				onAddClick={handleAddAuthor}
 				authorInfo={selectedRow}
@@ -88,6 +118,11 @@ export const Authors = () => {
 						))}
 					</tbody>
 				</table>
+				{list.length == 0 && (
+					<div className="alert alert-danger" role="alert">
+						There is no result to show!
+					</div>
+				)}
 			</div>
 		</>
 	);
