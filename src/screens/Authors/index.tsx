@@ -6,6 +6,7 @@ import data from "../../data/info.json";
 import { Header } from "../../components/Header";
 import { AddAuthor } from "./components/AddAuthor";
 import { Author } from "./components/Author";
+import { SearchAuthors } from "./components/SearchAuthors";
 
 export interface IAuthorEntity {
 	id: number;
@@ -17,7 +18,6 @@ const books = data.books;
 export const Authors = () => {
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
-	const [searchItem, setSearchItem] = useState("");
 
 	useEffect(() => {
 		const localList = getLocalList();
@@ -67,42 +67,19 @@ export const Authors = () => {
 		setList([editedBook, ...tempBooks]);
 		setSelectedRow({} as IAuthorEntity);
 	}
-	// @ts-ignore
-	function search() {
-		let result = list.filter((s) => {
-			return s.fullName.includes(searchItem);
-		});
 
-		setList(result);
-		return result;
+	function onListChange(newList: IAuthorEntity[]) {
+		setList(newList);
 	}
 
 	return (
 		<>
-			<form className="form-inline">
-				<div className="input-group">
-					<input
-						className="form-control mr-sm-2"
-						type="search"
-						placeholder="Search"
-						aria-label="Search"
-						value={searchItem}
-						onChange={(event) => setSearchItem(event.target.value)}
-					/>
-					<button
-						type="button"
-						className="btn btn-outline-success my-2 my-sm-0"
-						onClick={search}
-					>
-						Search
-					</button>
-				</div>
-			</form>
 			<AddAuthor
 				onAddClick={handleAddAuthor}
 				authorInfo={selectedRow}
 				onEditClick={handleEditAuthor}
 			/>
+			<SearchAuthors list={list} onSetList={onListChange} />
 			<div className="container">
 				<table className="table">
 					<Header list={headerList} />
