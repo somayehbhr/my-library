@@ -1,7 +1,6 @@
 import { Button } from "../../../../components/Button";
 import * as React from "react";
 import { useState } from "react";
-import data from "../../../../data/info.json";
 import { IAuthorEntity } from "../../index";
 
 interface Props {

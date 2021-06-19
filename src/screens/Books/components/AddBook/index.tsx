@@ -64,7 +64,7 @@ export const AddBook = (props: IDetailEntity) => {
 		setAuthor(-1);
 	}
 	return (
-		<div className="container">
+		<div className="container addSection bg-light">
 			<form>
 				<div className="row">
 					<div className="col-md-4">

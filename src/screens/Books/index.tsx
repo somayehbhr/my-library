@@ -7,6 +7,8 @@ import { Book } from "./components/Book";
 import { AddBook } from "./components/AddBook";
 //Hooks
 import { ReactNode, useEffect, useState } from "react";
+import { IAuthorEntity } from "../Authors";
+import { SearchBooks } from "./components/SearchBooks";
 
 export interface IBookEntity {
 	id: number;
@@ -23,6 +25,7 @@ const headerList = ["title", "release_date", "rate", "author", "category", "pric
 export const Books = () => {
 	const [list, setList] = useState<Array<IBookEntity>>(data.books);
 	const [selectedRow, setSelectedRow] = useState<any>();
+	const [filterList, setFilterList] = useState<Array<IBookEntity>>([])
 
 	useEffect(() => {
 		const localList = getLocalList();
@@ -74,6 +77,9 @@ export const Books = () => {
 		const newBook = { ...add, id };
 		setList([...list, newBook]);
 	}
+	function onListChange(newList: IBookEntity[]) {
+		setFilterList(newList);
+	}
 
 	return (
 		<>
@@ -83,12 +89,13 @@ export const Books = () => {
 				bookInfo={selectedRow}
 				onEditClick={handleEditBook}
 			/>
-
+            <SearchBooks onSetList={onListChange} list={list}/>
 			<div className="container">
 				<table className="table">
 					<Header list={headerList} />
 					<tbody>
-						{list.map(
+					{filterList.length === 0 ?
+						list.map(
 							(row: IBookEntity, index: number): ReactNode => (
 								<Book
 									key={row.id}
@@ -98,8 +105,19 @@ export const Books = () => {
 									delete={handleDeleteBook(row.id)}
 									edit={() => sendBookInfo(row.id)}
 								/>
-							),
-						)}
+							)
+						) :
+						filterList.map(
+						(row: IBookEntity, index: number): ReactNode => (
+							<Book
+								key={row.id}
+								{...row}
+								{...{ index }}
+								author={getAuthor(row.author_id)}
+								delete={handleDeleteBook(row.id)}
+								edit={() => sendBookInfo(row.id)}
+							/>
+						))}
 					</tbody>
 				</table>
 			</div>

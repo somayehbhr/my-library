@@ -7,6 +7,7 @@ import { Header } from "../../components/Header";
 import { AddAuthor } from "./components/AddAuthor";
 import { Author } from "./components/Author";
 import { SearchAuthors } from "./components/SearchAuthors";
+import { IBookEntity } from "../Books";
 
 export interface IAuthorEntity {
 	id: number;
@@ -18,6 +19,7 @@ const books = data.books;
 export const Authors = () => {
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
+	const [filterList, setFilterList] = useState<Array<IAuthorEntity>>([])
 
 	useEffect(() => {
 		const localList = getLocalList();
@@ -69,7 +71,7 @@ export const Authors = () => {
 	}
 
 	function onListChange(newList: IAuthorEntity[]) {
-		setList(newList);
+		setFilterList(newList);
 	}
 
 	return (
@@ -84,7 +86,15 @@ export const Authors = () => {
 				<table className="table">
 					<Header list={headerList} />
 					<tbody>
-						{list.map((row, index) => (
+						{filterList.length === 0 ? list.map((row, index) => (
+							<Author
+								index={index}
+								fullName={row.fullName}
+								numOfBooks={calculateNumOfBooks(row.id)}
+								delete={handleDeleteAuthor(row.id)}
+								edit={() => sendAuthorInfo(row.id)}
+							/>
+						)): filterList.map((row, index) => (
 							<Author
 								index={index}
 								fullName={row.fullName}
