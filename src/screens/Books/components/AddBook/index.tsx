@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "../../../../components/Button";
 // Json
 import data from "../../../../data/info.json";
+import { useSelector } from "react-redux";
 
 interface IDetailEntity {
 	id: number;
@@ -11,7 +12,9 @@ interface IDetailEntity {
 	onEditClick: any;
 	bookInfo: any;
 }
+
 export const AddBook = (props: IDetailEntity) => {
+	const authors = useSelector((state:any) => (state.authors.list))
 	const [title, setTitle] = useState("");
 	const [releaseDate, setReleaseDate] = useState("");
 	const [rate, setRate] = useState("");
@@ -134,7 +137,7 @@ export const AddBook = (props: IDetailEntity) => {
 							onChange={(event) => setAuthor(Number(event.target.value))}
 						>
 							<option value={-1}>Choose</option>
-							{data.authors.map((row) => (
+							{authors.map((row:any) => (
 								<option key={row.id} value={row.id}>
 									{row.fullName}
 								</option>

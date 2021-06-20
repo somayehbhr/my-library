@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { appStore } from "./store/index.store";
 
+
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={appStore}>

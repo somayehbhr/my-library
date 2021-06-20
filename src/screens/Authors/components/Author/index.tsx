@@ -1,6 +1,8 @@
 import { Button } from "../../../../components/Button";
+import { useDispatch } from "react-redux";
 
 interface IAuthorEntity {
+	id: number;
 	index: number;
 	fullName: string;
 	numOfBooks: number;
@@ -9,13 +11,20 @@ interface IAuthorEntity {
 }
 
 export const Author = (props: IAuthorEntity) => {
+	const dispatch = useDispatch();
+	function deleteAuthor(id:number){
+		dispatch({
+			type: "DELETE_AUTHOR",
+			payload: id
+		})
+	}
 	return (
 		<tr>
 			<td scope="col">{props.index + 1}</td>
 			<td scope="col">{props.fullName}</td>
 			<td scope="col">{props.numOfBooks}</td>
 			<td>
-				<Button onClick={() => props.delete()} text="Delete" className="danger" />
+				<Button onClick={() => deleteAuthor(props.id)} text="Delete" className="danger" />
 				<Button onClick={() => props.edit()} text="Edit" className="primary" />
 			</td>
 		</tr>

@@ -3,6 +3,7 @@ import Screens from "./screens";
 import { AuthorEntity, AuthorState } from "./store/Authors/author.reducer";
 import { StateNetwork } from "./types/store.type";
 import { useDispatch, useSelector } from "react-redux";
+import { appStore } from "./store/index.store";
 
 const App: React.FC = () => {
 	const authors = useSelector<StateNetwork, AuthorState>((state) => state.authors);
@@ -23,6 +24,7 @@ const App: React.FC = () => {
 			payload: id,
 		});
 	}
+
 
 	return (
 		<div className="App">

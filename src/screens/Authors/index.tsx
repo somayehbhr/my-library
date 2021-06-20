@@ -8,6 +8,7 @@ import { AddAuthor } from "./components/AddAuthor";
 import { Author } from "./components/Author";
 import { SearchAuthors } from "./components/SearchAuthors";
 import { IBookEntity } from "../Books";
+import { useSelector } from "react-redux";
 
 export interface IAuthorEntity {
 	id: number;
@@ -17,6 +18,7 @@ export interface IAuthorEntity {
 const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
 export const Authors = () => {
+	const authors = useSelector((state:any)=>state.authors.list)
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
 	const [filterList, setFilterList] = useState<Array<IAuthorEntity>>([])
@@ -86,9 +88,10 @@ export const Authors = () => {
 				<table className="table">
 					<Header list={headerList} />
 					<tbody>
-						{filterList.length === 0 ? list.map((row, index) => (
+						{filterList.length === 0 ? authors.map((row:any, index:number) => (
 							<Author
 								index={index}
+								id={row.id}
 								fullName={row.fullName}
 								numOfBooks={calculateNumOfBooks(row.id)}
 								delete={handleDeleteAuthor(row.id)}
@@ -96,6 +99,7 @@ export const Authors = () => {
 							/>
 						)): filterList.map((row, index) => (
 							<Author
+								id={row.id}
 								index={index}
 								fullName={row.fullName}
 								numOfBooks={calculateNumOfBooks(row.id)}

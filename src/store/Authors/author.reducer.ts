@@ -1,4 +1,5 @@
 import { Reducer } from "redux";
+import data from "../../data/info.json";
 
 export interface AuthorEntity {
 	id: number;
@@ -10,7 +11,7 @@ export interface AuthorState {
 }
 
 const initialState: AuthorState = {
-	list: [{ id: 0, fullName: "Ali" }],
+	list: data.authors,
 	currentId: 0,
 };
 
@@ -25,6 +26,10 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 			...state,
 			currentId: action.payload,
 		};
+	} else if (action.type === "DELETE_AUTHOR"){
+		const newList = state.list.filter((row) => {
+			return row.id !== action.payload});
+		return {...state,list:newList}
 	}
 
 	return state;
