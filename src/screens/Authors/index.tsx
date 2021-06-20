@@ -8,7 +8,7 @@ import { AddAuthor } from "./components/AddAuthor";
 import { Author } from "./components/Author";
 import { SearchAuthors } from "./components/SearchAuthors";
 import { IBookEntity } from "../Books";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export interface IAuthorEntity {
 	id: number;
@@ -18,10 +18,10 @@ export interface IAuthorEntity {
 const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
 export const Authors = () => {
-	const authors = useSelector((state:any)=>state.authors.list)
+	const authors = useSelector((state: any) => state.authors.list);
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
-	const [filterList, setFilterList] = useState<Array<IAuthorEntity>>([])
+	const [filterList, setFilterList] = useState<Array<IAuthorEntity>>([]);
 
 	useEffect(() => {
 		const localList = getLocalList();
@@ -40,7 +40,11 @@ export const Authors = () => {
 		window.localStorage.setItem("authors", JSON.stringify(list));
 	}
 	function sendAuthorInfo(id: number) {
+		console.log("here");
+		console.log("LIST", list);
+		console.log("ID", id);
 		setSelectedRow(list.find((item) => item.id === id)!);
+		console.log("a", list.find((item) => item.id === id)!);
 	}
 	function getLocalList() {
 		try {
@@ -59,54 +63,42 @@ export const Authors = () => {
 			setList(newList);
 		};
 	}
-	function handleAddAuthor(add: any) {
-		const id = Math.floor(Math.random() * 100);
-		const newAuthor = { id, ...add };
-		setList([...list, newAuthor]);
-	}
-	function handleEditAuthor(editedBook: any) {
-		let tempBooks = [...list];
-		let index = tempBooks.indexOf(selectedRow);
-		tempBooks.splice(index, 1);
-		setList([editedBook, ...tempBooks]);
-		setSelectedRow({} as IAuthorEntity);
-	}
-
 	function onListChange(newList: IAuthorEntity[]) {
 		setFilterList(newList);
 	}
 
 	return (
 		<>
-			<AddAuthor
-				onAddClick={handleAddAuthor}
-				authorInfo={selectedRow}
-				onEditClick={handleEditAuthor}
-			/>
+			<AddAuthor authorInfo={selectedRow} selectedRow={selectedRow} />
 			<SearchAuthors list={list} onSetList={onListChange} />
 			<div className="container">
 				<table className="table">
 					<Header list={headerList} />
 					<tbody>
-						{filterList.length === 0 ? authors.map((row:any, index:number) => (
-							<Author
-								index={index}
-								id={row.id}
-								fullName={row.fullName}
-								numOfBooks={calculateNumOfBooks(row.id)}
-								delete={handleDeleteAuthor(row.id)}
-								edit={() => sendAuthorInfo(row.id)}
-							/>
-						)): filterList.map((row, index) => (
-							<Author
-								id={row.id}
-								index={index}
-								fullName={row.fullName}
-								numOfBooks={calculateNumOfBooks(row.id)}
-								delete={handleDeleteAuthor(row.id)}
-								edit={() => sendAuthorInfo(row.id)}
-							/>
-						))}
+						{filterList.length === 0
+							? authors.map((row: any, index: number) => {
+									console.log("ROW", row);
+									return (
+										<Author
+											index={index}
+											id={row.id}
+											fullName={row.fullName}
+											numOfBooks={calculateNumOfBooks(row.id)}
+											delete={handleDeleteAuthor(row.id)}
+											edit={() => sendAuthorInfo(row.id)}
+										/>
+									);
+							  })
+							: filterList.map((row, index) => (
+									<Author
+										id={row.id}
+										index={index}
+										fullName={row.fullName}
+										numOfBooks={calculateNumOfBooks(row.id)}
+										delete={handleDeleteAuthor(row.id)}
+										edit={() => sendAuthorInfo(row.id)}
+									/>
+							  ))}
 					</tbody>
 				</table>
 				{list.length == 0 && (

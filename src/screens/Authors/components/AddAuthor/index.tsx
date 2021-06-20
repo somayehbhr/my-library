@@ -4,29 +4,46 @@ import { useState, useEffect } from "react";
 import { Button } from "../../../../components/Button";
 // Json
 import data from "../../../../data/info.json";
+import { useDispatch } from "react-redux";
 
 interface IDetailEntity {
 	// id: number;
-	onAddClick: any;
-	onEditClick: any;
+	selectedRow: any;
 	authorInfo: any;
 }
 export const AddAuthor = (props: IDetailEntity) => {
 	const [fullName, setFullName] = useState("");
-	const isEditModeEnabled = props.authorInfo.hasOwnProperty("fullName");
+	const isEditModeEnabled = props.authorInfo?.hasOwnProperty("fullName");
+	const dispatch = useDispatch();
 
+	function handleAddAuthor(add: any) {
+		dispatch({
+			type: "ADD_AUTHOR",
+			payload: add,
+		});
+	}
 	function addAuthor() {
-		props.onAddClick({ fullName });
+		handleAddAuthor({ fullName });
 		setFullName("");
 	}
 	useEffect(() => {
 		setFullName(props.authorInfo?.fullName);
 	}, [props.authorInfo]);
 
+	function handleEditAuthor(editedBook: any) {
+		dispatch({
+			type: "EDIT_AUTHOR",
+			payload: {
+				selectedRow: props.selectedRow,
+				editedBook,
+			},
+		});
+	}
 	function editAuthor() {
-		props.onEditClick({ fullName });
+		handleEditAuthor({ fullName });
 		setFullName("");
 	}
+
 	return (
 		<div className="container addSection bg-light">
 			<form>
