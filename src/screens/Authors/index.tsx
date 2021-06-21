@@ -23,35 +23,12 @@ export const Authors = () => {
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
 	const [filterList, setFilterList] = useState<Array<IAuthorEntity>>([]);
 
-	useEffect(() => {
-		const localList = getLocalList();
-		if (Array.isArray(localList) && localList.length) {
-			setList(localList);
-		} else {
-			setList(data.authors);
-		}
-	}, []);
-
-	useEffect(() => {
-		setLocalList(list);
-	}, [list]);
-
-	function setLocalList(list: IAuthorEntity[]) {
-		window.localStorage.setItem("authors", JSON.stringify(list));
-	}
 	function sendAuthorInfo(id: number) {
 		console.log("here");
 		console.log("LIST", list);
 		console.log("ID", id);
 		setSelectedRow(list.find((item) => item.id === id)!);
 		console.log("a", list.find((item) => item.id === id)!);
-	}
-	function getLocalList() {
-		try {
-			return JSON.parse(window.localStorage.getItem("authors")!);
-		} catch (e) {
-			return [];
-		}
 	}
 
 	function calculateNumOfBooks(id: number) {
@@ -84,7 +61,7 @@ export const Authors = () => {
 											id={row.id}
 											fullName={row.fullName}
 											numOfBooks={calculateNumOfBooks(row.id)}
-											delete={handleDeleteAuthor(row.id)}
+											delete={() => handleDeleteAuthor(row.id)}
 											edit={() => sendAuthorInfo(row.id)}
 										/>
 									);
