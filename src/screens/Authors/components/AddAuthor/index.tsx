@@ -34,8 +34,8 @@ export const AddAuthor = (props: IDetailEntity) => {
 		dispatch({
 			type: "EDIT_AUTHOR",
 			payload: {
-				selectedRow: props.selectedRow,
-				editedBook,
+				id: props.selectedRow.id,
+				data: editedBook.fullName,
 			},
 		});
 	}

@@ -9,6 +9,8 @@ import { Author } from "./components/Author";
 import { SearchAuthors } from "./components/SearchAuthors";
 import { IBookEntity } from "../Books";
 import { useDispatch, useSelector } from "react-redux";
+import { StateNetwork } from "../../types/store.type";
+import { AuthorState } from "../../store/Authors/author.reducer";
 
 export interface IAuthorEntity {
 	id: number;
@@ -18,27 +20,22 @@ export interface IAuthorEntity {
 const headerList = ["fullName", "number Of Books", "action"];
 const books = data.books;
 export const Authors = () => {
-	const authors = useSelector((state: any) => state.authors.list);
+	const authors = useSelector<StateNetwork, Array<IAuthorEntity>>((state) => state.authors.list);
 	const [list, setList] = useState<Array<IAuthorEntity>>(data.authors);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
 	const [filterList, setFilterList] = useState<Array<IAuthorEntity>>([]);
 
 	function sendAuthorInfo(id: number) {
-		console.log("here");
-		console.log("LIST", list);
-		console.log("ID", id);
-		setSelectedRow(list.find((item) => item.id === id)!);
-		console.log("a", list.find((item) => item.id === id)!);
+		setSelectedRow(authors.find((item) => item.id === id)!);
 	}
 
 	function calculateNumOfBooks(id: number) {
 		return books.filter((item) => item.author_id === id).length;
 	}
 	function handleDeleteAuthor(id: number) {
-		return function () {
-			const newList = list.filter((row) => row.id !== id);
-			setList(newList);
-		};
+		const newList = list.filter((row) => row.id !== id);
+
+		setList(newList);
 	}
 	function onListChange(newList: IAuthorEntity[]) {
 		setFilterList(newList);
@@ -52,8 +49,7 @@ export const Authors = () => {
 				<table className="table">
 					<Header list={headerList} />
 					<tbody>
-						{filterList.length === 0
-							? authors.map((row: any, index: number) => {
+						{(filterList.length ? filterList : authors).map((row: any, index: number) => {
 									console.log("ROW", row);
 									return (
 										<Author
@@ -66,16 +62,7 @@ export const Authors = () => {
 										/>
 									);
 							  })
-							: filterList.map((row, index) => (
-									<Author
-										id={row.id}
-										index={index}
-										fullName={row.fullName}
-										numOfBooks={calculateNumOfBooks(row.id)}
-										delete={handleDeleteAuthor(row.id)}
-										edit={() => sendAuthorInfo(row.id)}
-									/>
-							  ))}
+						}
 					</tbody>
 				</table>
 				{list.length == 0 && (

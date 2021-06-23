@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: added search filter component">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="chore: minor improvement">
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
     </list>
@@ -122,7 +123,8 @@
       <workItem from="1623999996341" duration="3998000" />
       <workItem from="1624081069721" duration="7750000" />
       <workItem from="1624091967599" duration="720000" />
-      <workItem from="1624267943099" duration="596000" />
+      <workItem from="1624267943099" duration="792000" />
+      <workItem from="1624372921080" duration="2950000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -236,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624198149367</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="chore: minor improvement">
+      <created>1624278649367</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1624278649367</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,11 +271,11 @@
     <MESSAGE value="feat: added Header component to BookList" />
     <MESSAGE value="chore: cleaning the code" />
     <MESSAGE value="fix: prevent to reset route when refresh the page" />
-    <MESSAGE value="chore: minor improvement" />
     <MESSAGE value="feat: added template of search box" />
     <MESSAGE value="style: add background for add form" />
     <MESSAGE value="feat: added redux for delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added redux for delete" />
+    <MESSAGE value="chore: minor improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: minor improvement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -30,11 +30,15 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 			list: [...state.list, newAuthor],
 		};
 	} else if (action.type === "EDIT_AUTHOR") {
-		let tempBooks = [...state.list];
-		let index = tempBooks.indexOf(action.payload.selectedRow);
-		tempBooks[index] = { ...tempBooks[index], ...action.payload.editedBook };
-		// setSelectedRow({} as IAuthorEntity);
-		return { ...state, list: tempBooks };
+		let $authors = [...state.list].map(author => {
+			if(author.id === action.payload.id) {
+				author.fullName = action.payload.data;
+			}
+
+			return author;
+		})
+
+		return { ...state, list: $authors };
 	}
 
 	return state;
