@@ -18,7 +18,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleAddAuthor(add: any) {
 		dispatch({
-			type: "ADD_AUTHOR",
+			type: "AUTHORS/ADD",
 			payload: add,
 		});
 	}
@@ -32,7 +32,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleEditAuthor(editedBook: any) {
 		dispatch({
-			type: "EDIT_AUTHOR",
+			type: "AUTHORS/EDIT",
 			payload: {
 				id: props.selectedRow.id,
 				data: editedBook.fullName,

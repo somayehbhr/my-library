@@ -14,7 +14,7 @@ export const Author = (props: IAuthorEntity) => {
 	const dispatch = useDispatch();
 	function deleteAuthor(id:number){
 		dispatch({
-			type: "DELETE_AUTHOR",
+			type: "AUTHORS/DELETE",
 			payload: id
 		})
 	}

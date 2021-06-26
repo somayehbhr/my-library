@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: added redux for edit action">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: add redux for search action">
+      <change afterPath="$PROJECT_DIR$/src/store/Authors/book.reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.reducers.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +128,8 @@
       <workItem from="1624091967599" duration="720000" />
       <workItem from="1624267943099" duration="792000" />
       <workItem from="1624372921080" duration="3015000" />
-      <workItem from="1624462617737" duration="1974000" />
+      <workItem from="1624462617737" duration="2627000" />
+      <workItem from="1624694913897" duration="2851000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -254,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624426901093</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: add redux for search action">
+      <created>1624684213687</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1624684213687</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +295,9 @@
     <MESSAGE value="feat: added redux for delete" />
     <MESSAGE value="chore: minor improvement" />
     <MESSAGE value="feat: added redux for edit action" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added redux for edit action" />
+    <MESSAGE value="feat: added redux for search action" />
+    <MESSAGE value="feat: add redux for search action" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add redux for search action" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

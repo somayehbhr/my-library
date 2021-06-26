@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
 	function addAuthor(author: AuthorEntity) {
 		dispatch({
-			type: "ADD_AUTHOR",
+			type: "AUTHORS/ADD",
 			payload: author,
 		});
 	}
