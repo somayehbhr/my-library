@@ -2,20 +2,31 @@ import { Button } from "../../../../components/Button";
 import * as React from "react";
 import { useState } from "react";
 import { IAuthorEntity } from "../../index";
+import { useDispatch } from "react-redux";
 
 interface Props {
 	onSetList: (list: IAuthorEntity[]) => void;
 	list: IAuthorEntity[];
 }
+
 export const SearchAuthors: React.FC<Props> = (props) => {
+	const dispatch = useDispatch();
 	const [searchItem, setSearchItem] = useState("");
-	function search() {
-		let result = props.list.filter((s) => {
-			return s.fullName.includes(searchItem);
-		});
-		props.onSetList(result);
-		console.log("result", result);
+
+	function search() {;
+		if (searchItem.length) {
+
+			dispatch({
+				type: "AUTHORS/SEARCH",
+				payload: searchItem,
+			});
+		} else {
+			dispatch({
+				type: "AUTHORS/CLEAR_SEARCH",
+			});
+		}
 	}
+
 	return (
 		<div className="container addSection bg-light">
 			<form>

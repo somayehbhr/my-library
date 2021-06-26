@@ -4,13 +4,11 @@ export const Header = (props: any) => {
 			<tr>
 				<th scope="col">#</th>
 
-				{props.list.map((item: any): any => {
-					return (
-						<th key={item} scope="col">
-							{item}
-						</th>
-					);
-				})}
+				{props.list.map((item: any): any => (
+					<th key={item} scope="col">
+						{item}
+					</th>
+				))}
 			</tr>
 		</thead>
 	);

@@ -32,11 +32,13 @@ export const Authors = () => {
 	function calculateNumOfBooks(id: number) {
 		return books.filter((item) => item.author_id === id).length;
 	}
+
 	function handleDeleteAuthor(id: number) {
 		const newList = list.filter((row) => row.id !== id);
 
 		setList(newList);
 	}
+
 	function onListChange(newList: IAuthorEntity[]) {
 		setFilterList(newList);
 	}
@@ -46,30 +48,28 @@ export const Authors = () => {
 			<AddAuthor authorInfo={selectedRow} selectedRow={selectedRow} />
 			<SearchAuthors list={list} onSetList={onListChange} />
 			<div className="container">
-				<table className="table">
-					<Header list={headerList} />
-					<tbody>
-						{(filterList.length ? filterList : authors).map((row: any, index: number) => {
-									console.log("ROW", row);
-									return (
-										<Author
-											index={index}
-											id={row.id}
-											fullName={row.fullName}
-											numOfBooks={calculateNumOfBooks(row.id)}
-											delete={() => handleDeleteAuthor(row.id)}
-											edit={() => sendAuthorInfo(row.id)}
-										/>
-									);
-							  })
-						}
-					</tbody>
-				</table>
-				{list.length == 0 && (
-					<div className="alert alert-danger" role="alert">
+				{
+					authors.length ? (
+						<table className="table">
+							<Header list={headerList} />
+							<tbody>
+							{authors.map((row, index) => (
+								<Author
+									index={index}
+									id={row.id}
+									fullName={row.fullName}
+									numOfBooks={calculateNumOfBooks(row.id)}
+									delete={() => handleDeleteAuthor(row.id)}
+									edit={() => sendAuthorInfo(row.id)}
+								/>
+							))
+							}
+							</tbody>
+						</table>
+					) : <div className="alert alert-danger" role="alert">
 						There is no result to show!
 					</div>
-				)}
+				}
 			</div>
 		</>
 	);
