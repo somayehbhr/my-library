@@ -6,12 +6,11 @@ import { Header } from "../../components/Header";
 import { Book } from "./components/Book";
 import { AddBook } from "./components/AddBook";
 //Hooks
-import { ReactNode, useEffect, useState } from "react";
-import { IAuthorEntity } from "../Authors";
+import { useState } from "react";
 import { SearchBooks } from "./components/SearchBooks";
 import { useSelector } from "react-redux";
 import { StateNetwork } from "../../types/store.type";
-import { Author } from "../Authors/components/Author";
+
 
 export interface IBookEntity {
 	id: number;
@@ -32,8 +31,8 @@ export const Books = () => {
 	const [filterList, setFilterList] = useState<Array<IBookEntity>>([])
 
 	function sendBookInfo(id: number) {
-
 		setSelectedRow(books.find((item) => item.id === id));
+		console.log((books.find((item) => item.id === id)))
 	}
 	function handleEditBook(editedBook: any) {
 		let tempBooks = [...list];
@@ -58,7 +57,7 @@ export const Books = () => {
 	return (
 		<>
 			<AddBook bookInfo={selectedRow} selectedRow={selectedRow} />
-            {/*<SearchBooks onSetList={onListChange} list={list}/>*/}
+            <SearchBooks onSetList={onListChange} list={list}/>
 			<div className="container">
 				{
 						books.length ? (

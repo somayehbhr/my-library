@@ -22,7 +22,7 @@ export const AddBook = (props: IDetailEntity) => {
 	const [category, setCategory] = useState("");
 	const [price, setPrice] = useState("");
 	const [author, setAuthor] = useState(-1);
-	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("fullName");
+	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("title");
 	const dispatch = useDispatch();
 
 	function handleAddBook(add: any) {
@@ -147,9 +147,9 @@ export const AddBook = (props: IDetailEntity) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							onClick={props.bookInfo ? editBook : addBook}
-							text={props.bookInfo ? "Edit" : "Add"}
-							className={props.bookInfo ? "primary" : "success"}
+							onClick={isEditModeEnabled ? editBook : addBook}
+							text={isEditModeEnabled ? "Edit" : "Add"}
+							className={isEditModeEnabled ? "primary" : "success"}
 						/>
 					</div>
 				</div>
