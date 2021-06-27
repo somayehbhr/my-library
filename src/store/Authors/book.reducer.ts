@@ -54,6 +54,8 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 			// return s.fullName.toLowerCase().includes(action.payload);
 		})
 		return {
+
+
 			...state,
 			list: $filteredBooks
 		}
