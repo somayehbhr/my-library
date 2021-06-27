@@ -6,7 +6,6 @@ interface IAuthorEntity {
 	index: number;
 	fullName: string;
 	numOfBooks: number;
-	delete: any;
 	edit: any;
 }
 
@@ -14,7 +13,7 @@ export const Author = (props: IAuthorEntity) => {
 	const dispatch = useDispatch();
 	function deleteAuthor(id:number){
 		dispatch({
-			type: "DELETE_AUTHOR",
+			type: "AUTHORS/DELETE",
 			payload: id
 		})
 	}

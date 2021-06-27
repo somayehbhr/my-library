@@ -25,8 +25,6 @@ const initialState: BookState = {
 export const bookReducer: Reducer<BookState> = (state = initialState, action) => {
 	if (action.type === "BOOKS/DELETE") {
 		const newList = state.readOnlyList.filter((row) => {
-
-
 			return row.id !== action.payload;
 		});
 		return { ...state, list: newList, readOnlyList: newList };
@@ -56,8 +54,6 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 			// return s.fullName.toLowerCase().includes(action.payload);
 		})
 		return {
-
-
 			...state,
 			list: $filteredBooks
 		}

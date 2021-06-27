@@ -1,5 +1,5 @@
 // Hooks
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // Dummy data
 import data from "../../data/info.json";
 // Common components
@@ -7,10 +7,8 @@ import { Header } from "../../components/Header";
 import { AddAuthor } from "./components/AddAuthor";
 import { Author } from "./components/Author";
 import { SearchAuthors } from "./components/SearchAuthors";
-import { IBookEntity } from "../Books";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { StateNetwork } from "../../types/store.type";
-import { AuthorState } from "../../store/Authors/author.reducer";
 
 export interface IAuthorEntity {
 	id: number;
@@ -33,12 +31,6 @@ export const Authors = () => {
 		return books.filter((item) => item.author_id === id).length;
 	}
 
-	function handleDeleteAuthor(id: number) {
-		const newList = list.filter((row) => row.id !== id);
-
-		setList(newList);
-	}
-
 	function onListChange(newList: IAuthorEntity[]) {
 		setFilterList(newList);
 	}
@@ -59,7 +51,6 @@ export const Authors = () => {
 									id={row.id}
 									fullName={row.fullName}
 									numOfBooks={calculateNumOfBooks(row.id)}
-									delete={() => handleDeleteAuthor(row.id)}
 									edit={() => sendAuthorInfo(row.id)}
 								/>
 							))

@@ -1,6 +1,5 @@
 import { Reducer } from "redux";
 import data from "../../data/info.json";
-import { IAuthorEntity } from "../../screens/Authors";
 
 export interface AuthorEntity {
 	id: number;
@@ -19,12 +18,12 @@ const initialState: AuthorState = {
 };
 
 export const authorReducer: Reducer<AuthorState> = (state = initialState, action) => {
-	if (action.type === "DELETE_AUTHOR") {
+	if (action.type === "AUTHORS/DELETE") {
 		const newList = state.readOnlyList.filter((row) => {
 			return row.id !== action.payload;
 		});
 		return { ...state, list: newList, readOnlyList: newList };
-	} else if (action.type === "ADD_AUTHOR") {
+	} else if (action.type === "AUTHORS/ADD") {
 		const id = Math.floor(Math.random() * 100);
 		const newAuthor = { id, ...action.payload };
 		return {
@@ -32,7 +31,7 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 			list: [...state.list, newAuthor],
 			readOnlyList: [...state.list, newAuthor]
 		};
-	} else if (action.type === "EDIT_AUTHOR") {
+	} else if (action.type === "AUTHORS/EDIT") {
 		let $authors = [...state.list].map(author => {
 			if(author.id === action.payload.id) {
 				author.fullName = action.payload.data;
