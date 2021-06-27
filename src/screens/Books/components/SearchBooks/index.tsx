@@ -1,8 +1,9 @@
 import data from "../../../../data/info.json";
 import { Button } from "../../../../components/Button";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import * as React from "react";
 import { IBookEntity } from "../../index";
+import { useDispatch } from "react-redux";
 
 interface Props {
 	onSetList: (list: IBookEntity[]) => void;
@@ -10,17 +11,41 @@ interface Props {
 }
 
 export const SearchBooks:React.FC<Props> = (props) =>{
-	const [titleSearch, setTitleSearch] = useState("");
-	const [releaseDateSearch, setReleaseDateSearch] = useState("");
-	const [rateSearch, setRateSearch] = useState("");
-	const [categorySearch, setCategorySearch] = useState("");
-	const [authorSearch, setAuthorSearch] = useState(-1);
+	const [searchItem, setSearchItem] = useState({title: "", release_date: "", rate: "", category: "", author_id: -1})
+	const dispatch = useDispatch()
 	function search() {
-		let result = props.list.filter((s) => {
-			return (s.title.includes(titleSearch) && s.release_date.includes(releaseDateSearch) && s.rate.toString().includes(rateSearch) && s.category.includes(categorySearch) || (authorSearch && s.author_id === authorSearch) )
-		});
-		props.onSetList(result);
+		const values = Object.values((searchItem));
+		const filterSearchValues = values.filter((item: any) => item !== "" && item !== -1);
+		const isEmptySearch = !filterSearchValues?.length;
+		if (!isEmptySearch ) {
+
+
+			dispatch({
+				type: "BOOKS/SEARCH",
+				payload: searchItem,
+			});
+		} else {
+			dispatch({
+				type: "BOOKS/CLEAR_SEARCH",
+			});
+		}
 	}
+	function searchTitle(event: ChangeEvent<HTMLInputElement>) {
+		setSearchItem({...searchItem, title: event.target.value})
+	}
+	function searchReleaseDate(event: ChangeEvent<HTMLInputElement>) {
+		setSearchItem({...searchItem, title: event.target.value})
+	}
+	function searchRate(event: ChangeEvent<HTMLInputElement>) {
+		setSearchItem({...searchItem, title: event.target.value})
+	}
+	function searchCategory(event: ChangeEvent<HTMLInputElement>) {
+		setSearchItem({...searchItem, title: event.target.value})
+	}
+	function searchAuthor(event: ChangeEvent<HTMLSelectElement>) {
+		setSearchItem({...searchItem, author_id: Number(event.target.value)})
+	}
+
 	return(
 		<div className="container addSection bg-light">
 			<form>
@@ -32,8 +57,8 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Title"
-							value={titleSearch}
-							onChange={(event) => setTitleSearch(event.target.value)}
+							value={searchItem?.title}
+							onChange={searchTitle}
 						/>
 					</div>
 					<div className="col-md-4">
@@ -43,8 +68,8 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="dd/mm/yyyy"
-							value={releaseDateSearch}
-							onChange={(event) => setReleaseDateSearch(event.target.value)}
+							value={searchItem?.release_date}
+							onChange={searchReleaseDate}
 						/>
 					</div>
 					<div className="col-md-4">
@@ -54,8 +79,8 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Rate"
-							value={rateSearch}
-							onChange={(event) => setRateSearch(event.target.value)}
+							value={searchItem?.rate}
+							onChange={searchRate}
 						/>
 					</div>
 				</div>
@@ -67,8 +92,8 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Category"
-							value={categorySearch}
-							onChange={(event) => setCategorySearch(event.target.value)}
+							value={searchItem?.category}
+							onChange={searchCategory}
 						/>
 					</div>
 
@@ -78,8 +103,8 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 							defaultValue={-1}
 							className="form-select"
 							id="autoSizingSelect"
-							value={authorSearch}
-							onChange={(event) => setAuthorSearch(Number(event.target.value))}
+							value={searchItem?.author_id}
+							onChange={searchAuthor}
 						>
 							<option value={-1}>Choose</option>
 							{data.authors.map((row) => (

@@ -30,6 +30,7 @@ export const Books = () => {
 	const [selectedRow, setSelectedRow] = useState<any>();
 	const [filterList, setFilterList] = useState<Array<IBookEntity>>([])
 
+	console.log("selectedRow", selectedRow)
 	function sendBookInfo(id: number) {
 		setSelectedRow(books.find((item) => item.id === id));
 		console.log((books.find((item) => item.id === id)))

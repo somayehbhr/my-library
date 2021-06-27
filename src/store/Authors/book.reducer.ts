@@ -41,20 +41,28 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 			if(book.id === action.payload.id) {
 				book.title = action.payload.title;
 				book.rate = action.payload.rate;
-				book.release_date = action.payload.releaseDate;
+				book.release_date = action.payload.release_date;
 				book.category = action.payload.category;
 				book.author_id = action.payload.author_id;
+				console.log("book", book)
 			}
 			return book;
 		})
 
+		console.log("$books", $books);
+
 		return { ...state, list: $books };
 	}else if(action.type === "BOOKS/SEARCH") {
 		const $filteredBooks = state.readOnlyList.filter((s) => {
-			// return s.fullName.toLowerCase().includes(action.payload);
+			const {title, release_date, rate, category, author_id} = action.payload;
+			return(
+				((s.author_id === author_id) || -1) &&
+				s.title.includes(title) &&
+				s.release_date.includes(release_date) &&
+				s.rate.toString().includes(rate) &&
+				s.category.includes(category))
 		})
 		return {
-
 
 			...state,
 			list: $filteredBooks
