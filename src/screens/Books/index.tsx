@@ -9,6 +9,9 @@ import { AddBook } from "./components/AddBook";
 import { ReactNode, useEffect, useState } from "react";
 import { IAuthorEntity } from "../Authors";
 import { SearchBooks } from "./components/SearchBooks";
+import { useSelector } from "react-redux";
+import { StateNetwork } from "../../types/store.type";
+import { Author } from "../Authors/components/Author";
 
 export interface IBookEntity {
 	id: number;
@@ -23,43 +26,15 @@ export interface IBookEntity {
 const headerList = ["title", "release_date", "rate", "author", "category", "price", "action"];
 
 export const Books = () => {
+	const books = useSelector<StateNetwork, Array<IBookEntity>>((state) => state.books.list);
 	const [list, setList] = useState<Array<IBookEntity>>(data.books);
 	const [selectedRow, setSelectedRow] = useState<any>();
 	const [filterList, setFilterList] = useState<Array<IBookEntity>>([])
 
-	useEffect(() => {
-		const localList = getLocalList();
-
-		if (Array.isArray(localList) && localList.length) {
-			setList(localList);
-		} else {
-			setList(data.books);
-		}
-	}, []);
-
-	useEffect(() => {
-		setLocalList(list);
-	}, [list]);
-
-	function setLocalList(list: IBookEntity[]) {
-		window.localStorage.setItem("books", JSON.stringify(list));
-	}
-
-	function getLocalList() {
-		try {
-			return JSON.parse(window.localStorage.getItem("books") as string);
-		} catch (e) {
-			return [];
-		}
-	}
-	function handleDeleteBook(id: number) {
-		return function () {
-			const newList = list.filter((row) => row.id !== id);
-			setList(newList);
-		};
-	}
 	function sendBookInfo(id: number) {
-		setSelectedRow(list.find((item) => item.id === id));
+
+		setSelectedRow(books.find((item) => item.id === id)!);
+		console.log(setSelectedRow(books.find((item) => item.id === id)!))
 	}
 	function handleEditBook(editedBook: any) {
 		let tempBooks = [...list];
@@ -83,43 +58,30 @@ export const Books = () => {
 
 	return (
 		<>
-			<AddBook
-				id={list.length}
-				onAddClick={handleAddBook}
-				bookInfo={selectedRow}
-				onEditClick={handleEditBook}
-			/>
-            <SearchBooks onSetList={onListChange} list={list}/>
+			<AddBook bookInfo={selectedRow} selectedRow={selectedRow} />
+            {/*<SearchBooks onSetList={onListChange} list={list}/>*/}
 			<div className="container">
-				<table className="table">
-					<Header list={headerList} />
-					<tbody>
-					{filterList.length === 0 ?
-						list.map(
-							(row: IBookEntity, index: number): ReactNode => (
-								<Book
-									key={row.id}
-									{...row}
-									{...{ index }}
-									author={getAuthor(row.author_id)}
-									delete={handleDeleteBook(row.id)}
-									edit={() => sendBookInfo(row.id)}
-								/>
-							)
-						) :
-						filterList.map(
-						(row: IBookEntity, index: number): ReactNode => (
-							<Book
-								key={row.id}
-								{...row}
-								{...{ index }}
-								author={getAuthor(row.author_id)}
-								delete={handleDeleteBook(row.id)}
-								edit={() => sendBookInfo(row.id)}
-							/>
-						))}
-					</tbody>
-				</table>
+				{
+						books.length ? (
+							<table className="table">
+								<Header list={headerList} />
+								<tbody>
+								{books.map((row, index) => (
+									<Book
+										key={row.id}
+										{...row}
+										{...{ index }}
+										author={getAuthor(row.author_id)}
+										edit={() => sendBookInfo(row.id)}
+									/>
+								))
+								}
+								</tbody>
+							</table>
+						) : <div className="alert alert-danger" role="alert">
+							There is no result to show!
+						</div>
+					}
 			</div>
 		</>
 	);

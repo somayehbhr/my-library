@@ -6,7 +6,6 @@ interface IAuthorEntity {
 	index: number;
 	fullName: string;
 	numOfBooks: number;
-	delete: any;
 	edit: any;
 }
 

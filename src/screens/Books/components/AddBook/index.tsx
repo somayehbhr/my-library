@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 // Common components
 import { Button } from "../../../../components/Button";
 // Json
-import data from "../../../../data/info.json";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 interface IDetailEntity {
-	id: number;
-	onAddClick: any;
-	onEditClick: any;
+	// id: number;
+	// onAddClick: any;
+	// onEditClick: any;
+	// bookInfo: any;
+	selectedRow: any;
 	bookInfo: any;
 }
 
@@ -21,26 +22,18 @@ export const AddBook = (props: IDetailEntity) => {
 	const [category, setCategory] = useState("");
 	const [price, setPrice] = useState("");
 	const [author, setAuthor] = useState(-1);
+	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("fullName");
+	const dispatch = useDispatch();
 
-	useEffect(() => {
-		setTitle(props.bookInfo?.title);
-		setReleaseDate(props.bookInfo?.release_date);
-		setRate(props.bookInfo?.rate);
-		setCategory(props.bookInfo?.category);
-		setPrice(props.bookInfo?.price);
-		setAuthor(props.bookInfo?.author_id);
-	}, [props.bookInfo]);
+	function handleAddBook(add: any) {
+		dispatch({
+			type: "BOOKS/ADD",
+			payload: add,
+		});
+	}
 
 	function addBook() {
-		props.onAddClick({
-			id: props.id,
-			title: title,
-			rate: rate,
-			release_date: releaseDate,
-			category: category,
-			price: price,
-			author_id: author,
-		});
+		handleAddBook({ title, rate, releaseDate, category, price, author});
 		setTitle("");
 		setReleaseDate("");
 		setRate("");
@@ -49,16 +42,21 @@ export const AddBook = (props: IDetailEntity) => {
 		setAuthor(-1);
 	}
 
-	function editBook() {
-		props.onEditClick({
-			id: props.id,
-			title: title,
-			rate: rate,
-			release_date: releaseDate,
-			category: category,
-			price: price,
-			author_id: author,
+	function handleEditBook(editedBook: any) {
+		dispatch({
+			type: "BOOKS/EDIT",
+			payload: {
+				id: props.selectedRow.id,
+				title: editedBook.title,
+				rate: editedBook.rate,
+				release_date: editedBook.releaseDate,
+				category: editedBook.price,
+				author_id: editedBook.author_id,
+			},
 		});
+	}
+	function editBook() {
+		handleEditBook({ title, rate, releaseDate, category, price, author});
 		setTitle("");
 		setReleaseDate("");
 		setRate("");

@@ -7,7 +7,7 @@ export interface BookEntity {
 	release_date: string;
 	category: string;
 	rate: number;
-	book_id?: number;
+	author_id?: number;
 	price: string;
 }
 export interface BookState {
@@ -39,9 +39,12 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 	} else if (action.type === "BOOKS/EDIT") {
 		let $books = [...state.list].map(book => {
 			if(book.id === action.payload.id) {
-				// book.fullName = action.payload.data;
+				// book.title = action.payload.title;
+				// book.rate = action.payload.rate;
+				// book.release_date = action.payload.releaseDate;
+				// book.category = action.payload.category;
+				// book.author_id = action.payload.author_id;
 			}
-
 			return book;
 		})
 

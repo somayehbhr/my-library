@@ -1,5 +1,6 @@
 // Common components
 import { Button } from "../../../../components/Button";
+import { useDispatch } from "react-redux";
 
 interface IBookEntity {
 	id: number;
@@ -10,12 +11,18 @@ interface IBookEntity {
 	author_id?: number;
 	price: string;
 	index: number;
-	delete: any;
 	edit: any;
 	author?: string;
 }
 
 export const Book = (props: IBookEntity) => {
+	const dispatch = useDispatch();
+	function deleteBook(id:number){
+		dispatch({
+			type: "BOOKS/DELETE",
+			payload: id
+		})
+	}
 	return (
 		<tr>
 			<td>{props.index + 1}</td>
@@ -26,7 +33,7 @@ export const Book = (props: IBookEntity) => {
 			<td>{props.category}</td>
 			<td>{props.price}</td>
 			<td>
-				<Button onClick={() => props.delete()} text="Delete" className="danger" />
+				<Button onClick={() => deleteBook(props.id)} text="Delete" className="danger" />
 				<Button onClick={() => props.edit()} text="Edit" className="primary" />
 			</td>
 		</tr>
