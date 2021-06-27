@@ -33,8 +33,7 @@ export const Books = () => {
 
 	function sendBookInfo(id: number) {
 
-		setSelectedRow(books.find((item) => item.id === id)!);
-		console.log(setSelectedRow(books.find((item) => item.id === id)!))
+		setSelectedRow(books.find((item) => item.id === id));
 	}
 	function handleEditBook(editedBook: any) {
 		let tempBooks = [...list];

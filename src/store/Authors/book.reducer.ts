@@ -39,11 +39,11 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 	} else if (action.type === "BOOKS/EDIT") {
 		let $books = [...state.list].map(book => {
 			if(book.id === action.payload.id) {
-				// book.title = action.payload.title;
-				// book.rate = action.payload.rate;
-				// book.release_date = action.payload.releaseDate;
-				// book.category = action.payload.category;
-				// book.author_id = action.payload.author_id;
+				book.title = action.payload.title;
+				book.rate = action.payload.rate;
+				book.release_date = action.payload.releaseDate;
+				book.category = action.payload.category;
+				book.author_id = action.payload.author_id;
 			}
 			return book;
 		})
