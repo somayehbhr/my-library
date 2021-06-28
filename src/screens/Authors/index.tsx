@@ -1,8 +1,6 @@
 // Hooks
 import { useState } from "react";
 import { useSelector } from "react-redux";
-// Dummy data
-import data from "../../data/info.json";
 // Common components
 import { Header } from "../../components/Header";
 import { AddAuthor } from "./components/AddAuthor";
@@ -10,6 +8,7 @@ import { Author } from "./components/Author";
 import { SearchAuthors } from "./components/SearchAuthors";
 // Types
 import { StateNetwork } from "../../types/store.type";
+import { IBookEntity } from "../Books";
 
 export interface IAuthorEntity {
 	id: number;
@@ -17,9 +16,9 @@ export interface IAuthorEntity {
 }
 
 const headerList = ["fullName", "number Of Books", "action"];
-const books = data.books;
 export const Authors = () => {
 	const authors = useSelector<StateNetwork, Array<IAuthorEntity>>((state) => state.authors.list);
+	const books = useSelector<StateNetwork, Array<IBookEntity>>((state) => state.books.list);
 	const [selectedRow, setSelectedRow] = useState<IAuthorEntity>({} as IAuthorEntity);
 
 	function sendAuthorInfo(id: number) {
