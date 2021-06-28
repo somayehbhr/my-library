@@ -184,7 +184,7 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-3">
 						<Button
 							onClick={isEditModeEnabled ? editBook : addBook}
-							text={isEditModeEnabled ? "Edit" : "Add"}
+							text={isEditModeEnabled ? "Submit" : "Add"}
 							className={isEditModeEnabled ? "primary" : "success"}
 						/>
 					</div>

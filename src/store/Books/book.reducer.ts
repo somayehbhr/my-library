@@ -55,7 +55,6 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 	} else if (action.type === "BOOKS/SEARCH") {
 		const $filteredBooks = state.readOnlyList.filter((s) => {
 			const { title, release_date, rate, category, author_id } = action.payload;
-			console.log(author_id);
 			return (
 				s.author_id === author_id ||
 				(s.title.includes(title) &&
