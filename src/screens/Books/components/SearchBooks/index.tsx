@@ -35,13 +35,13 @@ export const SearchBooks: React.FC = () => {
 		setSearchItem({ ...searchItem, title: event.target.value });
 	}
 	function searchReleaseDate(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({ ...searchItem, title: event.target.value });
+		setSearchItem({ ...searchItem, release_date: event.target.value });
 	}
 	function searchRate(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({ ...searchItem, title: event.target.value });
+		setSearchItem({ ...searchItem, rate: event.target.value });
 	}
 	function searchCategory(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({ ...searchItem, title: event.target.value });
+		setSearchItem({ ...searchItem, category: event.target.value });
 	}
 	function searchAuthor(event: ChangeEvent<HTMLSelectElement>) {
 		setSearchItem({ ...searchItem, author_id: Number(event.target.value) });
