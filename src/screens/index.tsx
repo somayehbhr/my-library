@@ -1,6 +1,6 @@
 // Common components
 import { Navbar } from "../components/Navbar";
-// Routers
+// React routers
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 // Screens
 import { Books } from "./Books";

@@ -1,4 +1,6 @@
+// Common components
 import { Button } from "../../../../components/Button";
+// Hooks
 import { useDispatch } from "react-redux";
 
 interface IAuthorEntity {
@@ -11,11 +13,11 @@ interface IAuthorEntity {
 
 export const Author = (props: IAuthorEntity) => {
 	const dispatch = useDispatch();
-	function deleteAuthor(id:number){
+	function deleteAuthor(id: number) {
 		dispatch({
 			type: "AUTHORS/DELETE",
-			payload: id
-		})
+			payload: id,
+		});
 	}
 	return (
 		<tr>

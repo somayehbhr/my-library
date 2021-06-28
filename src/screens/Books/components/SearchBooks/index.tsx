@@ -1,25 +1,26 @@
-import data from "../../../../data/info.json";
-import { Button } from "../../../../components/Button";
-import { ChangeEvent, useState } from "react";
 import * as React from "react";
-import { IBookEntity } from "../../index";
+// Dummy data
+import data from "../../../../data/info.json";
+// Common components
+import { Button } from "../../../../components/Button";
+// Hooks
+import { ChangeEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 
-interface Props {
-	onSetList: (list: IBookEntity[]) => void;
-	list: IBookEntity[];
-}
-
-export const SearchBooks:React.FC<Props> = (props) =>{
-	const [searchItem, setSearchItem] = useState({title: "", release_date: "", rate: "", category: "", author_id: -1})
-	const dispatch = useDispatch()
+export const SearchBooks: React.FC = () => {
+	const [searchItem, setSearchItem] = useState({
+		title: "",
+		release_date: "",
+		rate: "",
+		category: "",
+		author_id: -1,
+	});
+	const dispatch = useDispatch();
 	function search() {
-		const values = Object.values((searchItem));
+		const values = Object.values(searchItem);
 		const filterSearchValues = values.filter((item: any) => item !== "" && item !== -1);
 		const isEmptySearch = !filterSearchValues?.length;
-		if (!isEmptySearch ) {
-
-
+		if (!isEmptySearch) {
 			dispatch({
 				type: "BOOKS/SEARCH",
 				payload: searchItem,
@@ -31,22 +32,22 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 		}
 	}
 	function searchTitle(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({...searchItem, title: event.target.value})
+		setSearchItem({ ...searchItem, title: event.target.value });
 	}
 	function searchReleaseDate(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({...searchItem, title: event.target.value})
+		setSearchItem({ ...searchItem, title: event.target.value });
 	}
 	function searchRate(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({...searchItem, title: event.target.value})
+		setSearchItem({ ...searchItem, title: event.target.value });
 	}
 	function searchCategory(event: ChangeEvent<HTMLInputElement>) {
-		setSearchItem({...searchItem, title: event.target.value})
+		setSearchItem({ ...searchItem, title: event.target.value });
 	}
 	function searchAuthor(event: ChangeEvent<HTMLSelectElement>) {
-		setSearchItem({...searchItem, author_id: Number(event.target.value)})
+		setSearchItem({ ...searchItem, author_id: Number(event.target.value) });
 	}
 
-	return(
+	return (
 		<div className="container addSection bg-light">
 			<form>
 				<div className="row">
@@ -123,5 +124,5 @@ export const SearchBooks:React.FC<Props> = (props) =>{
 				</div>
 			</form>
 		</div>
-	)
-}
+	);
+};

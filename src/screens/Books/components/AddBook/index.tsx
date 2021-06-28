@@ -1,29 +1,26 @@
 // Hooks
 import { useState, useEffect, ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // Common components
 import { Button } from "../../../../components/Button";
-// Json
-import { useDispatch, useSelector } from "react-redux";
 
 interface IDetailEntity {
-	// id: number;
-	// onAddClick: any;
-	// onEditClick: any;
-	// bookInfo: any;
 	selectedRow: any;
 	bookInfo: any;
 }
 
 export const AddBook = (props: IDetailEntity) => {
-	const authors = useSelector((state:any) => (state.authors.list))
-
-	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("title");
-	const [bookInfo, setBookInfo] = useState({title: "", release_date: "", rate: "", category: "", price: "", author_id: -1})
 	const dispatch = useDispatch();
-
-	console.log("bookInfo", bookInfo);
-
-	console.log("DEBUG: addBook => props",props);
+	const authors = useSelector((state: any) => state.authors.list);
+	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("title");
+	const [bookInfo, setBookInfo] = useState({
+		title: "",
+		release_date: "",
+		rate: "",
+		category: "",
+		price: "",
+		author_id: -1,
+	});
 
 	function handleAddBook(add: any) {
 		dispatch({
@@ -33,10 +30,15 @@ export const AddBook = (props: IDetailEntity) => {
 	}
 
 	function addBook() {
-		handleAddBook({ title: bookInfo.title, rate: bookInfo.rate, release_date: bookInfo.release_date,
-			category: bookInfo.category, price: bookInfo.price, author_id: bookInfo.author_id});
-		clearBookInfo()
-
+		handleAddBook({
+			title: bookInfo.title,
+			rate: bookInfo.rate,
+			release_date: bookInfo.release_date,
+			category: bookInfo.category,
+			price: bookInfo.price,
+			author_id: bookInfo.author_id,
+		});
+		clearBookInfo();
 	}
 
 	function handleEditBook(editedBook: any) {
@@ -54,39 +56,49 @@ export const AddBook = (props: IDetailEntity) => {
 	}
 
 	function clearBookInfo() {
-		setBookInfo(({title: "", release_date: "", rate: "", category: "", price: "", author_id: -1}))
+		setBookInfo({
+			title: "",
+			release_date: "",
+			rate: "",
+			category: "",
+			price: "",
+			author_id: -1,
+		});
 	}
 	function editBook() {
-		handleEditBook({ title: bookInfo.title, rate: bookInfo.rate, release_date: bookInfo.release_date,
-				category: bookInfo.category, price: bookInfo.price, author_id: bookInfo.author_id});
-		clearBookInfo()
+		handleEditBook({
+			title: bookInfo.title,
+			rate: bookInfo.rate,
+			release_date: bookInfo.release_date,
+			category: bookInfo.category,
+			price: bookInfo.price,
+			author_id: bookInfo.author_id,
+		});
+		clearBookInfo();
 	}
 
 	function changeTitle(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({...bookInfo, title: event.target.value})
+		setBookInfo({ ...bookInfo, title: event.target.value });
 	}
 	function changeRate(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({...bookInfo, rate: event.target.value})
+		setBookInfo({ ...bookInfo, rate: event.target.value });
 	}
 	function changeReleaseDate(event: ChangeEvent<HTMLInputElement>) {
-		console.log("RELEASE DATE", event.target.value);
-		setBookInfo({...bookInfo, release_date: event.target.value})
+		setBookInfo({ ...bookInfo, release_date: event.target.value });
 	}
 	function changeCategory(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({...bookInfo, category: event.target.value})
+		setBookInfo({ ...bookInfo, category: event.target.value });
 	}
 	function changePrice(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({...bookInfo, price: event.target.value})
+		setBookInfo({ ...bookInfo, price: event.target.value });
 	}
 	function changeAuthor(event: ChangeEvent<HTMLSelectElement>) {
-		console.log("AUTHOR", event.target.value);
-		setBookInfo({...bookInfo, author_id: Number(event.target.value)})
+		setBookInfo({ ...bookInfo, author_id: Number(event.target.value) });
 	}
 
 	useEffect(() => {
-		setBookInfo((props.bookInfo))
-	}, [props.bookInfo])
-
+		setBookInfo(props.bookInfo);
+	}, [props.bookInfo]);
 
 	return (
 		<div className="container addSection bg-light">
@@ -159,7 +171,7 @@ export const AddBook = (props: IDetailEntity) => {
 							onChange={changeAuthor}
 						>
 							<option value={-1}>Choose</option>
-							{authors.map((row:any) => (
+							{authors.map((row: any) => (
 								<option key={row.id} value={row.id}>
 									{row.fullName}
 								</option>

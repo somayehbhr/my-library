@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: conflict issues!">
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/Authors/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/book.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,14 +70,14 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/Books/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/index.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/screens/Authors/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/screens/index.tsx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1szjHxao13bOiGIUft0duxuxcxU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -87,9 +100,9 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="E:\MyProjects\my-library\node_modules\prettier" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\my-library\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
-    <property name="ts.external.directory.path" value="A:\my-library\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Projects\my-library\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -294,10 +307,22 @@
     <MESSAGE value="feat: added template of search box" />
     <MESSAGE value="style: add background for add form" />
     <MESSAGE value="feat: added redux for delete" />
-    <MESSAGE value="chore: minor improvement" />
     <MESSAGE value="feat: added redux for edit action" />
     <MESSAGE value="feat: connect redux to books" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: connect redux to books" />
+    <MESSAGE value="chore: minor improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: minor improvement" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/screens/Authors/index.tsx</url>
+          <line>6</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

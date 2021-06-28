@@ -29,32 +29,31 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 		return {
 			...state,
 			list: [...state.list, newAuthor],
-			readOnlyList: [...state.list, newAuthor]
+			readOnlyList: [...state.list, newAuthor],
 		};
 	} else if (action.type === "AUTHORS/EDIT") {
-		let $authors = [...state.list].map(author => {
-			if(author.id === action.payload.id) {
+		let $authors = [...state.list].map((author) => {
+			if (author.id === action.payload.id) {
 				author.fullName = action.payload.data;
 			}
 
 			return author;
-		})
+		});
 
 		return { ...state, list: $authors };
-	}else if(action.type === "AUTHORS/SEARCH") {
+	} else if (action.type === "AUTHORS/SEARCH") {
 		const $filteredAuthors = state.readOnlyList.filter((s) => {
 			return s.fullName.toLowerCase().includes(action.payload);
-		})
+		});
 		return {
 			...state,
-			list: $filteredAuthors
-		}
-	}else if(action.type === "AUTHORS/CLEAR_SEARCH") {
-		console.log("state.readOnlyList", state.readOnlyList)
+			list: $filteredAuthors,
+		};
+	} else if (action.type === "AUTHORS/CLEAR_SEARCH") {
 		return {
 			...state,
-			list: state.readOnlyList
-		}
+			list: state.readOnlyList,
+		};
 	}
 
 	return state;

@@ -1,5 +1,5 @@
 {
-	"authors":[
+	"authors": [
 		{
 			"id": 0,
 			"fullName": "Marleah Coundley"
@@ -64,7 +64,7 @@
 			"release_date": "11/27/1996",
 			"rate": 1.7,
 			"category": "classic",
-			"author_id": 3 ,
+			"author_id": 3,
 			"price": "83.36"
 		}
 	]

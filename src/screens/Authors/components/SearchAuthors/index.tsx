@@ -1,21 +1,16 @@
-import { Button } from "../../../../components/Button";
 import * as React from "react";
+// Common components
+import { Button } from "../../../../components/Button";
+// Hooks
 import { useState } from "react";
-import { IAuthorEntity } from "../../index";
 import { useDispatch } from "react-redux";
 
-interface Props {
-	onSetList: (list: IAuthorEntity[]) => void;
-	list: IAuthorEntity[];
-}
-
-export const SearchAuthors: React.FC<Props> = (props) => {
+export const SearchAuthors: React.FC = () => {
 	const dispatch = useDispatch();
 	const [searchItem, setSearchItem] = useState("");
 
-	function search() {;
+	function search() {
 		if (searchItem.length) {
-
 			dispatch({
 				type: "AUTHORS/SEARCH",
 				payload: searchItem,

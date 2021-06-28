@@ -1,13 +1,10 @@
 // Hooks
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 // Common components
 import { Button } from "../../../../components/Button";
-// Json
-import data from "../../../../data/info.json";
-import { useDispatch } from "react-redux";
 
 interface IDetailEntity {
-	// id: number;
 	selectedRow: any;
 	authorInfo: any;
 }

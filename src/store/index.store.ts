@@ -2,7 +2,6 @@ import { createStore, compose, applyMiddleware } from "redux";
 import { reducers } from "./index.reducers";
 
 const customMiddleware = (store: any) => (dispatch: any) => async (action: any) => {
-	console.log("store", store);
 	setTimeout(() => {
 		const { computedStates } = store.getState();
 		const convertToString = JSON.stringify(computedStates[computedStates.length - 1].state);
@@ -11,7 +10,6 @@ const customMiddleware = (store: any) => (dispatch: any) => async (action: any) 
 
 	dispatch(action);
 };
-console.log("reducers", reducers)
 export const appStore = createStore(
 	reducers,
 	JSON.parse(window.localStorage.getItem("persistRedux")!) || {},

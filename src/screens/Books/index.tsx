@@ -9,8 +9,8 @@ import { AddBook } from "./components/AddBook";
 import { useState } from "react";
 import { SearchBooks } from "./components/SearchBooks";
 import { useSelector } from "react-redux";
+// Types
 import { StateNetwork } from "../../types/store.type";
-
 
 export interface IBookEntity {
 	id: number;
@@ -26,61 +26,38 @@ const headerList = ["title", "release_date", "rate", "author", "category", "pric
 
 export const Books = () => {
 	const books = useSelector<StateNetwork, Array<IBookEntity>>((state) => state.books.list);
-	const [list, setList] = useState<Array<IBookEntity>>(data.books);
 	const [selectedRow, setSelectedRow] = useState<any>();
-	const [filterList, setFilterList] = useState<Array<IBookEntity>>([])
-
-	console.log("selectedRow", selectedRow)
 	function sendBookInfo(id: number) {
 		setSelectedRow(books.find((item) => item.id === id));
-		console.log((books.find((item) => item.id === id)))
-	}
-	function handleEditBook(editedBook: any) {
-		let tempBooks = [...list];
-		let index = tempBooks.indexOf(selectedRow);
-		tempBooks.splice(index, 1);
-		setList([editedBook, ...tempBooks]);
-		setSelectedRow(null);
 	}
 	function getAuthor(id?: number) {
 		return data.authors.find((item) => item.id === id)?.fullName;
 	}
-
-	function handleAddBook(add: IBookEntity) {
-		const id = Math.floor(Math.random() * 1000) + 1;
-		const newBook = { ...add, id };
-		setList([...list, newBook]);
-	}
-	function onListChange(newList: IBookEntity[]) {
-		setFilterList(newList);
-	}
-
 	return (
 		<>
 			<AddBook bookInfo={selectedRow} selectedRow={selectedRow} />
-            <SearchBooks onSetList={onListChange} list={list}/>
+			<SearchBooks />
 			<div className="container">
-				{
-						books.length ? (
-							<table className="table">
-								<Header list={headerList} />
-								<tbody>
-								{books.map((row, index) => (
-									<Book
-										key={row.id}
-										{...row}
-										{...{ index }}
-										author={getAuthor(row.author_id)}
-										edit={() => sendBookInfo(row.id)}
-									/>
-								))
-								}
-								</tbody>
-							</table>
-						) : <div className="alert alert-danger" role="alert">
-							There is no result to show!
-						</div>
-					}
+				{books.length ? (
+					<table className="table">
+						<Header list={headerList} />
+						<tbody>
+							{books.map((row, index) => (
+								<Book
+									key={row.id}
+									{...row}
+									{...{ index }}
+									author={getAuthor(row.author_id)}
+									edit={() => sendBookInfo(row.id)}
+								/>
+							))}
+						</tbody>
+					</table>
+				) : (
+					<div className="alert alert-danger" role="alert">
+						There is no result to show!
+					</div>
+				)}
 			</div>
 		</>
 	);
