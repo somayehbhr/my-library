@@ -105,9 +105,10 @@ export const AddBook = (props: IDetailEntity) => {
 			<form>
 				<div className="row">
 					<div className="col-md-4">
-						<label htmlFor="inputEmail4">Title</label>
+						<label>Title</label>
 						<input
 							type="text"
+							required
 							className="form-control"
 							placeholder="Title"
 							id="autoSizingInput"
@@ -116,9 +117,10 @@ export const AddBook = (props: IDetailEntity) => {
 						/>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Release date</label>
+						<label>Release date</label>
 						<input
 							type="date"
+							required
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="dd/mm/yyyy"
@@ -127,10 +129,13 @@ export const AddBook = (props: IDetailEntity) => {
 						/>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Rate</label>
+						<label>Rate</label>
 						<input
-							type="text"
-							pattern="[0-9]*"
+							type="number"
+							required
+							min="0.0"
+							max="10.0"
+							step="0.1"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Rate"
@@ -141,8 +146,9 @@ export const AddBook = (props: IDetailEntity) => {
 				</div>
 				<div className="row">
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Category</label>
+						<label>Category</label>
 						<input
+							required
 							type="text"
 							className="form-control"
 							id="autoSizingInput"
@@ -152,9 +158,11 @@ export const AddBook = (props: IDetailEntity) => {
 						/>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Price</label>
+						<label>Price</label>
 						<input
-							type="text"
+							required
+							type="number"
+							min="0"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Price"
@@ -163,8 +171,9 @@ export const AddBook = (props: IDetailEntity) => {
 						/>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Authors</label>
+						<label>Authors</label>
 						<select
+							required
 							defaultValue={-1}
 							className="form-select"
 							id="autoSizingSelect"

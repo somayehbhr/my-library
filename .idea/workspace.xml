@@ -83,7 +83,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\my-library\node_modules\prettier" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="A:\my-library\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="A:\my-library\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -129,6 +129,7 @@
       <workItem from="1624808565233" duration="30000" />
       <workItem from="1624808597456" duration="7450000" />
       <workItem from="1624905848111" duration="447000" />
+      <workItem from="1624969035812" duration="1619000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
