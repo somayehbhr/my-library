@@ -44,6 +44,18 @@ export const AddBook = (props: IDetailEntity) => {
 			if (!values.rate) {
 				errors.rate = "Please enter rate";
 			}
+			if (!values.release_date) {
+				errors.release_date = "Please enter date";
+			}
+			if (!values.category) {
+				errors.category = "Please enter category";
+			}
+			if (!values.price) {
+				errors.price = "Please enter price";
+			}
+			if (values.author_id === -1) {
+				// errors.author_id = "Please choose an author";
+			}
 			return errors;
 		},
 		onSubmit: (values) => {
@@ -113,10 +125,10 @@ export const AddBook = (props: IDetailEntity) => {
 		}
 	}
 	function changeReleaseDate(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({ ...bookInfo, release_date: event.target.value });
-	}
-	function changeCategory(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({ ...bookInfo, category: event.target.value });
+		const { value } = event.target;
+		if (value === "" || Object.keys(value).length <= 10) {
+			setBookInfo({ ...bookInfo, release_date: event.target.value });
+		}
 	}
 	function changePrice(event: ChangeEvent<HTMLInputElement>) {
 		setBookInfo({ ...bookInfo, price: event.target.value });
@@ -150,6 +162,7 @@ export const AddBook = (props: IDetailEntity) => {
 						<label>Release date</label>
 						<input
 							type="date"
+							name="releaseDate"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="dd/mm/yyyy"
@@ -178,29 +191,32 @@ export const AddBook = (props: IDetailEntity) => {
 						<label>Category</label>
 						<input
 							type="text"
+							name="category"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Category"
-							value={bookInfo?.category}
-							onChange={changeCategory}
+							value={formik.values.category}
+							onChange={formik.handleChange}
 						/>
 					</div>
 					<div className="col-md-4">
 						<label>Price</label>
 						<input
 							type="number"
+							name="price"
 							min="0"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Price"
-							value={bookInfo?.price}
-							onChange={changePrice}
+							value={formik.values.price}
+							onChange={formik.handleChange}
 						/>
 					</div>
 					<div className="col-md-4">
 						<label>Authors</label>
 						<select
 							defaultValue={-1}
+							name="authors"
 							className="form-select"
 							id="autoSizingSelect"
 							value={bookInfo?.author_id}
