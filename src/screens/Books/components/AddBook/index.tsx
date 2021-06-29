@@ -1,6 +1,7 @@
 // Hooks
 import { useState, useEffect, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
 
@@ -13,6 +14,7 @@ export const AddBook = (props: IDetailEntity) => {
 	const dispatch = useDispatch();
 	const authors = useSelector((state: any) => state.authors.list);
 	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("title");
+	const [firstSubmited, setFirstSubmited] = useState(false);
 	const [bookInfo, setBookInfo] = useState({
 		title: "",
 		release_date: "",
@@ -21,7 +23,33 @@ export const AddBook = (props: IDetailEntity) => {
 		price: "",
 		author_id: -1,
 	});
+	const formik = useFormik({
+		initialValues: {
+			title: "",
+			release_date: "",
+			rate: "",
+			category: "",
+			price: "",
+			author_id: -1,
+		},
+		validateOnChange: true,
+		validateOnMount: true,
+		validate: (values) => {
+			const errors: Partial<typeof values> = {};
+			setFirstSubmited(true);
 
+			if (!values.title) {
+				errors.title = "Please enter title";
+			}
+			if (!values.rate) {
+				errors.rate = "Please enter rate";
+			}
+			return errors;
+		},
+		onSubmit: (values) => {
+			isEditModeEnabled ? editBook() : addBook();
+		},
+	});
 	function handleAddBook(add: any) {
 		dispatch({
 			type: "BOOKS/ADD",
@@ -77,11 +105,12 @@ export const AddBook = (props: IDetailEntity) => {
 		clearBookInfo();
 	}
 
-	function changeTitle(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({ ...bookInfo, title: event.target.value });
-	}
 	function changeRate(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({ ...bookInfo, rate: event.target.value });
+		const { value } = event.target;
+		if (value === "" || (Number(value) && Number(value) <= 10)) {
+			// setBookInfo({ ...bookInfo, rate: event.target.value });
+			formik.setFieldValue("rate", Number(value).toFixed(1));
+		}
 	}
 	function changeReleaseDate(event: ChangeEvent<HTMLInputElement>) {
 		setBookInfo({ ...bookInfo, release_date: event.target.value });
@@ -102,25 +131,25 @@ export const AddBook = (props: IDetailEntity) => {
 
 	return (
 		<div className="container addSection bg-light">
-			<form>
+			<form onSubmit={formik.handleSubmit}>
 				<div className="row">
 					<div className="col-md-4">
 						<label>Title</label>
 						<input
 							type="text"
-							required
+							name="title"
 							className="form-control"
 							placeholder="Title"
 							id="autoSizingInput"
-							value={bookInfo?.title}
-							onChange={changeTitle}
+							value={formik.values.title}
+							onChange={formik.handleChange}
 						/>
+						{formik.errors.title || null}
 					</div>
 					<div className="col-md-4">
 						<label>Release date</label>
 						<input
 							type="date"
-							required
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="dd/mm/yyyy"
@@ -132,14 +161,14 @@ export const AddBook = (props: IDetailEntity) => {
 						<label>Rate</label>
 						<input
 							type="number"
-							required
-							min="0.0"
-							max="10.0"
-							step="0.1"
+							name="rate"
+							min={0}
+							max={10}
+							step={0.1}
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Rate"
-							value={bookInfo?.rate}
+							value={formik.values.rate}
 							onChange={changeRate}
 						/>
 					</div>
@@ -148,7 +177,6 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-4">
 						<label>Category</label>
 						<input
-							required
 							type="text"
 							className="form-control"
 							id="autoSizingInput"
@@ -160,7 +188,6 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-4">
 						<label>Price</label>
 						<input
-							required
 							type="number"
 							min="0"
 							className="form-control"
@@ -173,7 +200,6 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-4">
 						<label>Authors</label>
 						<select
-							required
 							defaultValue={-1}
 							className="form-select"
 							id="autoSizingSelect"
@@ -193,9 +219,10 @@ export const AddBook = (props: IDetailEntity) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							onClick={isEditModeEnabled ? editBook : addBook}
+							disabled={!!Object.keys(formik.errors).length}
 							text={isEditModeEnabled ? "Update" : "Add"}
 							className={isEditModeEnabled ? "primary" : "success"}
+							type="submit"
 						/>
 					</div>
 				</div>

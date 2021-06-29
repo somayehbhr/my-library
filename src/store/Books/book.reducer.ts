@@ -53,8 +53,13 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 
 		return { ...state, list: $books };
 	} else if (action.type === "BOOKS/SEARCH") {
+		const filteredSearchValues = Object.entries(action.payload).filter(
+			(item: any) => item[1] !== -1 || item[1] !== "",
+		);
+		// [["title", "hello"], ["rate", 10]]
 		const $filteredBooks = state.readOnlyList.filter((s) => {
 			const { title, release_date, rate, category, author_id } = action.payload;
+
 			return (
 				s.author_id === author_id ||
 				(s.title.includes(title) &&
