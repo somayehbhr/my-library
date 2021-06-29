@@ -118,7 +118,7 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-4">
 						<label htmlFor="inputPassword4">Release date</label>
 						<input
-							type="text"
+							type="date"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="dd/mm/yyyy"
@@ -129,7 +129,8 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-4">
 						<label htmlFor="inputPassword4">Rate</label>
 						<input
-							type="number"
+							type="text"
+							pattern="[0-9]*"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Rate"
