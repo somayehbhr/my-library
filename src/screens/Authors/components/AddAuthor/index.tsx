@@ -61,7 +61,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							text={isEditModeEnabled ? "Submit" : "Add"}
+							text={isEditModeEnabled ? "Update" : "Add"}
 							onClick={isEditModeEnabled ? editAuthor : addAuthor}
 							className={isEditModeEnabled ? "primary" : "success"}
 						/>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: allow to type in input of search filter">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="chore: change input type">
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +128,7 @@
       <workItem from="1624808565233" duration="30000" />
       <workItem from="1624808597456" duration="7450000" />
       <workItem from="1624905848111" duration="447000" />
-      <workItem from="1624969035812" duration="1619000" />
+      <workItem from="1624969035812" duration="1958000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -285,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624868088549</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="chore: change input type">
+      <created>1624970835637</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1624970835637</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +324,8 @@
     <MESSAGE value="feat: connect redux to books" />
     <MESSAGE value="chore: minor improvement" />
     <MESSAGE value="chore: clean the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: clean the code" />
+    <MESSAGE value="chore: change input type" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: change input type" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
