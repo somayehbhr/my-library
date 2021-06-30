@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
+import { constants } from "../../../../store/Books/book.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -64,7 +65,7 @@ export const AddBook = (props: IDetailEntity) => {
 	});
 	function handleAddBook(add: any) {
 		dispatch({
-			type: "BOOKS/ADD",
+			type: constants.ADD,
 			payload: add,
 		});
 	}
@@ -83,7 +84,7 @@ export const AddBook = (props: IDetailEntity) => {
 
 	function handleEditBook(editedBook: any) {
 		dispatch({
-			type: "BOOKS/EDIT",
+			type: constants.EDIT,
 			payload: {
 				id: props.selectedRow.id,
 				title: editedBook.title,

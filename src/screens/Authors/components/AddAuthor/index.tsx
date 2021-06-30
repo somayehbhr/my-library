@@ -1,8 +1,10 @@
 // Hooks
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
+import { constants } from "../../../../store/Authors/author.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -12,10 +14,30 @@ export const AddAuthor = (props: IDetailEntity) => {
 	const [fullName, setFullName] = useState("");
 	const isEditModeEnabled = props.authorInfo?.hasOwnProperty("fullName");
 	const dispatch = useDispatch();
+	const [firstSubmited, setFirstSubmited] = useState(false);
+	const formik = useFormik({
+		initialValues: {
+			fullName: "",
+		},
+		validateOnChange: true,
+		validateOnMount: true,
+		validate: (values) => {
+			const errors: Partial<typeof values> = {};
+			setFirstSubmited(true);
+
+			if (!values.fullName) {
+				errors.fullName = "Please enter full name";
+			}
+			return errors;
+		},
+		onSubmit: (values) => {
+			isEditModeEnabled ? editAuthor() : addAuthor();
+		},
+	});
 
 	function handleAddAuthor(add: any) {
 		dispatch({
-			type: "AUTHORS/ADD",
+			type: constants.ADD,
 			payload: add,
 		});
 	}
@@ -29,7 +51,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleEditAuthor(editedBook: any) {
 		dispatch({
-			type: "AUTHORS/EDIT",
+			type: constants.EDIT,
 			payload: {
 				id: props.selectedRow.id,
 				data: editedBook.fullName,
@@ -52,18 +74,20 @@ export const AddAuthor = (props: IDetailEntity) => {
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Full name"
-							value={fullName}
-							onChange={(event) => setFullName(event.target.value)}
+							value={formik.values.fullName}
+							onChange={formik.handleChange}
 						/>
+						{formik.errors.fullName || null}
 					</div>
 				</div>
 				<br />
 				<div className="row">
 					<div className="col-md-3">
 						<Button
+							disabled={!!Object.keys(formik.errors).length}
 							text={isEditModeEnabled ? "Update" : "Add"}
-							onClick={isEditModeEnabled ? editAuthor : addAuthor}
 							className={isEditModeEnabled ? "primary" : "success"}
+							type="submit"
 						/>
 					</div>
 				</div>

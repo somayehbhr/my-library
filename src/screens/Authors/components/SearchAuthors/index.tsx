@@ -4,6 +4,7 @@ import { Button } from "../../../../components/Button";
 // Hooks
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { constants } from "../../../../store/Authors/author.reducer";
 
 export const SearchAuthors: React.FC = () => {
 	const dispatch = useDispatch();
@@ -12,12 +13,12 @@ export const SearchAuthors: React.FC = () => {
 	function search() {
 		if (searchItem.length) {
 			dispatch({
-				type: "AUTHORS/SEARCH",
+				type: constants.SEARCH,
 				payload: searchItem,
 			});
 		} else {
 			dispatch({
-				type: "AUTHORS/CLEAR_SEARCH",
+				type: constants.CLEAR_SEARCH,
 			});
 		}
 	}
