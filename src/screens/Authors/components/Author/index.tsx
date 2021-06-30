@@ -2,7 +2,7 @@
 import { Button } from "../../../../components/Button";
 // Hooks
 import { useDispatch } from "react-redux";
-import { constants } from "../../../../store/Authors/author.reducer";
+
 
 interface IAuthorEntity {
 	id: number;
@@ -16,7 +16,7 @@ export const Author = (props: IAuthorEntity) => {
 	const dispatch = useDispatch();
 	function deleteAuthor(id: number) {
 		dispatch({
-			type: constants.DELETE,
+			type: "BOOKS/DELETE",
 			payload: id,
 		});
 	}

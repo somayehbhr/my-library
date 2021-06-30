@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
-import { constants } from "../../../../store/Books/book.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -65,7 +64,7 @@ export const AddBook = (props: IDetailEntity) => {
 	});
 	function handleAddBook(add: any) {
 		dispatch({
-			type: constants.ADD,
+			type: "BOOKS/ADD",
 			payload: add,
 		});
 	}
@@ -84,7 +83,7 @@ export const AddBook = (props: IDetailEntity) => {
 
 	function handleEditBook(editedBook: any) {
 		dispatch({
-			type: constants.EDIT,
+			type: "BOOKS/EDIT",
 			payload: {
 				id: props.selectedRow.id,
 				title: editedBook.title,
@@ -236,7 +235,7 @@ export const AddBook = (props: IDetailEntity) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							disabled={!!Object.keys(formik.errors).length}
+							// disabled={!!Object.keys(formik.errors).length}
 							text={isEditModeEnabled ? "Update" : "Add"}
 							className={isEditModeEnabled ? "primary" : "success"}
 							type="submit"

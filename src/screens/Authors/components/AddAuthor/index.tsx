@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
-import { constants } from "../../../../store/Authors/author.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -51,7 +50,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleEditAuthor(editedBook: any) {
 		dispatch({
-			type: constants.EDIT,
+			type: "AUTHORS/EDIT",
 			payload: {
 				id: props.selectedRow.id,
 				data: editedBook.fullName,

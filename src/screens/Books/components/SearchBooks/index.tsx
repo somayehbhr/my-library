@@ -6,7 +6,6 @@ import { Button } from "../../../../components/Button";
 // Hooks
 import { ChangeEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { constants } from "../../../../store/Books/book.reducer";
 
 export const SearchBooks: React.FC = () => {
 	const [searchItem, setSearchItem] = useState({
@@ -23,12 +22,12 @@ export const SearchBooks: React.FC = () => {
 		const isEmptySearch = !filterSearchValues?.length;
 		if (!isEmptySearch) {
 			dispatch({
-				type: constants.SEARCH,
+				type: "BOOKS/SEARCH",
 				payload: searchItem,
 			});
 		} else {
 			dispatch({
-				type: constants.CLEAR_SEARCH,
+				type: "BOOKS/CLEAR_SEARCH"
 			});
 		}
 	}
