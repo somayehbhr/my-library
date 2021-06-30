@@ -27,6 +27,7 @@ const headerList = ["title", "release_date", "rate", "author", "category", "pric
 export const Books = () => {
 	const books = useSelector<StateNetwork, Array<IBookEntity>>((state) => state.books.list);
 	const [selectedRow, setSelectedRow] = useState<any>();
+	console.log("selectedRow", selectedRow)
 	function sendBookInfo(id: number) {
 		setSelectedRow(books.find((item) => item.id === id));
 	}

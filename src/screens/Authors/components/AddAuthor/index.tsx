@@ -13,7 +13,6 @@ export const AddAuthor = (props: IDetailEntity) => {
 	const [fullName, setFullName] = useState("");
 	const isEditModeEnabled = props.authorInfo?.hasOwnProperty("fullName");
 	const dispatch = useDispatch();
-	const [firstSubmited, setFirstSubmited] = useState(false);
 	const formik = useFormik({
 		initialValues: {
 			fullName: "",
@@ -21,8 +20,8 @@ export const AddAuthor = (props: IDetailEntity) => {
 		validateOnChange: true,
 		validateOnMount: true,
 		validate: (values) => {
-			const errors: Partial<typeof values> = {};
-			setFirstSubmited(true);
+			const errors: Record<string, any> = {};
+
 
 			if (!values.fullName) {
 				errors.fullName = "Please enter full name";

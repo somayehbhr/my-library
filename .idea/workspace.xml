@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: add form validation to add author">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="chore: clean the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +137,7 @@
       <workItem from="1624808597456" duration="7450000" />
       <workItem from="1625027337040" duration="11000" />
       <workItem from="1625048444595" duration="4542000" />
+      <workItem from="1625068590112" duration="5590000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -311,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625051595176</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="chore: clean the code">
+      <created>1625067774001</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1625067774001</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,10 +346,10 @@
     <MESSAGE value="feat: added redux for edit action" />
     <MESSAGE value="feat: connect redux to books" />
     <MESSAGE value="chore: minor improvement" />
-    <MESSAGE value="chore: clean the code" />
     <MESSAGE value="chore: rewrite reducer by switch" />
     <MESSAGE value="feat: add form validation to add author" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add form validation to add author" />
+    <MESSAGE value="chore: clean the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: clean the code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -355,6 +358,12 @@
           <url>file://$PROJECT_DIR$/src/screens/Authors/index.tsx</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx</url>
+          <line>24</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

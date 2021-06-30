@@ -14,7 +14,6 @@ export const AddBook = (props: IDetailEntity) => {
 	const dispatch = useDispatch();
 	const authors = useSelector((state: any) => state.authors.list);
 	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("title");
-	const [firstSubmited, setFirstSubmited] = useState(false);
 	const [bookInfo, setBookInfo] = useState({
 		title: "",
 		release_date: "",
@@ -35,8 +34,8 @@ export const AddBook = (props: IDetailEntity) => {
 		validateOnChange: true,
 		validateOnMount: true,
 		validate: (values) => {
-			const errors: Partial<typeof values> = {};
-			setFirstSubmited(true);
+			const errors: Record<string, any> = {};
+
 
 			if (!values.title) {
 				errors.title = "Please enter title";
@@ -54,7 +53,7 @@ export const AddBook = (props: IDetailEntity) => {
 				errors.price = "Please enter price";
 			}
 			if (values.author_id === -1) {
-				// errors.author_id = "Please choose an author";
+				errors.author_id = "Please choose an author";
 			}
 			return errors;
 		},
@@ -116,30 +115,43 @@ export const AddBook = (props: IDetailEntity) => {
 		});
 		clearBookInfo();
 	}
-
+	function changeTitle(event: ChangeEvent<HTMLInputElement>) {
+		formik.setFieldValue("title",event.target.value)
+	}
+	function changeCategory(event: ChangeEvent<HTMLInputElement>) {
+		formik.setFieldValue("category",event.target.value)
+	}
 	function changeRate(event: ChangeEvent<HTMLInputElement>) {
 		const { value } = event.target;
 		if (value === "" || (Number(value) && Number(value) <= 10)) {
-			// setBookInfo({ ...bookInfo, rate: event.target.value });
 			formik.setFieldValue("rate", Number(value).toFixed(1));
 		}
 	}
 	function changeReleaseDate(event: ChangeEvent<HTMLInputElement>) {
 		const { value } = event.target;
 		if (value === "" || Object.keys(value).length <= 10) {
-			setBookInfo({ ...bookInfo, release_date: event.target.value });
+			formik.setFieldValue("release_date", event.target.value);
 		}
 	}
 	function changePrice(event: ChangeEvent<HTMLInputElement>) {
-		setBookInfo({ ...bookInfo, price: event.target.value });
+		formik.setFieldValue("price",event.target.value)
 	}
 	function changeAuthor(event: ChangeEvent<HTMLSelectElement>) {
-		setBookInfo({ ...bookInfo, author_id: Number(event.target.value) });
+		formik.setFieldValue("author_id",event.target.value)
 	}
+
 
 	useEffect(() => {
 		setBookInfo(props.bookInfo);
+		const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
+		const [year, month, day] = value;
+		const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${day?.length === 2 ? day : `0${day}`}`
+		formik.setValues({ ...props.bookInfo,release_date:date});
 	}, [props.bookInfo]);
+
+
+
+
 
 	return (
 		<div className="container addSection bg-light">
@@ -153,8 +165,8 @@ export const AddBook = (props: IDetailEntity) => {
 							className="form-control"
 							placeholder="Title"
 							id="autoSizingInput"
-							value={formik.values.title}
-							onChange={formik.handleChange}
+							value={formik.values?.title}
+							onChange={changeTitle}
 						/>
 						{formik.errors.title || null}
 					</div>
@@ -166,7 +178,7 @@ export const AddBook = (props: IDetailEntity) => {
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="dd/mm/yyyy"
-							value={bookInfo?.release_date}
+							value={formik.values?.release_date}
 							onChange={changeReleaseDate}
 						/>
 					</div>
@@ -181,7 +193,7 @@ export const AddBook = (props: IDetailEntity) => {
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Rate"
-							value={formik.values.rate}
+							value={formik.values?.rate}
 							onChange={changeRate}
 						/>
 					</div>
@@ -195,8 +207,8 @@ export const AddBook = (props: IDetailEntity) => {
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Category"
-							value={formik.values.category}
-							onChange={formik.handleChange}
+							value={formik.values?.category}
+							onChange={changeCategory}
 						/>
 					</div>
 					<div className="col-md-4">
@@ -208,8 +220,8 @@ export const AddBook = (props: IDetailEntity) => {
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Price"
-							value={formik.values.price}
-							onChange={formik.handleChange}
+							value={formik.values?.price}
+							onChange={changePrice}
 						/>
 					</div>
 					<div className="col-md-4">
@@ -219,7 +231,7 @@ export const AddBook = (props: IDetailEntity) => {
 							name="authors"
 							className="form-select"
 							id="autoSizingSelect"
-							value={bookInfo?.author_id}
+							value={formik.values?.author_id}
 							onChange={changeAuthor}
 						>
 							<option value={-1}>Choose</option>
@@ -235,7 +247,7 @@ export const AddBook = (props: IDetailEntity) => {
 				<div className="row">
 					<div className="col-md-3">
 						<Button
-							// disabled={!!Object.keys(formik.errors).length}
+							disabled={!!Object.keys(formik.errors).length}
 							text={isEditModeEnabled ? "Update" : "Add"}
 							className={isEditModeEnabled ? "primary" : "success"}
 							type="submit"
