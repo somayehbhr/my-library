@@ -37,7 +37,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleAddAuthor(add: any) {
 		dispatch({
-			type: constants.ADD,
+			type: "AUTHORS/ADD",
 			payload: add,
 		});
 	}
@@ -71,6 +71,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 						<label htmlFor="inputEmail4">Full name</label>
 						<input
 							type="text"
+							name="fullName"
 							className="form-control"
 							id="autoSizingInput"
 							placeholder="Full name"
