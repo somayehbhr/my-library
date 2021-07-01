@@ -61,13 +61,9 @@ export const AddBook = (props: IDetailEntity) => {
 		},
 		onSubmit: (values) => {
 			editMode ? editBook() : addBook();
-
-			console.log("isEdit", editMode);
 		},
 	});
-
 	function handleAddBook(add: any) {
-		console.log("add", add);
 		dispatch({
 			type: constants.ADD,
 			payload: add,
@@ -80,7 +76,6 @@ export const AddBook = (props: IDetailEntity) => {
 		});
 	}
 	function addBook() {
-		console.log("add book");
 		handleAddBook({
 			title: formik.values.title,
 			rate: formik.values.rate,
@@ -107,13 +102,12 @@ export const AddBook = (props: IDetailEntity) => {
 	}
 
 	function clearBookInfo() {
-		console.log("here");
-		formik.values.title = "";
-		formik.values.rate = "";
-		formik.values.release_date = "";
-		formik.values.category = "";
-		formik.values.price = "";
-		formik.values.author_id = -1;
+		formik.setFieldValue("title", "");
+		formik.setFieldValue("rate", "");
+		formik.setFieldValue("release_date", "");
+		formik.setFieldValue("category", "");
+		formik.setFieldValue("price", "");
+		formik.setFieldValue("author_id", -1);
 	}
 	function editBook() {
 		handleEditBook({
@@ -152,18 +146,21 @@ export const AddBook = (props: IDetailEntity) => {
 		formik.setFieldValue("author_id", event.target.value);
 	}
 	useEffect(() => {
-		setBookInfo(props.bookInfo);
-		const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
-		const [year, month, day] = value;
-		const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${
-			day?.length === 2 ? day : `0${day}`
-		}`;
-		formik.setValues({ ...props.bookInfo, release_date: date });
+		if (props.bookInfo) {
+			setBookInfo(props.bookInfo);
+			console.log("bookInfo", props.bookInfo);
+			const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
+			const [year, month, day] = value;
+			const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${
+				day?.length === 2 ? day : `0${day}`
+			}`;
+			formik.setValues({ ...props.bookInfo, release_date: date });
+		}
 	}, [props.bookInfo]);
 
 	return (
 		<div className="container addSection bg-light">
-			<form onSubmit={formik.handleSubmit}>
+			<form onSubmit={formik.handleSubmit} noValidate>
 				<div className="row">
 					<div className="col-md-4">
 						<label>Title</label>
