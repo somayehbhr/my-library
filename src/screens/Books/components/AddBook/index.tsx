@@ -62,6 +62,7 @@ export const AddBook = (props: IDetailEntity) => {
 		},
 	});
 	function handleAddBook(add: any) {
+		console.log("add", add)
 		dispatch({
 			type: "BOOKS/ADD",
 			payload: add,

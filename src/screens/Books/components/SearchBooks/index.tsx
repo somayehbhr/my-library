@@ -4,7 +4,7 @@ import data from "../../../../data/info.json";
 // Common components
 import { Button } from "../../../../components/Button";
 // Hooks
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, MouseEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
 
 export const SearchBooks: React.FC = () => {
@@ -16,7 +16,9 @@ export const SearchBooks: React.FC = () => {
 		author_id: -1,
 	});
 	const dispatch = useDispatch();
-	function search() {
+	function search(e: any) {
+		e.preventDefault()
+
 		const values = Object.values(searchItem);
 		const filterSearchValues = values.filter((item: any) => item !== "" && item !== -1);
 		const isEmptySearch = !filterSearchValues?.length;
