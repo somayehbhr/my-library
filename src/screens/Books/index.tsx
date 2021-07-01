@@ -8,9 +8,10 @@ import { AddBook } from "./components/AddBook";
 //Hooks
 import { useState } from "react";
 import { SearchBooks } from "./components/SearchBooks";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // Types
 import { StateNetwork } from "../../types/store.type";
+import { constants } from "../../store/Books/book.reducer";
 
 export interface IBookEntity {
 	id: number;
@@ -25,13 +26,22 @@ export interface IBookEntity {
 const headerList = ["Title", "Release date", "Rate", "Author", "Category", "Price($)", "Action"];
 
 export const Books = () => {
+	const dispatch = useDispatch();
 	const books = useSelector<StateNetwork, Array<IBookEntity>>((state) => state.books.list);
 	const [selectedRow, setSelectedRow] = useState<any>();
-	console.log("selectedRow", selectedRow)
+	console.log("selectedRow", selectedRow);
 	function sendBookInfo(id: number) {
 		setSelectedRow(books.find((item) => item.id === id));
+		editMode();
 		window.scrollTo(0, 0);
 	}
+	function editMode() {
+		dispatch({
+			type: constants.IS_EDIT,
+			payload: true,
+		});
+	}
+
 	function getAuthor(id?: number) {
 		return data.authors.find((item) => item.id === id)?.fullName;
 	}
@@ -42,7 +52,7 @@ export const Books = () => {
 			<div className="container tableSize">
 				{books.length ? (
 					<table className="table">
-						<Header list={headerList}/>
+						<Header list={headerList} />
 						<tbody>
 							{books.map((row, index) => (
 								<Book

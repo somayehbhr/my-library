@@ -17,12 +17,14 @@ export interface BookState {
 	list: Array<BookEntity>;
 	readOnlyList: Array<BookEntity>;
 	currentId: number;
+	isEdit: boolean;
 }
 
 const initialState: BookState = {
 	list: data.books,
 	readOnlyList: data.books,
 	currentId: 0,
+	isEdit: false,
 };
 export const constants = {
 	DELETE: "BOOKS/DELETE",
@@ -30,6 +32,7 @@ export const constants = {
 	EDIT: "BOOKS/EDIT",
 	SEARCH: "BOOKS/SEARCH",
 	CLEAR_SEARCH: "BOOKS/CLEAR_SEARCH",
+	IS_EDIT: "BOOKS/ISEDIT",
 };
 export const bookReducer: Reducer<BookState> = (state = initialState, action) => {
 	switch (action.type) {
@@ -55,6 +58,12 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 				...state,
 				list: [...state.list, newBook],
 				readOnlyList: [...state.list, newBook],
+			};
+		}
+		case constants.IS_EDIT: {
+			return {
+				...state,
+				isEdit: action.payload,
 			};
 		}
 		case constants.SEARCH: {

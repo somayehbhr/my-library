@@ -59,6 +59,7 @@ export const AddBook = (props: IDetailEntity) => {
 		},
 		onSubmit: (values) => {
 			isEdit ? editBook() : addBook();
+			console.log("isEdit", isEdit);
 		},
 	});
 
@@ -73,7 +74,12 @@ export const AddBook = (props: IDetailEntity) => {
 			payload: add,
 		});
 	}
-
+	function addMode() {
+		dispatch({
+			type: constants.IS_EDIT,
+			payload: false,
+		});
+	}
 	function addBook() {
 		console.log("add book");
 		handleAddBook({
@@ -100,6 +106,7 @@ export const AddBook = (props: IDetailEntity) => {
 			},
 		});
 	}
+
 	function clearBookInfo() {
 		setBookInfo({
 			title: "",
@@ -119,6 +126,7 @@ export const AddBook = (props: IDetailEntity) => {
 			price: bookInfo.price,
 			author_id: bookInfo.author_id,
 		});
+		addMode();
 		clearBookInfo();
 	}
 	function changeTitle(event: ChangeEvent<HTMLInputElement>) {
