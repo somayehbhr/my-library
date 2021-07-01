@@ -14,7 +14,7 @@ interface IDetailEntity {
 export const AddBook = (props: IDetailEntity) => {
 	const dispatch = useDispatch();
 	const authors = useSelector((state: any) => state.authors.list);
-	const isEditModeEnabled = props.bookInfo?.hasOwnProperty("title");
+	const [isEdit, setIsEdit] = useState(false);
 	const [bookInfo, setBookInfo] = useState({
 		title: "",
 		release_date: "",
@@ -58,9 +58,14 @@ export const AddBook = (props: IDetailEntity) => {
 			return errors;
 		},
 		onSubmit: (values) => {
-			isEditModeEnabled ? editBook() : addBook();
+			isEdit ? editBook() : addBook();
 		},
 	});
+
+	useEffect(() => {
+		setIsEdit(!!formik.values.title?.length);
+	}, [formik.values.title]);
+
 	function handleAddBook(add: any) {
 		console.log("add", add);
 		dispatch({
@@ -70,6 +75,7 @@ export const AddBook = (props: IDetailEntity) => {
 	}
 
 	function addBook() {
+		console.log("add book");
 		handleAddBook({
 			title: bookInfo.title,
 			rate: bookInfo.rate,
@@ -94,7 +100,6 @@ export const AddBook = (props: IDetailEntity) => {
 			},
 		});
 	}
-
 	function clearBookInfo() {
 		setBookInfo({
 			title: "",
@@ -250,8 +255,8 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-3">
 						<Button
 							disabled={!!Object.keys(formik.errors).length}
-							text={isEditModeEnabled ? "Update" : "Add"}
-							className={isEditModeEnabled ? "primary" : "success"}
+							text={isEdit ? "Update" : "Add"}
+							className={isEdit ? "primary" : "success"}
 							type="submit"
 						/>
 					</div>
