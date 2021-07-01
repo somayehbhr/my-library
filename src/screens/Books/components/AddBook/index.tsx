@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
+import { constants } from "../../../../store/Books/book.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -36,7 +37,6 @@ export const AddBook = (props: IDetailEntity) => {
 		validate: (values) => {
 			const errors: Record<string, any> = {};
 
-
 			if (!values.title) {
 				errors.title = "Please enter title";
 			}
@@ -62,9 +62,9 @@ export const AddBook = (props: IDetailEntity) => {
 		},
 	});
 	function handleAddBook(add: any) {
-		console.log("add", add)
+		console.log("add", add);
 		dispatch({
-			type: "BOOKS/ADD",
+			type: constants.ADD,
 			payload: add,
 		});
 	}
@@ -83,7 +83,7 @@ export const AddBook = (props: IDetailEntity) => {
 
 	function handleEditBook(editedBook: any) {
 		dispatch({
-			type: "BOOKS/EDIT",
+			type: constants.EDIT,
 			payload: {
 				id: props.selectedRow.id,
 				title: editedBook.title,
@@ -117,10 +117,10 @@ export const AddBook = (props: IDetailEntity) => {
 		clearBookInfo();
 	}
 	function changeTitle(event: ChangeEvent<HTMLInputElement>) {
-		formik.setFieldValue("title",event.target.value)
+		formik.setFieldValue("title", event.target.value);
 	}
 	function changeCategory(event: ChangeEvent<HTMLInputElement>) {
-		formik.setFieldValue("category",event.target.value)
+		formik.setFieldValue("category", event.target.value);
 	}
 	function changeRate(event: ChangeEvent<HTMLInputElement>) {
 		const { value } = event.target;
@@ -135,17 +135,19 @@ export const AddBook = (props: IDetailEntity) => {
 		}
 	}
 	function changePrice(event: ChangeEvent<HTMLInputElement>) {
-		formik.setFieldValue("price",event.target.value)
+		formik.setFieldValue("price", event.target.value);
 	}
 	function changeAuthor(event: ChangeEvent<HTMLSelectElement>) {
-		formik.setFieldValue("author_id",event.target.value)
+		formik.setFieldValue("author_id", event.target.value);
 	}
 	useEffect(() => {
 		setBookInfo(props.bookInfo);
 		const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
 		const [year, month, day] = value;
-		const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${day?.length === 2 ? day : `0${day}`}`
-		formik.setValues({ ...props.bookInfo,release_date:date});
+		const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${
+			day?.length === 2 ? day : `0${day}`
+		}`;
+		formik.setValues({ ...props.bookInfo, release_date: date });
 	}, [props.bookInfo]);
 
 	return (

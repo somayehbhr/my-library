@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="style: change table design">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: show redux action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
     </list>
@@ -90,7 +92,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Projects\my-library\node_modules\prettier" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="A:\my-library\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="A:\my-library\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -137,7 +139,7 @@
       <workItem from="1624808597456" duration="7450000" />
       <workItem from="1625027337040" duration="11000" />
       <workItem from="1625048444595" duration="4542000" />
-      <workItem from="1625068590112" duration="15206000" />
+      <workItem from="1625068590112" duration="15871000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -335,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625120012250</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: show redux action">
+      <created>1625124167035</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1625124167035</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +381,8 @@
     <MESSAGE value="chore: clean the code" />
     <MESSAGE value="feat: add form validation to authors" />
     <MESSAGE value="style: change table design" />
-    <option name="LAST_COMMIT_MESSAGE" value="style: change table design" />
+    <MESSAGE value="fix: show redux action" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: show redux action" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
