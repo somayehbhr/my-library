@@ -88,7 +88,7 @@ export const AddBook = (props: IDetailEntity) => {
 				title: editedBook.title,
 				rate: editedBook.rate,
 				release_date: editedBook.release_date,
-				category: editedBook.price,
+				category: editedBook.category,
 				author_id: editedBook.author_id,
 			},
 		});
@@ -168,7 +168,7 @@ export const AddBook = (props: IDetailEntity) => {
 							value={formik.values?.title}
 							onChange={changeTitle}
 						/>
-						{formik.errors.title || null}
+						<p className="error">{formik.errors.title || null}</p>
 					</div>
 					<div className="col-md-4">
 						<label>Release date</label>
@@ -177,10 +177,11 @@ export const AddBook = (props: IDetailEntity) => {
 							name="releaseDate"
 							className="form-control"
 							id="autoSizingInput"
-							placeholder="dd/mm/yyyy"
+							placeholder="mm/dd/yyyy"
 							value={formik.values?.release_date}
 							onChange={changeReleaseDate}
 						/>
+						<p className="error">{formik.errors.release_date || null}</p>
 					</div>
 					<div className="col-md-4">
 						<label>Rate</label>
@@ -196,6 +197,7 @@ export const AddBook = (props: IDetailEntity) => {
 							value={formik.values?.rate}
 							onChange={changeRate}
 						/>
+						<p className="error">{formik.errors.rate || null}</p>
 					</div>
 				</div>
 				<div className="row">
@@ -210,6 +212,7 @@ export const AddBook = (props: IDetailEntity) => {
 							value={formik.values?.category}
 							onChange={changeCategory}
 						/>
+						<p className="error">{formik.errors.category || null}</p>
 					</div>
 					<div className="col-md-4">
 						<label>Price</label>
@@ -223,6 +226,7 @@ export const AddBook = (props: IDetailEntity) => {
 							value={formik.values?.price}
 							onChange={changePrice}
 						/>
+						<p className="error">{formik.errors.price || null}</p>
 					</div>
 					<div className="col-md-4">
 						<label>Authors</label>
@@ -241,6 +245,7 @@ export const AddBook = (props: IDetailEntity) => {
 								</option>
 							))}
 						</select>
+						<p className="error">{formik.errors.author_id || null}</p>
 					</div>
 				</div>
 				<br />

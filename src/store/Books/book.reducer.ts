@@ -26,6 +26,7 @@ const initialState: BookState = {
 };
 
 export const bookReducer: Reducer<BookState> = (state = initialState, action) => {
+	console.log(action.type);
 	if (action.type === "BOOKS/DELETE") {
 		const newList = state.readOnlyList.filter((row) => {
 			return row.id !== action.payload;

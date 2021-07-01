@@ -22,7 +22,7 @@ export interface IBookEntity {
 	price: string;
 }
 
-const headerList = ["title", "release_date", "rate", "author", "category", "price", "action"];
+const headerList = ["Title", "Release date", "Rate", "Author", "Category", "Price($)", "Action"];
 
 export const Books = () => {
 	const books = useSelector<StateNetwork, Array<IBookEntity>>((state) => state.books.list);
@@ -30,6 +30,7 @@ export const Books = () => {
 	console.log("selectedRow", selectedRow)
 	function sendBookInfo(id: number) {
 		setSelectedRow(books.find((item) => item.id === id));
+		window.scrollTo(0, 0);
 	}
 	function getAuthor(id?: number) {
 		return data.authors.find((item) => item.id === id)?.fullName;

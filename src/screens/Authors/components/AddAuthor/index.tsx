@@ -9,6 +9,7 @@ interface IDetailEntity {
 	selectedRow: any;
 	authorInfo: any;
 }
+
 export const AddAuthor = (props: IDetailEntity) => {
 	const [fullName, setFullName] = useState("");
 	const isEditModeEnabled = props.authorInfo?.hasOwnProperty("fullName");
@@ -39,10 +40,12 @@ export const AddAuthor = (props: IDetailEntity) => {
 			payload: add,
 		});
 	}
+
 	function addAuthor() {
 		handleAddAuthor({ fullName });
 		setFullName("");
 	}
+
 	useEffect(() => {
 		setFullName(props.authorInfo?.fullName);
 	}, [props.authorInfo]);
@@ -56,6 +59,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 			},
 		});
 	}
+
 	function editAuthor() {
 		handleEditAuthor({ fullName });
 		setFullName("");
@@ -76,7 +80,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 							value={formik.values.fullName}
 							onChange={formik.handleChange}
 						/>
-						{formik.errors.fullName || null}
+						<p className="error">{formik.errors.fullName || null}</p>
 					</div>
 				</div>
 				<br />
