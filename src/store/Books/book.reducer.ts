@@ -52,13 +52,18 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 			};
 		}
 		case constants.EDIT: {
-			const id = Math.floor(Math.random() * 100);
-			const newBook = { id, ...action.payload };
-			return {
-				...state,
-				list: [...state.list, newBook],
-				readOnlyList: [...state.list, newBook],
-			};
+			let $books = [...state.list].map((book) => {
+				if (book.id === action.payload.id) {
+					book.title = action.payload.title;
+					book.rate = action.payload.rate;
+					book.release_date = action.payload.release_date;
+					book.category = action.payload.category;
+					book.author_id = action.payload.author_id;
+				}
+				return book;
+			});
+
+			return { ...state, list: $books };
 		}
 		case constants.IS_EDIT: {
 			return {

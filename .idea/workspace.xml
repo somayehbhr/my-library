@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: change edit mode condition">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="chore: connect to store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +137,7 @@
       <workItem from="1625027337040" duration="11000" />
       <workItem from="1625048444595" duration="4542000" />
       <workItem from="1625068590112" duration="18526000" />
-      <workItem from="1625127557633" duration="4806000" />
+      <workItem from="1625127557633" duration="7329000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -362,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625132018696</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="chore: connect to store">
+      <created>1625133771087</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1625133771087</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,7 +410,8 @@
     <MESSAGE value="fix: show redux action" />
     <MESSAGE value="chore: use switch case instead of else if" />
     <MESSAGE value="fix: change edit mode condition" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: change edit mode condition" />
+    <MESSAGE value="chore: connect to store" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: connect to store" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

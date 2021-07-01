@@ -16,7 +16,6 @@ interface IDetailEntity {
 export const AddBook = (props: IDetailEntity) => {
 	const dispatch = useDispatch();
 	const editMode = useSelector((state: any) => state.books.isEdit);
-	console.log(editMode);
 	const authors = useSelector((state: any) => state.authors.list);
 	const [bookInfo, setBookInfo] = useState({
 		title: "",
@@ -62,6 +61,7 @@ export const AddBook = (props: IDetailEntity) => {
 		},
 		onSubmit: (values) => {
 			editMode ? editBook() : addBook();
+
 			console.log("isEdit", editMode);
 		},
 	});
@@ -82,12 +82,12 @@ export const AddBook = (props: IDetailEntity) => {
 	function addBook() {
 		console.log("add book");
 		handleAddBook({
-			title: bookInfo.title,
-			rate: bookInfo.rate,
-			release_date: bookInfo.release_date,
-			category: bookInfo.category,
-			price: bookInfo.price,
-			author_id: bookInfo.author_id,
+			title: formik.values.title,
+			rate: formik.values.rate,
+			release_date: formik.values.release_date,
+			category: formik.values.category,
+			price: formik.values.price,
+			author_id: Number(formik.values.author_id),
 		});
 		clearBookInfo();
 	}
@@ -107,23 +107,22 @@ export const AddBook = (props: IDetailEntity) => {
 	}
 
 	function clearBookInfo() {
-		setBookInfo({
-			title: "",
-			release_date: "",
-			rate: "",
-			category: "",
-			price: "",
-			author_id: -1,
-		});
+		console.log("here");
+		formik.values.title = "";
+		formik.values.rate = "";
+		formik.values.release_date = "";
+		formik.values.category = "";
+		formik.values.price = "";
+		formik.values.author_id = -1;
 	}
 	function editBook() {
 		handleEditBook({
-			title: bookInfo.title,
-			rate: bookInfo.rate,
-			release_date: bookInfo.release_date,
-			category: bookInfo.category,
-			price: bookInfo.price,
-			author_id: bookInfo.author_id,
+			title: formik.values.title,
+			rate: formik.values.rate,
+			release_date: formik.values.release_date,
+			category: formik.values.category,
+			price: formik.values.price,
+			author_id: Number(formik.values.author_id),
 		});
 		addMode();
 		clearBookInfo();
