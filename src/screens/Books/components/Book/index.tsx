@@ -3,6 +3,10 @@ import { Button } from "../../../../components/Button";
 // Hooks
 import { useDispatch } from "react-redux";
 import { constants } from "../../../../store/Books/book.reducer";
+import { SearchIcon } from "../../../../components/svg/SearchIcon";
+import * as React from "react";
+import { EditIcon } from "../../../../components/svg/EditIcon";
+import { DeleteIcon } from "../../../../components/svg/DeleteIcon";
 
 interface IBookEntity {
 	id: number;
@@ -35,8 +39,24 @@ export const Book = (props: IBookEntity) => {
 			<td>{props.category}</td>
 			<td>{props.price}</td>
 			<td>
-				<Button onClick={() => deleteBook(props.id)} text="Delete" className="danger" />
-				<Button onClick={() => props.edit()} text="Edit" className="primary" />
+				<Button
+					onClick={() => deleteBook(props.id)}
+					text={
+						<>
+							<DeleteIcon />
+						</>
+					}
+					className="danger"
+				/>
+				<Button
+					onClick={() => props.edit()}
+					text={
+						<>
+							<EditIcon />
+						</>
+					}
+					className="primary"
+				/>
 			</td>
 		</tr>
 	);

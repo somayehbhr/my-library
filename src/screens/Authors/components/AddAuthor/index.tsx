@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
+import { AddIcon } from "../../../../components/svg/AddIcon";
+import { EditIcon } from "../../../../components/svg/EditIcon";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -22,7 +24,6 @@ export const AddAuthor = (props: IDetailEntity) => {
 		validateOnMount: true,
 		validate: (values) => {
 			const errors: Record<string, any> = {};
-
 
 			if (!values.fullName) {
 				errors.fullName = "Please enter full name";
@@ -66,35 +67,48 @@ export const AddAuthor = (props: IDetailEntity) => {
 	}
 
 	return (
-		<div className="container addSection bg-light">
+		<div className="container addSection">
 			<form>
 				<div className="row">
+					<div className="col-12">
+						<h2>Add author</h2>
+					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputEmail4">Full name</label>
-						<input
-							type="text"
-							name="fullName"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Full name"
-							value={formik.values.fullName}
-							onChange={formik.handleChange}
-						/>
+						<span>
+							<input
+								type="text"
+								name="fullName"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Full name"
+								value={formik.values.fullName}
+								onChange={formik.handleChange}
+							/>
+						</span>
 						<p className="error">{formik.errors.fullName || null}</p>
 					</div>
-					<br />
 
-					<div className="col-md-3 authorButton">
+					<div className="col-md-4 col-12">
 						<Button
 							disabled={!!Object.keys(formik.errors).length}
-							text={isEditModeEnabled ? "Update" : "Add"}
+							text={
+								isEditModeEnabled ? (
+									<>
+										<EditIcon />
+										Update
+									</>
+								) : (
+									<>
+										<AddIcon />
+										Add
+									</>
+								)
+							}
 							className={isEditModeEnabled ? "primary" : "success"}
 							type="submit"
 						/>
 					</div>
 				</div>
-
-
 			</form>
 		</div>
 	);

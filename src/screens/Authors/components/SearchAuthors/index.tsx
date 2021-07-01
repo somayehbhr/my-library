@@ -4,6 +4,7 @@ import { Button } from "../../../../components/Button";
 // Hooks
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { SearchIcon } from "../../../../components/svg/SearchIcon";
 
 export const SearchAuthors: React.FC = () => {
 	const dispatch = useDispatch();
@@ -23,21 +24,34 @@ export const SearchAuthors: React.FC = () => {
 	}
 
 	return (
-		<div className="container addSection bg-light">
+		<div className="container addSection search">
 			<form>
 				<div className="row">
-					<div className="col-md-4">
-						<label htmlFor="inputEmail4">Full name</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							value={searchItem}
-							onChange={(event) => setSearchItem(event.target.value)}
-						/>
+					<div className="col-12">
+						<h2>Search author</h2>
 					</div>
-					<div className="col-md-3 authorButton">
-						<Button text={"Search"} onClick={search} className={"success"} />
+					<div className="col-md-4">
+						<span>
+							<input
+								type="text"
+								className="form-control"
+								id="autoSizingInput"
+								value={searchItem}
+								onChange={(event) => setSearchItem(event.target.value)}
+							/>
+						</span>
+					</div>
+					<div className="col-md-4 col-12">
+						<Button
+							text={
+								<>
+									<SearchIcon />
+									Search
+								</>
+							}
+							onClick={search}
+							className={"success"}
+						/>
 					</div>
 				</div>
 			</form>

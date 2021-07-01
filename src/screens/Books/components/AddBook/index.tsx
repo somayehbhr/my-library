@@ -7,6 +7,8 @@ import { Button } from "../../../../components/Button";
 import { constants } from "../../../../store/Books/book.reducer";
 import { StateNetwork } from "../../../../types/store.type";
 import { IBookEntity } from "../../index";
+import { AddIcon } from "../../../../components/svg/AddIcon";
+import { EditIcon } from "../../../../components/svg/EditIcon";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -160,82 +162,89 @@ export const AddBook = (props: IDetailEntity) => {
 	}, [props.bookInfo]);
 
 	return (
-		<div className="container addSection bg-light">
+		<div className="container addSection">
 			<form onSubmit={formik.handleSubmit} noValidate>
 				<div className="row">
+					<div className="col-12">
+						<h2>Add book</h2>
+					</div>
 					<div className="col-md-4">
-						<label>Title</label>
-						<input
-							type="text"
-							name="title"
-							className="form-control"
-							placeholder="Title"
-							id="autoSizingInput"
-							value={formik.values?.title}
-							onChange={changeTitle}
-						/>
+						<span>
+							<input
+								type="text"
+								name="title"
+								className="form-control"
+								placeholder="Title"
+								id="autoSizingInput"
+								value={formik.values?.title}
+								onChange={changeTitle}
+							/>
+						</span>
 						<p className="error">{formik.errors.title || null}</p>
 					</div>
 					<div className="col-md-4">
-						<label>Release date</label>
-						<input
-							type="date"
-							name="releaseDate"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="mm/dd/yyyy"
-							value={formik.values?.release_date}
-							onChange={changeReleaseDate}
-						/>
+						<span>
+							<input
+								type="date"
+								name="releaseDate"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Release Date"
+								value={formik.values?.release_date}
+								onChange={changeReleaseDate}
+							/>
+						</span>
 						<p className="error">{formik.errors.release_date || null}</p>
 					</div>
 					<div className="col-md-4">
-						<label>Rate</label>
-						<input
-							type="number"
-							name="rate"
-							min={0}
-							max={10}
-							step={0.1}
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Rate"
-							value={formik.values?.rate}
-							onChange={changeRate}
-						/>
+						<span>
+							<input
+								type="number"
+								name="rate"
+								min={0}
+								max={10}
+								step={0.1}
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Rate"
+								value={formik.values?.rate}
+								onChange={changeRate}
+							/>
+						</span>
 						<p className="error">{formik.errors.rate || null}</p>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-md-4">
-						<label>Category</label>
-						<input
-							type="text"
-							name="category"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Category"
-							value={formik.values?.category}
-							onChange={changeCategory}
-						/>
+						<span>
+							<input
+								type="text"
+								name="category"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Category"
+								value={formik.values?.category}
+								onChange={changeCategory}
+							/>
+						</span>
 						<p className="error">{formik.errors.category || null}</p>
 					</div>
 					<div className="col-md-4">
-						<label>Price</label>
-						<input
-							type="number"
-							name="price"
-							min="0"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Price"
-							value={formik.values?.price}
-							onChange={changePrice}
-						/>
+						<span>
+							<input
+								type="number"
+								name="price"
+								min="0"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Price"
+								value={formik.values?.price}
+								onChange={changePrice}
+							/>
+						</span>
 						<p className="error">{formik.errors.price || null}</p>
 					</div>
 					<div className="col-md-4">
-						<label>Authors</label>
 						<select
 							defaultValue={-1}
 							name="authors"
@@ -244,7 +253,7 @@ export const AddBook = (props: IDetailEntity) => {
 							value={formik.values?.author_id}
 							onChange={changeAuthor}
 						>
-							<option value={-1}>Choose</option>
+							<option value={-1}>Authors</option>
 							{authors.map((row: any) => (
 								<option key={row.id} value={row.id}>
 									{row.fullName}
@@ -254,14 +263,26 @@ export const AddBook = (props: IDetailEntity) => {
 						<p className="error">{formik.errors.author_id || null}</p>
 					</div>
 				</div>
-				<br />
+
 				<div className="row">
-					<div className="col-md-3">
+					<div className="col-md-4 col-12">
 						<Button
 							disabled={!!Object.keys(formik.errors).length}
-							text={editMode ? "Update" : "Add"}
 							className={editMode ? "primary" : "success"}
 							type="submit"
+							text={
+								editMode ? (
+									<>
+										<EditIcon />
+										Update
+									</>
+								) : (
+									<>
+										<AddIcon />
+										Add
+									</>
+								)
+							}
 						/>
 					</div>
 				</div>

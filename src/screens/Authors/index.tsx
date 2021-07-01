@@ -35,20 +35,22 @@ export const Authors = () => {
 			<SearchAuthors />
 			<div className="container">
 				{authors.length ? (
-					<table className="table">
-						<Header list={headerList} />
-						<tbody>
-							{authors.map((row, index) => (
-								<Author
-									index={index}
-									id={row.id}
-									fullName={row.fullName}
-									numOfBooks={calculateNumOfBooks(row.id)}
-									edit={() => sendAuthorInfo(row.id)}
-								/>
-							))}
-						</tbody>
-					</table>
+					<div className="table-responsive">
+						<table className="table">
+							<Header list={headerList} />
+							<tbody>
+								{authors.map((row, index) => (
+									<Author
+										index={index}
+										id={row.id}
+										fullName={row.fullName}
+										numOfBooks={calculateNumOfBooks(row.id)}
+										edit={() => sendAuthorInfo(row.id)}
+									/>
+								))}
+							</tbody>
+						</table>
+					</div>
 				) : (
 					<div className="alert alert-danger" role="alert">
 						There is no result to show!

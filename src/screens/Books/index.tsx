@@ -48,22 +48,24 @@ export const Books = () => {
 		<>
 			<AddBook bookInfo={selectedRow} selectedRow={selectedRow} />
 			<SearchBooks />
-			<div className="container tableSize">
+			<div className="container">
 				{books.length ? (
-					<table className="table">
-						<Header list={headerList} />
-						<tbody>
-							{books.map((row, index) => (
-								<Book
-									key={row.id}
-									{...row}
-									{...{ index }}
-									author={getAuthor(row.author_id)}
-									edit={() => sendBookInfo(row.id)}
-								/>
-							))}
-						</tbody>
-					</table>
+					<div className="table-responsive">
+						<table className="table">
+							<Header list={headerList} />
+							<tbody>
+								{books.map((row, index) => (
+									<Book
+										key={row.id}
+										{...row}
+										{...{ index }}
+										author={getAuthor(row.author_id)}
+										edit={() => sendBookInfo(row.id)}
+									/>
+								))}
+							</tbody>
+						</table>
+					</div>
 				) : (
 					<div className="alert alert-danger" role="alert">
 						There is no result to show!

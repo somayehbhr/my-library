@@ -2,6 +2,9 @@
 import { Button } from "../../../../components/Button";
 // Hooks
 import { useDispatch } from "react-redux";
+import { EditIcon } from "../../../../components/svg/EditIcon";
+import * as React from "react";
+import { DeleteIcon } from "../../../../components/svg/DeleteIcon";
 
 interface IAuthorEntity {
 	id: number;
@@ -25,8 +28,24 @@ export const Author = (props: IAuthorEntity) => {
 			<td scope="col">{props.fullName}</td>
 			<td scope="col">{props.numOfBooks}</td>
 			<td>
-				<Button onClick={() => deleteAuthor(props.id)} text="Delete" className="danger" />
-				<Button onClick={() => props.edit()} text="Edit" className="primary" />
+				<Button
+					onClick={() => deleteAuthor(props.id)}
+					text={
+						<>
+							<DeleteIcon />
+						</>
+					}
+					className="danger"
+				/>
+				<Button
+					onClick={() => props.edit()}
+					text={
+						<>
+							<EditIcon />
+						</>
+					}
+					className="primary"
+				/>
 			</td>
 		</tr>
 	);

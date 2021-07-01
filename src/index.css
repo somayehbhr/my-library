@@ -29,17 +29,89 @@ button{
 label{
   padding: 0 0 4px 2px;
 }
-.authorButton{
-  margin-top: 29px;
-}
+
 table{
-  border: 1px solid black;
   margin-top: 20px;
 }
+table tr:nth-child(even){
+  background-color: rgba(0,0,0,0.04);
+}
+table td:nth-last-child(1){
+  display: flex;
+  justify-content: center;
+}
 .headerColor{
-  background-color: #a1b1b5;
+  background-color: #e3ebed;
 }
 .tableSize{
   padding-right: 0px;
   padding-left: 0px;
+}
+.navBar{
+  width: 100%;
+  border-bottom: solid 1px #eee;
+}
+.navBar .nav-link{
+  color: #a5acc0;
+}
+.navBar .nav-link.active{
+  color: #0b1fa2;
+  background-color: transparent;
+  position: relative;
+}
+.navBar .nav-link.active:before{
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0b1fa2;
+}
+.addSection .form-control,.addSection .form-select{
+  border: none;
+  border-bottom: solid 1px #a5acc0;
+  border-radius: 0;
+  outline: none !important;
+}
+.addSection .form-control:focus,.addSection .form-select:focus{
+  box-shadow: none !important;
+  border-bottom: solid 2px #0b1fa2 !important;
+}
+h2{
+  font-size: 21px !important;
+  color: #010940;
+  display: flex;
+  align-content: center;
+}
+h2 svg{
+  width: 16px;
+  height: auto;
+  margin-right: 5px;
+}
+button{
+  display: inline-flex !important;
+  align-items: center;
+}
+button svg{
+  width: 15px;
+  height: auto;
+  margin-right: 4px;
+  fill: #fff;
+}
+table thead{
+  background-color: #a5acc0;
+}
+@media all and (max-width:768px){
+  button{
+    width: 100%;
+    justify-content: center;
+  }
+  table td,table th{
+    min-width: 150px;
+    padding: 3px;
+  }
+}
+.search input,.search select{
+  margin-bottom: 20px;
 }

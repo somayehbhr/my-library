@@ -7,6 +7,7 @@ import { Button } from "../../../../components/Button";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
 import { constants } from "../../../../store/Books/book.reducer";
+import { SearchIcon } from "../../../../components/svg/SearchIcon";
 
 export const SearchBooks: React.FC = () => {
 	const [searchItem, setSearchItem] = useState({
@@ -51,58 +52,64 @@ export const SearchBooks: React.FC = () => {
 	}
 
 	return (
-		<div className="container addSection bg-light">
+		<div className="container addSection search">
 			<form>
 				<div className="row">
-					<div className="col-md-4">
-						<label htmlFor="inputEmail4">Title</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Title"
-							value={searchItem?.title}
-							onChange={searchTitle}
-						/>
+					<div className="col-12">
+						<h2>Search book</h2>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Release date</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="dd/mm/yyyy"
-							value={searchItem?.release_date}
-							onChange={searchReleaseDate}
-						/>
+						<span>
+							<input
+								type="text"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Title"
+								value={searchItem?.title}
+								onChange={searchTitle}
+							/>
+						</span>
 					</div>
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Rate</label>
-						<input
-							type="number"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Rate"
-							value={searchItem?.rate}
-							onChange={searchRate}
-						/>
+						<span>
+							<input
+								type="text"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Release date"
+								value={searchItem?.release_date}
+								onChange={searchReleaseDate}
+							/>
+						</span>
+					</div>
+					<div className="col-md-4">
+						<span>
+							<input
+								type="number"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Rate"
+								value={searchItem?.rate}
+								onChange={searchRate}
+							/>
+						</span>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Category</label>
-						<input
-							type="text"
-							className="form-control"
-							id="autoSizingInput"
-							placeholder="Category"
-							value={searchItem?.category}
-							onChange={searchCategory}
-						/>
+						<span>
+							<input
+								type="text"
+								className="form-control"
+								id="autoSizingInput"
+								placeholder="Category"
+								value={searchItem?.category}
+								onChange={searchCategory}
+							/>
+						</span>
 					</div>
 
 					<div className="col-md-4">
-						<label htmlFor="inputPassword4">Authors</label>
 						<select
 							defaultValue={-1}
 							className="form-select"
@@ -110,7 +117,7 @@ export const SearchBooks: React.FC = () => {
 							value={searchItem?.author_id}
 							onChange={searchAuthor}
 						>
-							<option value={-1}>Choose</option>
+							<option value={-1}>Authors</option>
 							{data.authors.map((row) => (
 								<option key={row.id} value={row.id}>
 									{row.fullName}
@@ -118,8 +125,17 @@ export const SearchBooks: React.FC = () => {
 							))}
 						</select>
 					</div>
-					<div className="col-md-3 authorButton">
-						<Button text={"Search"} onClick={search} className={"success"} />
+					<div className="col-md-4 col-12">
+						<Button
+							text={
+								<>
+									<SearchIcon />
+									Search
+								</>
+							}
+							onClick={search}
+							className={"success"}
+						/>
 					</div>
 				</div>
 			</form>

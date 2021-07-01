@@ -4,14 +4,8 @@ import { NavLink } from "react-router-dom";
 export const Navbar = () => {
 	return (
 		<>
-			<div
-				className="container"
-				style={{
-					paddingLeft: "0px",
-					paddingRight: "0px",
-				}}
-			>
-				<nav className="navbar navbar-light bg-light justify-content-between">
+			<nav className="navBar">
+				<div className="container">
 					<ul className="nav nav-pills" role="tablist">
 						<li className="nav-item">
 							<NavLink
@@ -42,8 +36,8 @@ export const Navbar = () => {
 							</NavLink>
 						</li>
 					</ul>
-				</nav>
-			</div>
+				</div>
+			</nav>
 		</>
 	);
 };
