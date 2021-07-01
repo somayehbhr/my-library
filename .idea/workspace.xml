@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: force to set state empty">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: edit action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +137,7 @@
       <workItem from="1625027337040" duration="11000" />
       <workItem from="1625048444595" duration="4542000" />
       <workItem from="1625068590112" duration="18526000" />
-      <workItem from="1625127557633" duration="11777000" />
+      <workItem from="1625127557633" duration="12216000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -385,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625148054121</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix: edit action">
+      <created>1625148856743</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1625148856743</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +433,8 @@
     <MESSAGE value="fix: change edit mode condition" />
     <MESSAGE value="chore: connect to store" />
     <MESSAGE value="fix: force to set state empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: force to set state empty" />
+    <MESSAGE value="fix: edit action" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: edit action" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

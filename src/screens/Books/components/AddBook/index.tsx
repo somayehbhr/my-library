@@ -150,12 +150,12 @@ export const AddBook = (props: IDetailEntity) => {
 		if (props.bookInfo) {
 			setBookInfo(props.bookInfo);
 			console.log("bookInfo", props.bookInfo);
-			const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
-			const [year, month, day] = value;
-			const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${
-				day?.length === 2 ? day : `0${day}`
-			}`;
-			formik.setValues({ ...props.bookInfo, release_date: date });
+			// const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
+			// const [year, month, day] = value;
+			// const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${
+			// 	day?.length === 2 ? day : `0${day}`
+			// }`;
+			formik.setValues({ ...props.bookInfo });
 		}
 	}, [props.bookInfo]);
 
