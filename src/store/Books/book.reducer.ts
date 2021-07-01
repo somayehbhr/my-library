@@ -56,6 +56,7 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 				if (book.id === action.payload.id) {
 					book.title = action.payload.title;
 					book.rate = action.payload.rate;
+					book.price = action.payload.price;
 					book.release_date = action.payload.release_date;
 					book.category = action.payload.category;
 					book.author_id = action.payload.author_id;

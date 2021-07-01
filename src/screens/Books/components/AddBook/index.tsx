@@ -94,6 +94,7 @@ export const AddBook = (props: IDetailEntity) => {
 				id: props.selectedRow.id,
 				title: editedBook.title,
 				rate: editedBook.rate,
+				price: editedBook.price,
 				release_date: editedBook.release_date,
 				category: editedBook.category,
 				author_id: editedBook.author_id,
