@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
 import { constants } from "../../../../store/Books/book.reducer";
+import { StateNetwork } from "../../../../types/store.type";
+import { IBookEntity } from "../../index";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -13,8 +15,9 @@ interface IDetailEntity {
 
 export const AddBook = (props: IDetailEntity) => {
 	const dispatch = useDispatch();
+	const editMode = useSelector((state: any) => state.books.isEdit);
+	console.log(editMode);
 	const authors = useSelector((state: any) => state.authors.list);
-	const [isEdit, setIsEdit] = useState(false);
 	const [bookInfo, setBookInfo] = useState({
 		title: "",
 		release_date: "",
@@ -58,14 +61,10 @@ export const AddBook = (props: IDetailEntity) => {
 			return errors;
 		},
 		onSubmit: (values) => {
-			isEdit ? editBook() : addBook();
-			console.log("isEdit", isEdit);
+			editMode ? editBook() : addBook();
+			console.log("isEdit", editMode);
 		},
 	});
-
-	useEffect(() => {
-		setIsEdit(!!formik.values.title?.length);
-	}, [formik.values.title]);
 
 	function handleAddBook(add: any) {
 		console.log("add", add);
@@ -263,8 +262,8 @@ export const AddBook = (props: IDetailEntity) => {
 					<div className="col-md-3">
 						<Button
 							disabled={!!Object.keys(formik.errors).length}
-							text={isEdit ? "Update" : "Add"}
-							className={isEdit ? "primary" : "success"}
+							text={editMode ? "Update" : "Add"}
+							className={editMode ? "primary" : "success"}
 							type="submit"
 						/>
 					</div>
