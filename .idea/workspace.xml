@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: add form validation to authors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +141,7 @@
       <workItem from="1624808597456" duration="7450000" />
       <workItem from="1625027337040" duration="11000" />
       <workItem from="1625048444595" duration="4542000" />
-      <workItem from="1625068590112" duration="11022000" />
+      <workItem from="1625068590112" duration="13898000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -323,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625075048777</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: add form validation to authors">
+      <created>1625117314957</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1625117314957</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

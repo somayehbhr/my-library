@@ -39,10 +39,10 @@ export const Books = () => {
 		<>
 			<AddBook bookInfo={selectedRow} selectedRow={selectedRow} />
 			<SearchBooks />
-			<div className="container">
+			<div className="container tableSize">
 				{books.length ? (
 					<table className="table">
-						<Header list={headerList} />
+						<Header list={headerList}/>
 						<tbody>
 							{books.map((row, index) => (
 								<Book

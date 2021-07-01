@@ -139,8 +139,6 @@ export const AddBook = (props: IDetailEntity) => {
 	function changeAuthor(event: ChangeEvent<HTMLSelectElement>) {
 		formik.setFieldValue("author_id",event.target.value)
 	}
-
-
 	useEffect(() => {
 		setBookInfo(props.bookInfo);
 		const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
@@ -148,10 +146,6 @@ export const AddBook = (props: IDetailEntity) => {
 		const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${day?.length === 2 ? day : `0${day}`}`
 		formik.setValues({ ...props.bookInfo,release_date:date});
 	}, [props.bookInfo]);
-
-
-
-
 
 	return (
 		<div className="container addSection bg-light">

@@ -82,10 +82,9 @@ export const AddAuthor = (props: IDetailEntity) => {
 						/>
 						<p className="error">{formik.errors.fullName || null}</p>
 					</div>
-				</div>
-				<br />
-				<div className="row">
-					<div className="col-md-3">
+					<br />
+
+					<div className="col-md-3 authorButton">
 						<Button
 							disabled={!!Object.keys(formik.errors).length}
 							text={isEditModeEnabled ? "Update" : "Add"}
@@ -94,6 +93,8 @@ export const AddAuthor = (props: IDetailEntity) => {
 						/>
 					</div>
 				</div>
+
+
 			</form>
 		</div>
 	);

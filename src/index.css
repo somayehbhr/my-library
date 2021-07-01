@@ -26,3 +26,20 @@ button{
 .error{
   color: red;
 }
+label{
+  padding: 0 0 4px 2px;
+}
+.authorButton{
+  margin-top: 29px;
+}
+table{
+  border: 1px solid black;
+  margin-top: 20px;
+}
+.headerColor{
+  background-color: #a1b1b5;
+}
+.tableSize{
+  padding-right: 0px;
+  padding-left: 0px;
+}

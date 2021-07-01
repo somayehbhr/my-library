@@ -36,10 +36,7 @@ export const SearchAuthors: React.FC = () => {
 							onChange={(event) => setSearchItem(event.target.value)}
 						/>
 					</div>
-				</div>
-				<br />
-				<div className="row">
-					<div className="col-md-3">
+					<div className="col-md-3 authorButton">
 						<Button text={"Search"} onClick={search} className={"success"} />
 					</div>
 				</div>

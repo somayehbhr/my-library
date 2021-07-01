@@ -1,6 +1,6 @@
 export const Header = (props: any) => {
 	return (
-		<thead>
+		<thead className="headerColor">
 			<tr>
 				<th scope="col">#</th>
 
