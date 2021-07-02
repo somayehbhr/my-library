@@ -235,7 +235,7 @@ export const AddBook = (props: IDetailEntity) => {
 								min="0"
 								className="form-control"
 								id="autoSizingInput"
-								placeholder="Price"
+								placeholder="Price($)"
 								value={formik.values?.price}
 								onChange={changePrice}
 							/>

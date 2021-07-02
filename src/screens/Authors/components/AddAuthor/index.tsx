@@ -1,6 +1,6 @@
 // Hooks
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect, ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
@@ -14,9 +14,9 @@ interface IDetailEntity {
 }
 
 export const AddAuthor = (props: IDetailEntity) => {
-	const [fullName, setFullName] = useState("");
-	const isEditModeEnabled = props.authorInfo?.hasOwnProperty("fullName");
 	const dispatch = useDispatch();
+	const editMode = useSelector((state: any) => state.authors.isEdit);
+	const [fullName, setFullName] = useState("");
 	const formik = useFormik({
 		initialValues: {
 			fullName: "",
@@ -32,7 +32,8 @@ export const AddAuthor = (props: IDetailEntity) => {
 			return errors;
 		},
 		onSubmit: (values) => {
-			isEditModeEnabled ? editAuthor() : addAuthor();
+			editMode ? editAuthor() : addAuthor();
+			console.log(editMode);
 		},
 	});
 
@@ -42,34 +43,48 @@ export const AddAuthor = (props: IDetailEntity) => {
 			payload: add,
 		});
 	}
-
-	function addAuthor() {
-		handleAddAuthor({ fullName });
-		setFullName("");
+	function addMode() {
+		dispatch({
+			type: constants.IS_EDIT,
+			payload: false,
+		});
 	}
-
+	function addAuthor() {
+		handleAddAuthor({ fullName: formik.values.fullName });
+		clearAuthorInfo();
+	}
+	function clearAuthorInfo() {
+		formik.setFieldValue("fullName", "");
+	}
 	useEffect(() => {
-		setFullName(props.authorInfo?.fullName);
+		if (props.authorInfo) {
+			setFullName(props.authorInfo);
+			formik.setValues({ ...props.authorInfo });
+		}
 	}, [props.authorInfo]);
 
-	function handleEditAuthor(editedBook: any) {
+	function handleEditAuthor(editedAuthor: any) {
 		dispatch({
 			type: constants.EDIT,
 			payload: {
 				id: props.selectedRow.id,
-				data: editedBook.fullName,
+				data: editedAuthor.fullName,
 			},
 		});
 	}
 
 	function editAuthor() {
-		handleEditAuthor({ fullName });
-		setFullName("");
+		handleEditAuthor({ fullName: formik.values.fullName });
+		console.log(formik.values.fullName);
+		addMode();
+		clearAuthorInfo();
 	}
-
+	function changeFullName(event: ChangeEvent<HTMLInputElement>) {
+		formik.setFieldValue("fullName", event.target.value);
+	}
 	return (
 		<div className="container addSection">
-			<form>
+			<form onSubmit={formik.handleSubmit} noValidate>
 				<div className="row">
 					<div className="col-12">
 						<h2>Add author</h2>
@@ -83,7 +98,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 								id="autoSizingInput"
 								placeholder="Full name"
 								value={formik.values.fullName}
-								onChange={formik.handleChange}
+								onChange={changeFullName}
 							/>
 						</span>
 						<p className="error">{formik.errors.fullName || null}</p>
@@ -92,8 +107,10 @@ export const AddAuthor = (props: IDetailEntity) => {
 					<div className="col-md-4 col-12">
 						<Button
 							disabled={!!Object.keys(formik.errors).length}
+							className={editMode ? "primary" : "success"}
+							type="submit"
 							text={
-								isEditModeEnabled ? (
+								editMode ? (
 									<>
 										<EditIcon />
 										Update
@@ -105,8 +122,6 @@ export const AddAuthor = (props: IDetailEntity) => {
 									</>
 								)
 							}
-							className={isEditModeEnabled ? "primary" : "success"}
-							type="submit"
 						/>
 					</div>
 				</div>
