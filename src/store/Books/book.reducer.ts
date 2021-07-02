@@ -88,9 +88,6 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 		 * Search an item in table
 		 */
 		case constants.SEARCH: {
-			const filteredSearchValues = Object.entries(action.payload).filter(
-				(item: any) => item[1] !== -1 || item[1] !== "",
-			);
 			const $filteredBooks = state.readOnlyList.filter((item) => {
 				const { title, release_date, rate, category, author_id } = action.payload;
 				return (

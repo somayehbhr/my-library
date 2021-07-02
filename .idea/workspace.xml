@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="style: remove table border">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: add document">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Svg/AddIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/AddIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Svg/DeleteIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/DeleteIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Svg/EditIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/EditIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Svg/SearchIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/SearchIcon/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAndEditAuthor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddAndEditBook/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddAndEditBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddAndEditBook/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +149,7 @@
       <workItem from="1625167515313" duration="104000" />
       <workItem from="1625233766827" duration="6992000" />
       <workItem from="1625245353614" duration="7817000" />
-      <workItem from="1625253356522" duration="1715000" />
+      <workItem from="1625253356522" duration="1843000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -476,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625242963582</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="feat: add document">
+      <created>1625255121945</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1625255121945</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +485,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: cleaning the code" />
     <MESSAGE value="fix: prevent to reset route when refresh the page" />
     <MESSAGE value="feat: added template of search box" />
     <MESSAGE value="style: add background for add form" />
@@ -520,7 +509,8 @@
     <MESSAGE value="feat: add form validation on authors" />
     <MESSAGE value="fix: set editMode" />
     <MESSAGE value="style: remove table border" />
-    <option name="LAST_COMMIT_MESSAGE" value="style: remove table border" />
+    <MESSAGE value="feat: add document" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add document" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

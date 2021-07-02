@@ -216,11 +216,6 @@ export const AddAndEditBook = (props: IDetailEntity) => {
 	useEffect(() => {
 		if (props.bookInfo) {
 			setBookInfo(props.bookInfo);
-			// const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
-			// const [year, month, day] = value;
-			// const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${
-			// 	day?.length === 2 ? day : `0${day}`
-			// }`;
 			formik.setValues({ ...props.bookInfo });
 		}
 	}, [props.bookInfo]);
