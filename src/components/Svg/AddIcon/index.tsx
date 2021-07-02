@@ -1,4 +1,11 @@
-export const AddIcon = () => {
+// Types
+import { FC } from "react";
+
+/**
+ * This component used to show add icon
+ * @constructor
+ */
+export const AddIcon: FC = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

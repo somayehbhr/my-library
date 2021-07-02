@@ -1,3 +1,8 @@
+/**
+ * This component used for the header of the table in the whole project
+ * @param props
+ * @constructor
+ */
 export const Header = (props: any) => {
 	return (
 		<thead className="headerColor">

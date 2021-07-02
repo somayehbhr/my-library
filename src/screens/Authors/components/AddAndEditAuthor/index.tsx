@@ -4,19 +4,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
-import { constants } from "../../../../store/Authors/author.reducer";
 import { EditIcon } from "../../../../components/Svg/EditIcon";
 import { AddIcon } from "../../../../components/Svg/AddIcon";
+// Constants
+import { constants } from "../../../../store/Authors/author.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
 	authorInfo: any;
 }
 
-export const AddAuthor = (props: IDetailEntity) => {
+/**
+ * This component due to handling add and delete action
+ * @param props
+ * @constructor
+ */
+export const AddAndEditAuthor = (props: IDetailEntity) => {
+	// Hooks
 	const dispatch = useDispatch();
+	// Store connector
 	const editMode = useSelector((state: any) => state.authors.isEdit);
 	const [fullName, setFullName] = useState("");
+	/**
+	 * Validating form by formik
+	 */
 	const formik = useFormik({
 		initialValues: {
 			fullName: "",
@@ -31,31 +42,50 @@ export const AddAuthor = (props: IDetailEntity) => {
 			}
 			return errors;
 		},
-		onSubmit: (values) => {
+		onSubmit: () => {
 			editMode ? editAuthor() : addAuthor();
-			console.log(editMode);
 		},
 	});
 
+	/**
+	 * Send action and payload to the reducer to add something on table
+	 * @param add
+	 */
 	function handleAddAuthor(add: any) {
 		dispatch({
 			type: constants.ADD,
 			payload: add,
 		});
 	}
+
+	/**
+	 * Set edit mode false it means that update button change into add again
+	 */
 	function addMode() {
 		dispatch({
 			type: constants.IS_EDIT,
 			payload: false,
 		});
 	}
+
+	/**
+	 * Add new data and clear the state
+	 */
 	function addAuthor() {
 		handleAddAuthor({ fullName: formik.values.fullName });
 		clearAuthorInfo();
 	}
+
+	/**
+	 * Clear state
+	 */
 	function clearAuthorInfo() {
 		formik.setFieldValue("fullName", "");
 	}
+
+	/**
+	 * Use to set state edit button in the table is clicked
+	 */
 	useEffect(() => {
 		if (props.authorInfo) {
 			setFullName(props.authorInfo);
@@ -63,6 +93,10 @@ export const AddAuthor = (props: IDetailEntity) => {
 		}
 	}, [props.authorInfo]);
 
+	/**
+	 * Send action and payload to the reducer to edit something on table
+	 * @param editedAuthor
+	 */
 	function handleEditAuthor(editedAuthor: any) {
 		dispatch({
 			type: constants.EDIT,
@@ -73,12 +107,19 @@ export const AddAuthor = (props: IDetailEntity) => {
 		});
 	}
 
+	/**
+	 * Edit data and clear the state
+	 */
 	function editAuthor() {
 		handleEditAuthor({ fullName: formik.values.fullName });
-		console.log(formik.values.fullName);
 		addMode();
 		clearAuthorInfo();
 	}
+
+	/**
+	 * Set value for full name input
+	 * @param event
+	 */
 	function changeFullName(event: ChangeEvent<HTMLInputElement>) {
 		formik.setFieldValue("fullName", event.target.value);
 	}

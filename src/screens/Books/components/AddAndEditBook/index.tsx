@@ -4,19 +4,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
-import { constants } from "../../../../store/Books/book.reducer";
 import { AddIcon } from "../../../../components/Svg/AddIcon";
 import { EditIcon } from "../../../../components/Svg/EditIcon";
+// Constants
+import { constants } from "../../../../store/Books/book.reducer";
 
 interface IDetailEntity {
 	selectedRow: any;
 	bookInfo: any;
 }
 
-export const AddBook = (props: IDetailEntity) => {
+/**
+ * This component due to handling add and delete action
+ * @param props
+ * @constructor
+ */
+export const AddAndEditBook = (props: IDetailEntity) => {
+	// Hooks
 	const dispatch = useDispatch();
+	// Store connector
 	const editMode = useSelector((state: any) => state.books.isEdit);
 	const authors = useSelector((state: any) => state.authors.list);
+
 	const [bookInfo, setBookInfo] = useState({
 		title: "",
 		release_date: "",
@@ -25,6 +34,9 @@ export const AddBook = (props: IDetailEntity) => {
 		price: "",
 		author_id: -1,
 	});
+	/**
+	 * Validating form by formik
+	 */
 	const formik = useFormik({
 		initialValues: {
 			title: "",
@@ -59,22 +71,34 @@ export const AddBook = (props: IDetailEntity) => {
 			}
 			return errors;
 		},
-		onSubmit: (values) => {
+		onSubmit: () => {
 			editMode ? editBook() : addBook();
 		},
 	});
+
+	/**
+	 *  Send action and payload to the reducer to add something on table
+	 * @param add
+	 */
 	function handleAddBook(add: any) {
 		dispatch({
 			type: constants.ADD,
 			payload: add,
 		});
 	}
+
+	/**
+	 * Set edit mode false it means that update button change into add again
+	 */
 	function addMode() {
 		dispatch({
 			type: constants.IS_EDIT,
 			payload: false,
 		});
 	}
+	/**
+	 * Add new data and clear the state
+	 */
 	function addBook() {
 		handleAddBook({
 			title: formik.values.title,
@@ -87,6 +111,10 @@ export const AddBook = (props: IDetailEntity) => {
 		clearBookInfo();
 	}
 
+	/**
+	 * Send action and payload to the reducer to edit something on table
+	 * @param editedBook
+	 */
 	function handleEditBook(editedBook: any) {
 		dispatch({
 			type: constants.EDIT,
@@ -101,7 +129,9 @@ export const AddBook = (props: IDetailEntity) => {
 			},
 		});
 	}
-
+	/**
+	 * Clear state
+	 */
 	function clearBookInfo() {
 		formik.setFieldValue("title", "");
 		formik.setFieldValue("rate", "");
@@ -110,6 +140,10 @@ export const AddBook = (props: IDetailEntity) => {
 		formik.setFieldValue("price", "");
 		formik.setFieldValue("author_id", -1);
 	}
+
+	/**
+	 * Edit data and clear the state
+	 */
 	function editBook() {
 		handleEditBook({
 			title: formik.values.title,
@@ -122,34 +156,66 @@ export const AddBook = (props: IDetailEntity) => {
 		addMode();
 		clearBookInfo();
 	}
+
+	/**
+	 * Set value for title input
+	 * @param event
+	 */
 	function changeTitle(event: ChangeEvent<HTMLInputElement>) {
 		formik.setFieldValue("title", event.target.value);
 	}
+
+	/**
+	 * Set value for category input
+	 * @param event
+	 */
 	function changeCategory(event: ChangeEvent<HTMLInputElement>) {
 		formik.setFieldValue("category", event.target.value);
 	}
+
+	/**
+	 * Set value for rate input
+	 * @param event
+	 */
 	function changeRate(event: ChangeEvent<HTMLInputElement>) {
 		const { value } = event.target;
 		if (value === "" || (Number(value) && Number(value) <= 10)) {
 			formik.setFieldValue("rate", Number(value).toFixed(1));
 		}
 	}
+
+	/**
+	 * Set value for release date input
+	 * @param event
+	 */
 	function changeReleaseDate(event: ChangeEvent<HTMLInputElement>) {
 		const { value } = event.target;
 		if (value === "" || Object.keys(value).length <= 10) {
 			formik.setFieldValue("release_date", event.target.value);
 		}
 	}
+
+	/**
+	 * Set value for price input
+	 * @param event
+	 */
 	function changePrice(event: ChangeEvent<HTMLInputElement>) {
 		formik.setFieldValue("price", event.target.value);
 	}
+
+	/**
+	 * Set value for author select box
+	 * @param event
+	 */
 	function changeAuthor(event: ChangeEvent<HTMLSelectElement>) {
 		formik.setFieldValue("author_id", event.target.value);
 	}
+	/**
+	 * Use to set state edit button in the table is clicked
+	 */
 	useEffect(() => {
 		if (props.bookInfo) {
 			setBookInfo(props.bookInfo);
-			console.log("bookInfo", props.bookInfo);
 			// const value = props.bookInfo?.release_date?.split("/").reverse() ?? [];
 			// const [year, month, day] = value;
 			// const date = `${year}-${month?.length === 2 ? month : `0${month}`}-${

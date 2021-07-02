@@ -1,11 +1,12 @@
+import * as React from "react";
 // Common components
 import { Button } from "../../../../components/Button";
-// Hooks
-import { useDispatch } from "react-redux";
-import { constants } from "../../../../store/Books/book.reducer";
-import * as React from "react";
 import { EditIcon } from "../../../../components/Svg/EditIcon";
 import { DeleteIcon } from "../../../../components/Svg/DeleteIcon";
+// Hooks
+import { useDispatch } from "react-redux";
+// Constants
+import { constants } from "../../../../store/Books/book.reducer";
 
 interface IBookEntity {
 	id: number;
@@ -20,8 +21,19 @@ interface IBookEntity {
 	author?: string;
 }
 
+/**
+ * This component due to show data in each row and also add and edit action
+ * @param props
+ * @constructor
+ */
 export const Book = (props: IBookEntity) => {
+	// Hooks
 	const dispatch = useDispatch();
+
+	/**
+	 * Send action and payload to reducer to delete a row from table
+	 * @param id
+	 */
 	function deleteBook(id: number) {
 		dispatch({
 			type: constants.DELETE,

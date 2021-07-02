@@ -1,11 +1,12 @@
+import * as React from "react";
 // Common components
 import { Button } from "../../../../components/Button";
+import { EditIcon } from "../../../../components/Svg/EditIcon";
+import { DeleteIcon } from "../../../../components/Svg/DeleteIcon";
 // Hooks
 import { useDispatch } from "react-redux";
-import * as React from "react";
+// Constants
 import { constants } from "../../../../store/Authors/author.reducer";
-import { DeleteIcon } from "../../../../components/Svg/DeleteIcon";
-import { EditIcon } from "../../../../components/Svg/EditIcon";
 
 interface IAuthorEntity {
 	id: number;
@@ -15,8 +16,19 @@ interface IAuthorEntity {
 	edit: any;
 }
 
+/**
+ * This component due to show data in each row and also add and edit action
+ * @param props
+ * @constructor
+ */
 export const Author = (props: IAuthorEntity) => {
+	// Hooks
 	const dispatch = useDispatch();
+
+	/**
+	 * Send action and payload to reducer to delete a row from table
+	 * @param id
+	 */
 	function deleteAuthor(id: number) {
 		dispatch({
 			type: constants.DELETE,

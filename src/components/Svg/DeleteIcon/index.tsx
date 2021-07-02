@@ -1,4 +1,11 @@
-export const DeleteIcon = () => {
+// Types
+import { FC } from "react";
+
+/**
+ * This component used to show delete icon
+ * @constructor
+ */
+export const DeleteIcon: FC = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

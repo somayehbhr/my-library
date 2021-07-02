@@ -36,12 +36,18 @@ export const constants = {
 };
 export const bookReducer: Reducer<BookState> = (state = initialState, action) => {
 	switch (action.type) {
+		/**
+		 * Delete each row by id
+		 */
 		case constants.DELETE: {
 			const newList = state.readOnlyList.filter((row) => {
 				return row.id !== action.payload;
 			});
 			return { ...state, list: newList, readOnlyList: newList };
 		}
+		/**
+		 * Add new data and allocate an unique id to each row
+		 */
 		case constants.ADD: {
 			const id = Math.floor(Math.random() * 100);
 			const newBook = { id, ...action.payload };
@@ -51,6 +57,9 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 				readOnlyList: [...state.list, newBook],
 			};
 		}
+		/**
+		 * Edit each row
+		 */
 		case constants.EDIT: {
 			let $books = [...state.list].map((book) => {
 				if (book.id === action.payload.id) {
@@ -66,24 +75,30 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 
 			return { ...state, list: $books };
 		}
+		/**
+		 * To change add button when edit button in row has been clicked
+		 */
 		case constants.IS_EDIT: {
 			return {
 				...state,
 				isEdit: action.payload,
 			};
 		}
+		/**
+		 * Search an item in table
+		 */
 		case constants.SEARCH: {
 			const filteredSearchValues = Object.entries(action.payload).filter(
 				(item: any) => item[1] !== -1 || item[1] !== "",
 			);
-			const $filteredBooks = state.readOnlyList.filter((s) => {
+			const $filteredBooks = state.readOnlyList.filter((item) => {
 				const { title, release_date, rate, category, author_id } = action.payload;
 				return (
-					s.author_id === author_id ||
-					(s.title.includes(title) &&
-						s.release_date.includes(release_date) &&
-						s.rate.toString().includes(rate) &&
-						s.category.includes(category))
+					item.author_id === author_id ||
+					(item.title.toLowerCase().includes(title) &&
+						item.release_date.includes(release_date) &&
+						item.rate.toString().includes(rate) &&
+						item.category.toLowerCase().includes(category))
 				);
 			});
 			return {
@@ -91,6 +106,9 @@ export const bookReducer: Reducer<BookState> = (state = initialState, action) =>
 				list: $filteredBooks,
 			};
 		}
+		/**
+		 * Render the main store when we fill search input by nothing
+		 */
 		case constants.CLEAR_SEARCH: {
 			return {
 				...state,

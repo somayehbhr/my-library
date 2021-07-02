@@ -1,4 +1,11 @@
-export const EditIcon = () => {
+// Types
+import { FC } from "react";
+
+/**
+ * This component used to show edit icon
+ * @constructor
+ */
+export const EditIcon: FC = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

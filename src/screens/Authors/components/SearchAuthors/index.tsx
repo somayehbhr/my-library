@@ -1,16 +1,30 @@
 import * as React from "react";
 // Common components
 import { Button } from "../../../../components/Button";
+import { SearchIcon } from "../../../../components/Svg/SearchIcon";
 // Hooks
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { SearchIcon } from "../../../../components/Svg/SearchIcon";
+// Constants
 import { constants } from "../../../../store/Authors/author.reducer";
+// Types
+import { FC } from "react";
 
-export const SearchAuthors: React.FC = () => {
+/**
+ * This component due to search in the whole data in table
+ * @constructor
+ */
+export const SearchAuthors: FC = () => {
+	// Hooks
 	const dispatch = useDispatch();
+
 	const [searchItem, setSearchItem] = useState("");
 
+	/**
+	 * Send action and payload to reducer for search item in the table when the input has data
+	 * and also when can see all data when search input is empty
+	 * @param e
+	 */
 	function search(e: any) {
 		e.preventDefault();
 		if (searchItem.length) {

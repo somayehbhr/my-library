@@ -1,7 +1,13 @@
 // React router
 import { NavLink } from "react-router-dom";
+// Types
+import { FC } from "react";
 
-export const Navbar = () => {
+/**
+ * This component used for the main navbar that exists in project
+ * @constructor
+ */
+export const Navbar: FC = () => {
 	return (
 		<>
 			<nav className="navBar">

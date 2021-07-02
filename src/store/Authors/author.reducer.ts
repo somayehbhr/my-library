@@ -30,12 +30,18 @@ export const constants = {
 // @ts-ignore
 export const authorReducer: Reducer<AuthorState> = (state = initialState, action) => {
 	switch (action.type) {
+		/**
+		 * Delete each row by id
+		 */
 		case constants.DELETE: {
 			const newList = state.readOnlyList.filter((row) => {
 				return row.id !== action.payload;
 			});
 			return { ...state, list: newList, readOnlyList: newList };
 		}
+		/**
+		 * Add new data and allocate an unique id to each row
+		 */
 		case constants.ADD: {
 			const id = Math.floor(Math.random() * 100);
 			const newAuthor = { id, ...action.payload };
@@ -45,6 +51,9 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 				readOnlyList: [...state.list, newAuthor],
 			};
 		}
+		/**
+		 * Edit each row
+		 */
 		case constants.EDIT: {
 			let $authors = [...state.list].map((author) => {
 				if (author.id === action.payload.id) {
@@ -54,21 +63,30 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 			});
 			return { ...state, list: $authors };
 		}
+		/**
+		 * Search an item in table
+		 */
 		case constants.SEARCH: {
-			const $filteredAuthors = state.readOnlyList.filter((s) => {
-				return s.fullName.toLowerCase().includes(action.payload);
+			const $filteredAuthors = state.readOnlyList.filter((item) => {
+				return item.fullName.toLowerCase().includes(action.payload);
 			});
 			return {
 				...state,
 				list: $filteredAuthors,
 			};
 		}
+		/**
+		 * Render the main store when we fill search input by nothing
+		 */
 		case constants.CLEAR_SEARCH: {
 			return {
 				...state,
 				list: state.readOnlyList,
 			};
 		}
+		/**
+		 * To change add button when edit button in row has been clicked
+		 */
 		case constants.IS_EDIT: {
 			return {
 				...state,

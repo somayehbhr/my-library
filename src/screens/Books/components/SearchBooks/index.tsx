@@ -1,15 +1,21 @@
-import * as React from "react";
 // Dummy data
 import data from "../../../../data/info.json";
 // Common components
 import { Button } from "../../../../components/Button";
-// Hooks
-import { ChangeEvent, MouseEventHandler, useState } from "react";
-import { useDispatch } from "react-redux";
-import { constants } from "../../../../store/Books/book.reducer";
 import { SearchIcon } from "../../../../components/Svg/SearchIcon";
+// Hooks
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+// Constants
+import { constants } from "../../../../store/Books/book.reducer";
+// Types
+import { ChangeEvent, FC } from "react";
 
-export const SearchBooks: React.FC = () => {
+/**
+ * This component due to search in the whole data in table
+ * @constructor
+ */
+export const SearchBooks: FC = () => {
 	const [searchItem, setSearchItem] = useState({
 		title: "",
 		release_date: "",
@@ -17,7 +23,14 @@ export const SearchBooks: React.FC = () => {
 		category: "",
 		author_id: -1,
 	});
+	// Hooks
 	const dispatch = useDispatch();
+
+	/**
+	 * Send action and payload to reducer for search item in the table when the input has data
+	 * and also when can see all data when search input is empty
+	 * @param e
+	 */
 	function search(e: any) {
 		e.preventDefault();
 
@@ -35,18 +48,43 @@ export const SearchBooks: React.FC = () => {
 			});
 		}
 	}
+
+	/**
+	 * Set value for title input
+	 * @param event
+	 */
 	function searchTitle(event: ChangeEvent<HTMLInputElement>) {
 		setSearchItem({ ...searchItem, title: event.target.value });
 	}
+
+	/**
+	 * Set value for release date input
+	 * @param event
+	 */
 	function searchReleaseDate(event: ChangeEvent<HTMLInputElement>) {
 		setSearchItem({ ...searchItem, release_date: event.target.value });
 	}
+
+	/**
+	 * Set value for rate input
+	 * @param event
+	 */
 	function searchRate(event: ChangeEvent<HTMLInputElement>) {
 		setSearchItem({ ...searchItem, rate: event.target.value });
 	}
+
+	/**
+	 * Set value for category input
+	 * @param event
+	 */
 	function searchCategory(event: ChangeEvent<HTMLInputElement>) {
 		setSearchItem({ ...searchItem, category: event.target.value });
 	}
+
+	/**
+	 * Set value for author select box
+	 * @param event
+	 */
 	function searchAuthor(event: ChangeEvent<HTMLSelectElement>) {
 		setSearchItem({ ...searchItem, author_id: Number(event.target.value) });
 	}

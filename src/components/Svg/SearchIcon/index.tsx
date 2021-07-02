@@ -1,4 +1,11 @@
-export const SearchIcon = () => {
+// Types
+import { FC } from "react";
+
+/**
+ * This component used to show search icon
+ * @constructor
+ */
+export const SearchIcon: FC = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

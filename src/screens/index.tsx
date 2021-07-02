@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import { Books } from "./Books";
 import { Authors } from "./Authors";
 
+/**
+ * This component due to show the main pages ang manage the routes
+ */
 export default () => {
 	return (
 		<Router basename={process.env.NODE_ENV === "production" ? window.location.pathname : "/"}>

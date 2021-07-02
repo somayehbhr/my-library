@@ -1,3 +1,4 @@
+// Types
 import { FC, MouseEventHandler } from "react";
 
 interface Props {
@@ -7,6 +8,12 @@ interface Props {
 	className?: string;
 	disabled?: boolean;
 }
+
+/**
+ * This component used for all types of buttons in the whole project
+ * @param props
+ * @constructor
+ */
 export const Button: FC<Props> = (props) => {
 	return (
 		<button
