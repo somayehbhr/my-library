@@ -3,10 +3,9 @@ import { Button } from "../../../../components/Button";
 // Hooks
 import { useDispatch } from "react-redux";
 import { constants } from "../../../../store/Books/book.reducer";
-import { SearchIcon } from "../../../../components/svg/SearchIcon";
 import * as React from "react";
-import { EditIcon } from "../../../../components/svg/EditIcon";
-import { DeleteIcon } from "../../../../components/svg/DeleteIcon";
+import { EditIcon } from "../../../../components/Svg/EditIcon";
+import { DeleteIcon } from "../../../../components/Svg/DeleteIcon";
 
 interface IBookEntity {
 	id: number;

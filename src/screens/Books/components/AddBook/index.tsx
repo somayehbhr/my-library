@@ -5,10 +5,8 @@ import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
 import { constants } from "../../../../store/Books/book.reducer";
-import { StateNetwork } from "../../../../types/store.type";
-import { IBookEntity } from "../../index";
-import { AddIcon } from "../../../../components/svg/AddIcon";
-import { EditIcon } from "../../../../components/svg/EditIcon";
+import { AddIcon } from "../../../../components/Svg/AddIcon";
+import { EditIcon } from "../../../../components/Svg/EditIcon";
 
 interface IDetailEntity {
 	selectedRow: any;

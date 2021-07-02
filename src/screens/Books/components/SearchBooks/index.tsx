@@ -7,7 +7,7 @@ import { Button } from "../../../../components/Button";
 import { ChangeEvent, MouseEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
 import { constants } from "../../../../store/Books/book.reducer";
-import { SearchIcon } from "../../../../components/svg/SearchIcon";
+import { SearchIcon } from "../../../../components/Svg/SearchIcon";
 
 export const SearchBooks: React.FC = () => {
 	const [searchItem, setSearchItem] = useState({

@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: releaseDate">
-      <change afterPath="$PROJECT_DIR$/src/components/svg/AddIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/svg/DeleteIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/svg/EditIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/svg/SearchIcon.tsx" afterDir="false" />
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="style: redesign books">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/svg/AddIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/AddIcon/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/svg/DeleteIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/DeleteIcon/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/svg/EditIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/EditIcon/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/svg/SearchIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Svg/SearchIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/AddAuthor/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/Author/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/components/SearchAuthors/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Authors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Authors/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/AddBook/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/Book/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/components/SearchBooks/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Books/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Books/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Books/book.reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,10 +113,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\my-library\src\components\Svg\SearchIcon" />
+      <recent name="A:\my-library\src\components\Svg\EditIcon" />
+      <recent name="A:\my-library\src\components\Svg\DeleteIcon" />
+      <recent name="A:\my-library\src\components\Svg\AddIcon" />
       <recent name="C:\Projects\my-library\src\store\Books" />
-      <recent name="C:\Projects\my-library\src" />
-      <recent name="E:\MyProjects\my-library\src\data" />
-      <recent name="E:\MyProjects\my-library\src" />
     </key>
   </component>
   <component name="ShelveChangesManager" show_recycled="true" />
@@ -160,6 +156,8 @@
       <workItem from="1625048444595" duration="4542000" />
       <workItem from="1625068590112" duration="18526000" />
       <workItem from="1625127557633" duration="29883000" />
+      <workItem from="1625167515313" duration="104000" />
+      <workItem from="1625233766827" duration="2098000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -434,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625150481773</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="style: redesign books">
+      <created>1625167605072</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1625167605072</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +458,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: added Books component and base logic" />
     <MESSAGE value="feat: added Books component and DeleteBooks" />
     <MESSAGE value="feat: added Router" />
     <MESSAGE value="feat: added AuthorList component" />
@@ -478,7 +482,8 @@
     <MESSAGE value="fix: force to set state empty" />
     <MESSAGE value="fix: edit action" />
     <MESSAGE value="fix: releaseDate" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: releaseDate" />
+    <MESSAGE value="style: redesign books" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: redesign books" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

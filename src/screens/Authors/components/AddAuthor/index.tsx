@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 // Common components
 import { Button } from "../../../../components/Button";
-import { AddIcon } from "../../../../components/svg/AddIcon";
-import { EditIcon } from "../../../../components/svg/EditIcon";
+import { constants } from "../../../../store/Authors/author.reducer";
+import { EditIcon } from "../../../../components/Svg/EditIcon";
+import { AddIcon } from "../../../../components/Svg/AddIcon";
 
 interface IDetailEntity {
 	selectedRow: any;
@@ -37,7 +38,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleAddAuthor(add: any) {
 		dispatch({
-			type: "AUTHORS/ADD",
+			type: constants.ADD,
 			payload: add,
 		});
 	}
@@ -53,7 +54,7 @@ export const AddAuthor = (props: IDetailEntity) => {
 
 	function handleEditAuthor(editedBook: any) {
 		dispatch({
-			type: "AUTHORS/EDIT",
+			type: constants.EDIT,
 			payload: {
 				id: props.selectedRow.id,
 				data: editedBook.fullName,

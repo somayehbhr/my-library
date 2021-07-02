@@ -2,9 +2,10 @@
 import { Button } from "../../../../components/Button";
 // Hooks
 import { useDispatch } from "react-redux";
-import { EditIcon } from "../../../../components/svg/EditIcon";
 import * as React from "react";
-import { DeleteIcon } from "../../../../components/svg/DeleteIcon";
+import { constants } from "../../../../store/Authors/author.reducer";
+import { DeleteIcon } from "../../../../components/Svg/DeleteIcon";
+import { EditIcon } from "../../../../components/Svg/EditIcon";
 
 interface IAuthorEntity {
 	id: number;
@@ -18,7 +19,7 @@ export const Author = (props: IAuthorEntity) => {
 	const dispatch = useDispatch();
 	function deleteAuthor(id: number) {
 		dispatch({
-			type: "AUTHORS/DELETE",
+			type: constants.DELETE,
 			payload: id,
 		});
 	}

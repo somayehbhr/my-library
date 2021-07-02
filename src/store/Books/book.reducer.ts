@@ -32,7 +32,7 @@ export const constants = {
 	EDIT: "BOOKS/EDIT",
 	SEARCH: "BOOKS/SEARCH",
 	CLEAR_SEARCH: "BOOKS/CLEAR_SEARCH",
-	IS_EDIT: "BOOKS/ISEDIT",
+	IS_EDIT: "BOOKS/IS_EDIT",
 };
 export const bookReducer: Reducer<BookState> = (state = initialState, action) => {
 	switch (action.type) {
