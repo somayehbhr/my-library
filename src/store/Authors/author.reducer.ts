@@ -69,7 +69,12 @@ export const authorReducer: Reducer<AuthorState> = (state = initialState, action
 				list: state.readOnlyList,
 			};
 		}
-		case constants.IS_EDIT:
+		case constants.IS_EDIT: {
+			return {
+				...state,
+				isEdit: action.payload,
+			};
+		}
 		default:
 			return state;
 	}
