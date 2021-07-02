@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="feat: add form validation on authors">
+    <list default="true" id="e3631ae9-7fc2-4298-93cf-0e8899687b53" name="Default Changelist" comment="fix: set editMode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/Authors/author.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,7 @@
       <workItem from="1625068590112" duration="18526000" />
       <workItem from="1625127557633" duration="29883000" />
       <workItem from="1625167515313" duration="104000" />
-      <workItem from="1625233766827" duration="5516000" />
+      <workItem from="1625233766827" duration="6726000" />
     </task>
     <task id="LOCAL-00001" summary="feat: added Books component and base logic">
       <created>1621887875974</created>
@@ -442,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625240701719</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fix: set editMode">
+      <created>1625241607968</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1625241607968</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +468,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: added AuthorList component" />
     <MESSAGE value="feat: added Header component to BookList" />
     <MESSAGE value="chore: cleaning the code" />
     <MESSAGE value="fix: prevent to reset route when refresh the page" />
@@ -486,7 +492,8 @@
     <MESSAGE value="style: redesign books" />
     <MESSAGE value="chore: replace else if by switch case in author reducer" />
     <MESSAGE value="feat: add form validation on authors" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add form validation on authors" />
+    <MESSAGE value="fix: set editMode" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: set editMode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

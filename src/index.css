@@ -115,3 +115,6 @@ table thead{
 .search input,.search select{
   margin-bottom: 20px;
 }
+tbody, td, tfoot, th, thead, tr {
+  border-style: none !important;
+}
